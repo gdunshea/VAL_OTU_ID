@@ -253,9 +253,9 @@ The pipeline makes decisions based on **three sources of evidence**:
 
 **REASSIGN only occurs when the target congener is geographically CONFIRMED or PLAUSIBLE in your study area.** 
 
-This prevents incorrect reassignments like:
-- ASV matches *Clupea pallasii* (Pacific herring) at 99.4%
-- ASV matches *Clupea harengus* (Atlantic herring) at 98.8%  
+To use an example from data derived from Norwegian coastal waters,  this prevents incorrect reassignments like:
+- ASV matches *Clupea pallasii* (Pacific herring) at 99.4% in database
+- ASV matches *Clupea harengus* (Atlantic herring) at 98.8%  in database, flagging potential reassignment,
 - *C. pallasii* is NOT in Norwegian waters
 - **Result**: KEEP *C. harengus* (not reassign to non-local species)
 
@@ -301,7 +301,7 @@ conda install -c bioconda vsearch  # conda
 
 If you use VAL_OTU_ID in your research, please cite:
 
-> Dunshea, G. (2024). VAL_OTU_ID: A unified eukaryote eDNA Taxonomy Validation Pipeline. https://github.com/[your-repo]
+> Dunshea, G. (2024). VAL_OTU_ID: A unified eukaryote eDNA Taxonomy Validation Pipeline. https://github.com/gdunshea/VAL_OTU_ID
 
 ## License
 
