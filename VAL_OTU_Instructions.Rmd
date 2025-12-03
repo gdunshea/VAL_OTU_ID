@@ -473,6 +473,8 @@ The sequence identity thresholds should be adjusted based on your amplicon lengt
 
 Download the repo locally and place your starting files (either your phyloseq object saved as a .rds file, or your starting ASV/OTU .csv taxonomy and .fasta sequence files) in the "starting_files" directory inside the repo. 
 
+Open your linux prompt (e.g. terminal in MacOS) and navigate to where your VAL_OTU_ID repo is. 
+
 ```bash
 # Directory structure
 VAL_OTU/
@@ -503,23 +505,35 @@ knitr::include_graphics("web_images/bbox_example.png")
 
 ## 3. Run the Pipeline
 
+Here is an example command with some custom minimum percentages for acceptable species, genus and family level ID. Also, distance-thresholds for plausible IDs and congener search thresholds. There are updates as to the status of the script in the terminal until the script is complete. 
+
 ```bash
-python VAL_OTU_ID.py \
-    --input ps_fish.rds \
+python VAL_OTU_ID.py \                  
+    --input ps_chordata_CLEANED_TAXONOMY \
     --midori MIDORI2_UNIQ_NUC_GB268_srRNA_DADA2.fasta \
-    --bbox 6 63 12 66 \
+    --bbox 5 62 13 65 \
     --min-species-pct 98 \
     --min-genus-pct 92 \
-    --buffer-km 300
+    --min-family-pct 88 \
+    --buffer-km 300 \
+    --distance-threshold-km 800 \
+    --congener-search-km 800 \
+
 ```
 
 ### With Conservation and Invasive Species Checking
 
 ```bash
-python VAL_OTU_ID.py \
-    --input ps_fish.rds \
+python VAL_OTU_ID.py \                  
+    --input ps_chordata_CLEANED_TAXONOMY \
     --midori MIDORI2_UNIQ_NUC_GB268_srRNA_DADA2.fasta \
-    --bbox 6 63 12 66 \
+    --bbox 5 62 13 65 \
+    --min-species-pct 98 \
+    --min-genus-pct 92 \
+    --min-family-pct 88 \
+    --buffer-km 300 \
+    --distance-threshold-km 800 \
+    --congener-search-km 800 \
     --check-iucn \
     --check-invasive
 ```
