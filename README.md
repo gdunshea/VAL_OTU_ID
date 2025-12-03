@@ -1,6 +1,6 @@
 # VAL_OTU_ID
 
-**Unified eDNA Taxonomy Validation Pipeline**
+**Unified Eukaryote eDNA Taxonomy Identification Validation Pipeline**
 
 Validates species identifications from eDNA metabarcoding by cross-referencing:
 1. **Geographic plausibility** — GBIF/OBIS occurrence databases
@@ -62,9 +62,9 @@ sudo apt install vsearch
 
 ### Reference Database
 
-Download MIDORI2 from: http://www.reference-midori.info/
+Download reference databases used for dada2 assignTaxonomy(). Examples are MIDORI2 databases (http://www.reference-midori.info/) or the SILVA databases (https://www.arb-silva.de/)
 
-Recommended: `MIDORI2_UNIQ_NUC_GB###_srRNA_DADA2.fasta`
+Whichever databases are used, these need to be added to the "Reference_databases" directory in the repo.
 
 ## Quick Start
 
