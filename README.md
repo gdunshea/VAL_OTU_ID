@@ -20,7 +20,7 @@ DADA2's `assignTaxonomy()` is a sequence analysis exercise that ignores species 
 
 VAL_OTU_ID corrects these issues by validating each ASV against occurrence records and re-evaluating sequence matches within the geographic context.
 
-This pipeline is predominately for eukaryote identification validations, as the prokaryotes are not well representedn in aggregator biodiversity databases such is GBIF etc
+This pipeline is predominately for eukaryote identification validations, as the prokaryotes are not well represented in aggregation biodiversity databases such is GBIF etc
 
 ## Key Features
 
