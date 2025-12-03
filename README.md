@@ -128,7 +128,7 @@ python VAL_OTU_ID.py \
 | Parameter | Description |
 |-----------|-------------|
 | `--input` | Phyloseq `.rds` file OR base name of `_taxonomy.csv`/`_sequences.fasta` |
-| `--midori` | MIDORI2 reference FASTA (filename or full path) |
+| `--midori` | Reference database FASTA file in dada2 format (filename or full path) |
 | `--bbox` | Study area bounding box: `minLon minLat maxLon maxLat` |
 
 ### Geographic Validation
