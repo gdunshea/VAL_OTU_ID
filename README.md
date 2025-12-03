@@ -151,11 +151,38 @@ python VAL_OTU_ID.py \
 
 ### Recommended Settings by Amplicon
 
-| Marker | Length | `--min-species-pct` | `--reassign-diff-pct` |
-|--------|--------|---------------------|----------------------|
-| MiFish 12S | ~170bp | 97-98% | 0.5-0.6% |
-| 16S V4 | ~300bp | 97% | 0.3-0.4% |
-| COI | ~650bp | 97-98% | 0.15-0.2% |
+#### Nucleotide Differences as Percent Identity by Amplicon Length
+
+Use this table to set `--reassign-diff-pct` based on your amplicon length. For example, if you want to require at least 2 nucleotide differences to reassign a species with a ~300bp marker, use `--reassign-diff-pct 0.67`.
+
+| Length (bp) | 1 nt (%) | 2 nt (%) | 3 nt (%) | 4 nt (%) | 5 nt (%) |
+|-------------|----------|----------|----------|----------|----------|
+| 50 | 2.00 | 4.00 | 6.00 | 8.00 | 10.00 |
+| 100 | 1.00 | 2.00 | 3.00 | 4.00 | 5.00 |
+| 150 | 0.67 | 1.33 | 2.00 | 2.67 | 3.33 |
+| 170 | 0.59 | 1.18 | 1.76 | 2.35 | 2.94 |
+| 200 | 0.50 | 1.00 | 1.50 | 2.00 | 2.50 |
+| 250 | 0.40 | 0.80 | 1.20 | 1.60 | 2.00 |
+| 300 | 0.33 | 0.67 | 1.00 | 1.33 | 1.67 |
+| 350 | 0.29 | 0.57 | 0.86 | 1.14 | 1.43 |
+| 400 | 0.25 | 0.50 | 0.75 | 1.00 | 1.25 |
+| 450 | 0.22 | 0.44 | 0.67 | 0.89 | 1.11 |
+| 500 | 0.20 | 0.40 | 0.60 | 0.80 | 1.00 |
+| 550 | 0.18 | 0.36 | 0.55 | 0.73 | 0.91 |
+| 600 | 0.17 | 0.33 | 0.50 | 0.67 | 0.83 |
+| 650 | 0.15 | 0.31 | 0.46 | 0.62 | 0.77 |
+| 700 | 0.14 | 0.29 | 0.43 | 0.57 | 0.71 |
+| 750 | 0.13 | 0.27 | 0.40 | 0.53 | 0.67 |
+| 800 | 0.13 | 0.25 | 0.38 | 0.50 | 0.63 |
+
+#### Common Marker Examples
+
+| Marker | ~Length | Suggested `--min-species-pct` | Suggested `--reassign-diff-pct` |
+|--------|---------|-------------------------------|--------------------------------|
+| MiFish 12S | 170 bp | 97-98% | 0.5-0.6% (≈1 nt) |
+| 16S V4 | 300 bp | 97% | 0.3-0.4% (≈1 nt) |
+| COI Leray | 313 bp | 97% | 0.3% (≈1 nt) |
+| COI Folmer | 658 bp | 97-98% | 0.15-0.2% (≈1 nt) |
 
 ### Conservation and Invasive Species (Optional)
 
