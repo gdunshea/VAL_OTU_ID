@@ -505,7 +505,7 @@ knitr::include_graphics("web_images/bbox_example.png")
 
 ## 3. Run the Pipeline
 
-Here is an example command with some custom minimum percentages for acceptable species, genus and family level ID. Also, distance-thresholds for plausible IDs and congener search thresholds. There are updates as to the status of the script in the terminal until the script is complete. 
+Here is an example command with some custom minimum percentages for acceptable species, genus and family level ID. Also, distance-thresholds for plausible IDs and congener search thresholds. There are status updates of the script progress in the terminal until the script is complete. 
 
 ```bash
 python VAL_OTU_ID.py \                  
