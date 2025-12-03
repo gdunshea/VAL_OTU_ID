@@ -1,0 +1,569 @@
+---
+title: "VAL_OTU_ID: eDNA Taxonomy Validation Pipeline"
+subtitle: "Detailed Instructions and Decision Logic"
+author: "Glenn Dunshea"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    theme: flatly
+    highlight: tango
+    code_folding: show
+    fig_width: 10
+    fig_height: 8
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+library(DiagrammeR)
+```
+
+# Introduction
+
+VAL_OTU_ID is a unified pipeline for validating eDNA metabarcoding taxonomy assignments. It addresses a fundamental limitation of standard taxonomy assignment tools like DADA2's `assignTaxonomy()`: **they ignore geographic context**.
+
+## The Problem
+
+When DADA2 assigns taxonomy, it finds the best-matching sequence in the reference database. However:
+
+1. **Geographic impossibility**: A species from the Pacific Ocean might be assigned to Atlantic samples simply because it's the best sequence match
+2. **Missing species**: The true local species might be absent from the reference database
+3. **Database errors**: Reference sequences may be mislabeled or represent cryptic species
+
+## The Solution
+
+VAL_OTU_ID validates each ASV assignment by:
+ 
+1. **Checking geographic plausibility** against GBIF and OBIS occurrence records
+2. **Re-evaluating sequence matches** against all congeners in MIDORI2
+3. **Verifying geographic status** of any potential reassignment target
+4. **Making intelligent decisions** that combine all sources of evidence
+
+---
+
+# Pipeline Overview
+
+## Input Requirements
+
+1. **Taxonomy data**: Either a phyloseq `.rds` file or CSV with species assignments
+2. **ASV sequences**: FASTA file (extracted automatically from `.rds`)
+3. **Reference database**: MIDORI2 FASTA file
+4. **Study area**: Bounding box coordinates (minLon, minLat, maxLon, maxLat)
+
+## Output Files
+
+| File | Description |
+|------|-------------|
+| `*_geographic_validated.csv` | GBIF/OBIS occurrence results for each species |
+| `*_database_validated.csv` | MIDORI2 sequence comparison results |
+| `*_combined_decisions.csv` | Full results with decision logic |
+| `*_phyloseq.csv` | Simplified output ready for R import |
+
+---
+
+# Step 1: Geographic Validation
+
+## How It Works
+
+For each unique species in your taxonomy, the pipeline queries GBIF and OBIS using a **tiered bounding box approach**:
+
+```{r geographic-tiers, echo=FALSE}
+DiagrammeR::grViz("
+digraph geographic_validation {
+  graph [rankdir=TB, fontname=Helvetica]
+  node [shape=box, style=filled, fontname=Helvetica]
+  
+  start [label='Query Species\\nGeographic Records', fillcolor='#E8F4FD']
+  
+  tier1 [label='Tier 1: Study Area BBox\\nAny records inside?', fillcolor='#FFEAA7']
+  tier2 [label='Tier 2: Buffer BBox\\n(study + buffer_km)\\nAny records inside?', fillcolor='#FFEAA7']
+  tier3 [label='Tier 3: Threshold BBox\\n(study + distance_threshold_km)\\nAny records inside?', fillcolor='#FFEAA7']
+  tier4 [label='Tier 4: Global Query\\nFind nearest record', fillcolor='#FFEAA7']
+  
+  confirmed [label='CONFIRMED\\n(distance = 0)', fillcolor='#55EFC4', fontcolor='black']
+  plausible [label='PLAUSIBLE\\n(in buffer zone)', fillcolor='#81ECEC', fontcolor='black']
+  possible [label='POSSIBLE\\n(in threshold zone)', fillcolor='#74B9FF', fontcolor='black']
+  doubtful [label='DOUBTFUL\\n(beyond threshold)', fillcolor='#FF7675', fontcolor='white']
+  no_records [label='NO_RECORDS\\n(none found globally)', fillcolor='#636E72', fontcolor='white']
+  
+  start -> tier1
+  tier1 -> confirmed [label='YES']
+  tier1 -> tier2 [label='NO']
+  tier2 -> plausible [label='YES']
+  tier2 -> tier3 [label='NO']
+  tier3 -> possible [label='YES']
+  tier3 -> tier4 [label='NO']
+  tier4 -> doubtful [label='Records found']
+  tier4 -> no_records [label='No records']
+}
+")
+```
+
+## Geographic Assessment Categories
+
+| Category | Definition | Implication |
+|----------|------------|-------------|
+| **CONFIRMED** | Records exist within the study area | Species occurs here - ID plausible |
+| **PLAUSIBLE** | Records within buffer zone (default 500km) | Near known range - ID likely |
+| **POSSIBLE** | Records within threshold (default 2000km) | Edge of range - needs scrutiny |
+| **DOUBTFUL** | Nearest record beyond threshold | Likely misidentification |
+| **NO_RECORDS** | No occurrence records found globally | Unknown species or data gap |
+
+## Congener Search
+
+For species that are **not CONFIRMED**, the pipeline also searches for congeners (same genus) in the study region. This information is used for:
+
+- Deciding whether to **REASSIGN** to a local congener
+- Applying **cf. notation** when only one local congener exists
+- **DROP_TO_GENUS** when multiple local possibilities exist
+
+---
+
+# Step 2: Database Validation
+
+## How It Works
+
+For each ASV, the pipeline:
+
+1. **Extracts the genus** from the DADA2 assignment
+2. **Indexes all species of that genus** from MIDORI2
+3. **Calculates sequence identity** between the ASV and all reference sequences
+4. **Identifies the best-matching species**
+
+## Sequence Identity Calculation
+
+The pipeline uses three methods in order of preference:
+
+1. **vsearch** (recommended) - Global pairwise alignment
+2. **Biopython pairwise2** - Smith-Waterman local alignment
+3. **K-mer Jaccard** (fallback) - Approximate similarity
+
+> ⚠️ **Important**: Install vsearch for accurate results. K-mer similarity is NOT equivalent to true sequence identity.
+
+## Database Validation Flags
+
+| Flag | Definition |
+|------|------------|
+| **CONFIDENT** | Assigned species matches ≥99% |
+| **LIKELY** | Assigned species matches well (97-99%) |
+| **UNCERTAIN** | Some regional congeners missing from MIDORI2 |
+| **REASSIGN** | A congener matches >0.5% better than assigned |
+| **NO_REF** | Assigned species not in MIDORI2 |
+| **NO_CONGENERS** | No other congeners in region (monotypic genus) |
+
+---
+
+# Step 3: Decision Logic
+
+This is where the magic happens. The pipeline combines geographic and database evidence to make a final decision.
+
+## Critical Rule: Geographic Verification for Reassignment
+
+**The pipeline will ONLY reassign to a congener that is geographically CONFIRMED or PLAUSIBLE in your study area.**
+
+This prevents incorrect reassignments where a non-local species happens to match better in the database. For example:
+
+| Scenario | Assigned Species | Best DB Match | Result |
+|----------|------------------|---------------|--------|
+| Both local | *P. virens* (98.8%, CONFIRMED) | *P. pollachius* (100%, CONFIRMED) | REASSIGN to *P. pollachius* |
+| Best match not local | *C. harengus* (98.8%, CONFIRMED) | *C. pallasii* (99.4%, NOT LOCAL) | KEEP *C. harengus* |
+| Neither local | *P. stellatus* (97%, DOUBTFUL) | *P. flesus* (97.5%, CONFIRMED) | REASSIGN to *P. flesus* |
+
+## Master Decision Flowchart
+
+```{r decision-flowchart, echo=FALSE, fig.height=14}
+DiagrammeR::grViz("
+digraph decision_tree {
+  graph [rankdir=TB, fontname=Helvetica, nodesep=0.5]
+  node [shape=box, style=filled, fontname=Helvetica, fontsize=10]
+  edge [fontname=Helvetica, fontsize=9]
+  
+  # Start
+  start [label='Start:\\nASV with species assignment', fillcolor='#E8F4FD', shape=ellipse]
+  
+  # First check - species level ID exists?
+  check_species [label='Has species-level\\nassignment?', fillcolor='#FFEAA7', shape=diamond]
+  already_genus [label='ALREADY_GENUS\\n(no action needed)', fillcolor='#B2BEC3']
+  
+  # Sequence identity check
+  seq_check [label='Sequence identity\\n≥ min_species_pct?', fillcolor='#FFEAA7', shape=diamond]
+  
+  # Low sequence identity branch
+  low_seq [label='Sequence identity level?', fillcolor='#FFEAA7', shape=diamond]
+  genus_level [label='≥ min_genus_pct', fillcolor='#DFE6E9']
+  family_level [label='≥ min_family_pct', fillcolor='#DFE6E9']
+  order_level [label='< min_family_pct', fillcolor='#DFE6E9']
+  
+  drop_genus_low [label='DROP_TO_GENUS\\n(sequence too low)', fillcolor='#FDCB6E']
+  drop_family [label='DROP_TO_FAMILY', fillcolor='#E17055']
+  drop_order [label='DROP_TO_ORDER', fillcolor='#D63031']
+  
+  # DB flag check
+  db_check [label='Database flag\\n= REASSIGN?', fillcolor='#FFEAA7', shape=diamond]
+  
+  # REASSIGN branch - Geographic check FIRST
+  congener_local [label='Is best congener\\ngeographically local?\\n(CONFIRMED/PLAUSIBLE)', fillcolor='#74B9FF', shape=diamond]
+  
+  assigned_ok [label='Is assigned species\\nlocal & ≥ threshold?', fillcolor='#FFEAA7', shape=diamond]
+  keep_assigned [label='KEEP assigned\\n(better match not local)', fillcolor='#55EFC4']
+  drop_neither [label='DROP_TO_GENUS\\n(neither option good)', fillcolor='#FDCB6E']
+  
+  # When congener IS local
+  count_local [label='How many truly\\nlocal congeners?', fillcolor='#FFEAA7', shape=diamond]
+  pct_diff [label='Difference\\n≥ reassign_diff_pct?', fillcolor='#FFEAA7', shape=diamond]
+  
+  reassign_one [label='REASSIGN\\n(only local congener)', fillcolor='#00B894']
+  reassign_better [label='REASSIGN\\n(clearly better match)', fillcolor='#00B894']
+  drop_ambig [label='DROP_TO_GENUS\\n(too close to call)', fillcolor='#FDCB6E']
+  
+  # Non-REASSIGN path
+  geo_check [label='Geographic\\nassessment?', fillcolor='#FFEAA7', shape=diamond]
+  
+  keep_high [label='KEEP\\n(high confidence)', fillcolor='#00B894']
+  keep_med [label='KEEP\\n(medium confidence)', fillcolor='#55EFC4']
+  
+  doubtful_check [label='Local congeners\\nexist?', fillcolor='#FFEAA7', shape=diamond]
+  drop_doubtful [label='DROP_TO_GENUS\\n(likely misID)', fillcolor='#FDCB6E']
+  
+  # Edges
+  start -> check_species
+  check_species -> already_genus [label='NO']
+  check_species -> seq_check [label='YES']
+  
+  seq_check -> low_seq [label='NO']
+  seq_check -> db_check [label='YES']
+  
+  low_seq -> genus_level [label='≥90%']
+  low_seq -> family_level [label='80-90%']
+  low_seq -> order_level [label='<80%']
+  genus_level -> drop_genus_low
+  family_level -> drop_family
+  order_level -> drop_order
+  
+  db_check -> congener_local [label='YES']
+  db_check -> geo_check [label='NO']
+  
+  congener_local -> count_local [label='YES\\n(local)']
+  congener_local -> assigned_ok [label='NO\\n(not local)']
+  
+  assigned_ok -> keep_assigned [label='YES']
+  assigned_ok -> drop_neither [label='NO']
+  
+  count_local -> reassign_one [label='1']
+  count_local -> pct_diff [label='>1']
+  
+  pct_diff -> reassign_better [label='YES']
+  pct_diff -> drop_ambig [label='NO']
+  
+  geo_check -> keep_high [label='CONFIRMED\\n+ ≥99%']
+  geo_check -> keep_med [label='CONFIRMED\\nor PLAUSIBLE']
+  geo_check -> doubtful_check [label='DOUBTFUL']
+  
+  doubtful_check -> drop_doubtful [label='YES']
+  doubtful_check -> drop_genus_low [label='NO']
+}
+")
+```
+
+## Decision Categories Explained
+
+### KEEP
+
+The original DADA2 assignment is retained. This happens when:
+
+- **Geographic CONFIRMED/PLAUSIBLE** + sequence identity ≥ min_species_pct
+- A better-matching congener exists in MIDORI2 but is **NOT geographically local**
+- Monotypic genus (no congeners to confuse with)
+
+**Confidence levels:**
+
+- **HIGH**: CONFIRMED + ≥99% identity
+- **MEDIUM**: CONFIRMED + 97-99% identity, or better match not local
+- **LOW**: PLAUSIBLE + 97-99%, or edge cases
+
+### REASSIGN
+
+The ASV is reassigned to a different species. **This ONLY happens when:**
+
+1. A congener matches the ASV **better** than the assigned species
+2. The difference is ≥ `reassign_diff_pct` (default 0.5%) OR it's the only local congener
+3. **The target congener is geographically CONFIRMED or PLAUSIBLE**
+
+**Example 1 - Reassignment proceeds:**
+```
+Assigned: Pollachius virens (98.8% match, CONFIRMED)
+Congener: Pollachius pollachius (100% match, CONFIRMED)  ← LOCAL
+Result: REASSIGN to P. pollachius (+1.2% better, congener is local)
+```
+
+**Example 2 - Reassignment blocked:**
+```
+Assigned: Clupea harengus (98.8% match, CONFIRMED)
+Congener: Clupea pallasii (99.4% match, DOUBTFUL)  ← NOT LOCAL
+Result: KEEP C. harengus (better match is not in study area)
+```
+
+### DROP_TO_GENUS
+
+The species-level ID is removed, keeping only genus. Output shows `Genus` or `Genus sp. cf. species`. This happens when:
+
+- Sequence identity < min_species_pct
+- Geographic assessment is DOUBTFUL with local congeners present
+- Multiple local congeners match similarly well (ambiguous)
+- Database validation is UNCERTAIN
+- Best DB match is not local AND assigned species is also problematic
+
+### DROP_TO_FAMILY / DROP_TO_ORDER
+
+Rare cases where sequence identity is too low for genus-level confidence:
+
+- **DROP_TO_FAMILY**: min_family_pct ≤ identity < min_genus_pct
+- **DROP_TO_ORDER**: identity < min_family_pct
+
+### ALREADY_GENUS
+
+The original assignment was already genus-level only (no species epithet). No validation needed.
+
+---
+
+# The cf. Notation System
+
+## What is cf.?
+
+`cf.` (Latin: *confer*, meaning "compare with") indicates uncertainty at the species level while suggesting the most likely identity.
+
+**Format:** `Genus sp. cf. epithet`
+
+**Example:** `Platichthys sp. cf. flesus`
+
+This means: "A *Platichthys* species, probably *flesus* but not confirmed"
+
+## When is cf. Used?
+
+```{r cf-notation, echo=FALSE}
+DiagrammeR::grViz("
+digraph cf_notation {
+  graph [rankdir=TB, fontname=Helvetica]
+  node [shape=box, style=filled, fontname=Helvetica]
+  
+  start [label='Species dropped\\nto genus level', fillcolor='#E8F4FD']
+  
+  single [label='Only 1 geographically\\nlocal congener?', fillcolor='#FFEAA7', shape=diamond]
+  match [label='Sequence match\\n≥ cf_threshold_pct?', fillcolor='#FFEAA7', shape=diamond]
+  
+  cf [label='Use cf. notation\\nGenus sp. cf. species', fillcolor='#55EFC4']
+  no_cf [label='Genus only\\n(no epithet)', fillcolor='#FDCB6E']
+  
+  start -> single
+  single -> match [label='YES']
+  single -> no_cf [label='NO\\n(0 or multiple)']
+  match -> cf [label='YES']
+  match -> no_cf [label='NO\\n(low match)']
+}
+")
+```
+
+**Conditions for cf. notation:**
+
+1. Only ONE congener is geographically local (CONFIRMED/PLAUSIBLE)
+2. Sequence identity to that congener ≥ cf_threshold_pct (default 97%)
+3. Decision is DROP_TO_GENUS (not KEEP or REASSIGN)
+
+---
+
+# Configurable Parameters
+
+## Sequence Identity Thresholds
+
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| `--min-species-pct` | 97.0 | Below this, cannot make species-level ID |
+| `--min-genus-pct` | 90.0 | Below this, cannot make genus-level ID |
+| `--min-family-pct` | 80.0 | Below this, drop to order |
+| `--cf-threshold-pct` | 97.0 | Minimum for cf. notation |
+| `--reassign-diff-pct` | 0.5 | Minimum difference to prefer congener when multiple local options |
+
+### Setting Thresholds by Amplicon Length
+
+The sequence identity thresholds should be adjusted based on your amplicon length. A single nucleotide difference has different percentage impacts:
+
+| Amplicon | ~Length | 1 nucleotide = | Suggested min_species_pct | Suggested reassign_diff_pct |
+|----------|---------|----------------|---------------------------|----------------------------|
+| MiFish 12S | 170bp | ~0.6% | 97-98% | 0.5-0.6% |
+| 16S V4 | 300bp | ~0.3% | 97% | 0.3-0.4% |
+| COI Leray | 313bp | ~0.3% | 97% | 0.3% |
+| COI Folmer | 658bp | ~0.15% | 97-98% | 0.15-0.2% |
+
+## Geographic Parameters
+
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| `--buffer-km` | 500 | Distance for PLAUSIBLE category |
+| `--distance-threshold-km` | 2000 | Maximum for POSSIBLE category |
+| `--congener-search-km` | 2000 | Search radius for congeners in MIDORI2 |
+
+---
+
+# Complete Example Workflow
+
+## 1. Prepare Your Data
+
+```bash
+# Directory structure
+VAL_OTU/
+├── VAL_OTU_ID.py
+├── starting_files/
+│   └── ps_fish.rds
+├── Reference_databases/
+│   └── MIDORI2_UNIQ_NUC_GB268_srRNA_DADA2.fasta
+└── results_files/
+```
+
+## 2. Find Your Bounding Box
+
+Use [bboxfinder.com](http://bboxfinder.com) to draw your study area and get coordinates.
+
+**Example for Norwegian coast:**
+```
+minLon: 5
+minLat: 62
+maxLon: 13
+maxLat: 65
+```
+
+## 3. Run the Pipeline
+
+```bash
+python VAL_OTU_ID.py \
+    --input ps_fish.rds \
+    --midori MIDORI2_UNIQ_NUC_GB268_srRNA_DADA2.fasta \
+    --bbox 5 62 13 65 \
+    --min-species-pct 98 \
+    --min-genus-pct 92 \
+    --buffer-km 300
+```
+
+## 4. Import Results to R
+
+```{r eval=FALSE}
+library(phyloseq)
+
+# Load original phyloseq
+ps <- readRDS("starting_files/ps_fish.rds")
+
+# Read validated taxonomy
+validated <- read.csv("results_files/ps_fish_phyloseq.csv")
+rownames(validated) <- validated$ASV_ID
+
+# Check decision distribution
+table(validated$validation_decision)
+
+# Filter to confident IDs only
+confident <- validated[validated$validation_decision == "KEEP", ]
+
+# Update taxonomy in phyloseq
+# (keeping only rows that match)
+keep_asvs <- rownames(validated)[validated$validation_decision == "KEEP"]
+ps_validated <- prune_taxa(keep_asvs, ps)
+
+# Or update all taxonomy with validated decisions
+new_tax <- validated[, c("kingdom", "phylum", "class", "order", 
+                          "family", "genus", "species_final")]
+rownames(new_tax) <- validated$ASV_ID
+tax_table(ps) <- tax_table(as.matrix(new_tax))
+```
+
+---
+
+# Interpreting Results
+
+## Output Column Descriptions
+
+### `_phyloseq.csv` columns:
+
+| Column | Description |
+|--------|-------------|
+| `ASV_ID` | Unique identifier for each ASV |
+| `kingdom` through `genus` | Higher taxonomy (unchanged from DADA2) |
+| `species_final` | Validated species with unique number (e.g., "Gadus morhua 3") |
+| `species_final_collapse` | Species without number (for aggregating replicates) |
+| `species_original` | Original DADA2 assignment |
+| `habitat` | marine/freshwater/brackish/terrestrial (from WoRMS) |
+| `validation_decision` | KEEP/REASSIGN/DROP_TO_GENUS/etc. |
+| `decision_reason` | Human-readable explanation |
+| `best_db_match` | Best matching species in MIDORI2 |
+| `best_db_match_pct` | % identity to best match |
+
+## Common Decision Reasons
+
+| Reason | Interpretation |
+|--------|----------------|
+| "Geographic CONFIRMED + sequence match (99.5%)" | High confidence - species confirmed |
+| "Geographic CONFIRMED but sequence only 95.3% (below 98.0% threshold)" | Good location but poor sequence match - dropped to genus |
+| "Local congener P. pollachius (100.0%) matches better than assigned (98.8%)" | Reassigned to better-matching local species |
+| "Better DB match (C. pallasii 99.4%) not local; keeping 98.8% match" | Better match exists but isn't local - kept original |
+| "Only 1 local congener (P. flesus); sequence 97.5% - cf. notation" | Probable species but uncertain - cf. applied |
+| "Geographic DOUBTFUL with 3 local congener(s)" | Wrong species likely - dropped to genus |
+| "Multiple local congeners, matches too similar (98.8% vs 99.1%)" | Too close to call - dropped to genus |
+
+---
+
+# Troubleshooting
+
+## Common Issues
+
+### "R extraction failed"
+
+Ensure R packages are installed:
+```r
+install.packages("BiocManager")
+BiocManager::install(c("phyloseq", "Biostrings"))
+```
+
+### "vsearch not found"
+
+The pipeline falls back to k-mer similarity, which is less accurate. Install vsearch:
+```bash
+# macOS
+brew install vsearch
+
+# conda
+conda install -c bioconda vsearch
+```
+
+### Many species showing "NO_RECORDS"
+
+1. Check species names for typos in your DADA2 reference
+2. Some species genuinely have no GBIF/OBIS records
+3. Check if species name format matches GBIF (e.g., no subspecies)
+
+### Unexpected KEEP when REASSIGN expected
+
+Check if the better-matching congener is geographically local. The pipeline now verifies that any reassignment target is CONFIRMED or PLAUSIBLE in your study area. Look at the `decision_reason` column - it will say "not local" if this was the reason.
+
+### Unexpected REASSIGN decisions
+
+1. Check the `best_db_match_pct` column - is the difference meaningful?
+2. Verify the target congener is actually present in your study area
+3. Adjust `--reassign-diff-pct` if too many/few reassignments
+4. Check if MIDORI2 has sequence errors for that species
+
+---
+
+# References
+
+- **GBIF**: Global Biodiversity Information Facility (https://www.gbif.org)
+- **OBIS**: Ocean Biodiversity Information System (https://obis.org)
+- **WoRMS**: World Register of Marine Species (https://www.marinespecies.org)
+- **MIDORI2**: Reference database for metabarcoding (http://www.reference-midori.info)
+- **DADA2**: Callahan et al. (2016) Nature Methods 13:581-583
+
+---
+
+# Session Info
+ 
+```{r}
+sessionInfo()
+```
