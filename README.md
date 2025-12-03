@@ -9,6 +9,8 @@ Validates species identifications from eDNA metabarcoding by cross-referencing:
 4. **Conservation status** — IUCN Red List (optional)
 5. **Invasive species** — GBIF/GRIIS databases (optional)
 
+Detailed intructions can be found at: https://gdunshea.github.io/VAL_OTU_ID/
+
 ## Why Use This?
 
 DADA2's `assignTaxonomy()` is a sequence analysis exercise that ignores species ranges and reference database completeness. It can misidentify species when:
