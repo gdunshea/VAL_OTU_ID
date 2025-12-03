@@ -185,6 +185,27 @@ def get_genus(species_name):
     return None
 
 
+def extract_species_from_cf(name):
+    """
+    Extract actual species name from cf. notation.
+    
+    Examples:
+        'Platichthys sp. cf. flesus' -> 'Platichthys flesus'
+        'Sebastes sp. cf. norvegicus 1' -> 'Sebastes norvegicus'
+        'Gadus morhua' -> None (not cf. notation)
+    
+    Returns None if name is not in cf. notation format.
+    """
+    if not name or pd.isna(name):
+        return None
+    name = str(name).strip()
+    # Match pattern: Genus sp. cf. epithet (optionally followed by number)
+    match = re.match(r'^(\w+)\s+sp\.\s*cf\.\s+(\w+)', name)
+    if match:
+        return f"{match.group(1)} {match.group(2)}"
+    return None
+
+
 def point_in_bbox(lat, lon, bbox):
     """Check if point is within bounding box."""
     min_lon, min_lat, max_lon, max_lat = bbox
@@ -1365,16 +1386,222 @@ def lookup_habitats(df):
 
 
 # =============================================================================
+# CONSERVATION STATUS AND INVASIVE SPECIES CHECKING
+# =============================================================================
+
+async def query_iucn_status(species_name, token, session, semaphore):
+    """
+    Query IUCN Red List API for conservation status.
+    
+    Returns dict with:
+        - iucn_category: LC, NT, VU, EN, CR, EW, EX, DD, NE, or NA
+        - iucn_population_trend: Increasing, Stable, Decreasing, Unknown
+    """
+    async with semaphore:
+        # Clean species name for API query
+        clean_name = clean_species_name(species_name)
+        if not clean_name or len(clean_name.split()) < 2:
+            return {'iucn_category': 'NA', 'iucn_population_trend': 'NA'}
+        
+        url = f"https://apiv3.iucnredlist.org/api/v3/species/{clean_name.replace(' ', '%20')}?token={token}"
+        
+        try:
+            async with session.get(url, timeout=30) as response:
+                if response.status == 200:
+                    data = await response.json()
+                    if data.get('result') and len(data['result']) > 0:
+                        result = data['result'][0]
+                        category = result.get('category', 'NA')
+                        trend = result.get('population_trend', 'Unknown')
+                        return {
+                            'iucn_category': category if category else 'NA',
+                            'iucn_population_trend': trend if trend else 'Unknown'
+                        }
+                    else:
+                        # Species not in IUCN database
+                        return {'iucn_category': 'NE', 'iucn_population_trend': 'NA'}
+                elif response.status == 404:
+                    return {'iucn_category': 'NE', 'iucn_population_trend': 'NA'}
+        except asyncio.TimeoutError:
+            pass
+        except Exception as e:
+            pass
+        
+        return {'iucn_category': 'NA', 'iucn_population_trend': 'NA'}
+
+
+async def query_invasive_status(species_name, session, semaphore):
+    """
+    Query GBIF for invasive/introduced species status using species profiles.
+    
+    Checks multiple sources:
+    1. GBIF species profiles for establishmentMeans
+    2. GRIIS (Global Register of Introduced and Invasive Species) via GBIF
+    
+    Returns dict with:
+        - invasive_status: INVASIVE, INTRODUCED, NATIVE, NOT_LISTED, or NA
+        - invasive_source: Source of the determination
+    """
+    async with semaphore:
+        # Clean species name
+        clean_name = clean_species_name(species_name)
+        if not clean_name:
+            return {'invasive_status': 'NA', 'invasive_source': 'NA'}
+        
+        try:
+            # Step 1: Get species key from GBIF
+            match_url = f"https://api.gbif.org/v1/species/match?name={clean_name.replace(' ', '%20')}"
+            async with session.get(match_url, timeout=30) as response:
+                if response.status != 200:
+                    return {'invasive_status': 'NA', 'invasive_source': 'API_ERROR'}
+                
+                data = await response.json()
+                species_key = data.get('usageKey')
+                
+                if not species_key:
+                    return {'invasive_status': 'NOT_LISTED', 'invasive_source': 'GBIF'}
+            
+            # Step 2: Check species profiles for establishment means
+            profiles_url = f"https://api.gbif.org/v1/species/{species_key}/speciesProfiles"
+            async with session.get(profiles_url, timeout=30) as response:
+                if response.status == 200:
+                    profiles = await response.json()
+                    
+                    for profile in profiles.get('results', []):
+                        establishment = profile.get('establishmentMeans', '').lower()
+                        if 'invasive' in establishment:
+                            return {'invasive_status': 'INVASIVE', 'invasive_source': 'GBIF_PROFILE'}
+                        elif 'introduced' in establishment or 'alien' in establishment:
+                            return {'invasive_status': 'INTRODUCED', 'invasive_source': 'GBIF_PROFILE'}
+            
+            # Step 3: Check GRIIS datasets (search for species in GRIIS checklists)
+            # GRIIS publishes checklists per country as GBIF datasets
+            # We search for occurrences of this species in any GRIIS-published checklist
+            griis_url = (f"https://api.gbif.org/v1/occurrence/search?"
+                        f"taxonKey={species_key}&"
+                        f"publishingOrg=cdef28b1-db4e-4c58-aa71-3c5238c2d0b5&"  # GRIIS publisher key
+                        f"limit=1")
+            
+            async with session.get(griis_url, timeout=30) as response:
+                if response.status == 200:
+                    griis_data = await response.json()
+                    if griis_data.get('count', 0) > 0:
+                        return {'invasive_status': 'INVASIVE', 'invasive_source': 'GRIIS'}
+            
+            # Step 4: Check GISD (Global Invasive Species Database) via GBIF
+            gisd_url = (f"https://api.gbif.org/v1/occurrence/search?"
+                       f"taxonKey={species_key}&"
+                       f"datasetKey=b351a324-77c4-41c9-a909-f30f77268bc4&"  # GISD dataset key
+                       f"limit=1")
+            
+            async with session.get(gisd_url, timeout=30) as response:
+                if response.status == 200:
+                    gisd_data = await response.json()
+                    if gisd_data.get('count', 0) > 0:
+                        return {'invasive_status': 'INVASIVE', 'invasive_source': 'GISD'}
+            
+            return {'invasive_status': 'NOT_LISTED', 'invasive_source': 'GBIF'}
+            
+        except asyncio.TimeoutError:
+            return {'invasive_status': 'NA', 'invasive_source': 'TIMEOUT'}
+        except Exception as e:
+            return {'invasive_status': 'NA', 'invasive_source': 'ERROR'}
+
+
+async def check_conservation_status(species_list, iucn_token=None, check_invasive=True):
+    """
+    Check IUCN Red List and invasive species status for a list of species.
+    
+    Args:
+        species_list: List of species names to check
+        iucn_token: IUCN API token (if None, IUCN check is skipped)
+        check_invasive: Whether to check invasive status
+    
+    Returns:
+        Dict mapping species name to status dict
+    """
+    results = {}
+    semaphore = asyncio.Semaphore(CONFIG['max_concurrent_requests'])
+    
+    async with aiohttp.ClientSession() as session:
+        tasks = []
+        
+        for species in species_list:
+            if not species or pd.isna(species):
+                continue
+                
+            async def check_species(sp):
+                result = {'species': sp}
+                
+                # IUCN check
+                if iucn_token:
+                    iucn_result = await query_iucn_status(sp, iucn_token, session, semaphore)
+                    result.update(iucn_result)
+                else:
+                    result['iucn_category'] = 'NOT_CHECKED'
+                    result['iucn_population_trend'] = 'NOT_CHECKED'
+                
+                # Invasive check
+                if check_invasive:
+                    invasive_result = await query_invasive_status(sp, session, semaphore)
+                    result.update(invasive_result)
+                else:
+                    result['invasive_status'] = 'NOT_CHECKED'
+                    result['invasive_source'] = 'NOT_CHECKED'
+                
+                return sp, result
+            
+            tasks.append(check_species(species))
+        
+        # Run with progress bar
+        for coro in tqdm(asyncio.as_completed(tasks), total=len(tasks), 
+                        desc="Checking conservation/invasive status"):
+            species, result = await coro
+            results[species] = result
+    
+    return results
+
+
+def read_iucn_token(starting_dir):
+    """
+    Read IUCN API token from file in starting_files directory.
+    
+    Looks for: iucn_api_token.txt
+    
+    Returns token string or None if not found.
+    """
+    token_file = Path(starting_dir) / 'iucn_api_token.txt'
+    
+    if not token_file.exists():
+        return None
+    
+    try:
+        with open(token_file, 'r') as f:
+            token = f.read().strip()
+            if token:
+                return token
+    except Exception as e:
+        print(f"  Warning: Could not read IUCN token file: {e}")
+    
+    return None
+
+
+# =============================================================================
 # MAIN PIPELINE
 # =============================================================================
 
-def run_pipeline(taxonomy_csv, sequences_fasta, midori_path, bbox, species_column, output_prefix):
+def run_pipeline(taxonomy_csv, sequences_fasta, midori_path, bbox, species_column, output_prefix,
+                 check_iucn=False, check_invasive=False, iucn_token=None):
     """Run the complete validation pipeline."""
     
     print(f"Input taxonomy: {taxonomy_csv}")
     print(f"Input sequences: {sequences_fasta}")
     print(f"MIDORI2 database: {midori_path}")
     print(f"Output prefix: {output_prefix}")
+    if check_iucn:
+        print(f"IUCN Red List check: ENABLED")
+    if check_invasive:
+        print(f"Invasive species check: ENABLED")
     print()
     
     # Load taxonomy
@@ -1644,6 +1871,165 @@ def run_pipeline(taxonomy_csv, sequences_fasta, midori_path, bbox, species_colum
     habitats = lookup_habitats(merged)
     merged['habitat'] = habitats
     
+    # Compute species_final_redund (needed for both conservation checks and final output)
+    def strip_trailing_number(s):
+        """Remove trailing integer from species name like 'Phoxinus 2' -> 'Phoxinus'"""
+        if pd.isna(s) or not s:
+            return ''
+        s = str(s).strip()
+        match = re.match(r'^(.+?)\s+\d+$', s)
+        if match:
+            return match.group(1).strip()
+        return s
+    
+    merged['species_final_redund'] = merged['species_final'].apply(strip_trailing_number)
+    
+    # Initialize conservation columns with defaults
+    merged['iucn_category'] = 'NOT_CHECKED'
+    merged['iucn_population_trend'] = 'NOT_CHECKED'
+    merged['invasive_status'] = 'NOT_CHECKED'
+    merged['invasive_source'] = 'NOT_CHECKED'
+    merged['iucn_category_original'] = 'NA'
+    merged['invasive_status_original'] = 'NA'
+    merged['species_concern_flag'] = 'NONE'
+    
+    # Step 5: Conservation and Invasive Species Status (optional)
+    conservation_results = {}
+    if check_iucn or check_invasive:
+        print()
+        print("=" * 70)
+        print("STEP 5: Conservation & Invasive Species Status")
+        print("=" * 70)
+        
+        # Get unique species to check:
+        # 1. species_final_redund for all rows (the validated final species)
+        # 2. species_raw for ALL rows with valid binomial (original DADA2 assignment)
+        # This ensures we check conservation status even for species dropped to genus
+        species_to_check = set()
+        
+        for idx, row in merged.iterrows():
+            species_final_redund = row.get('species_final_redund', '')
+            species_raw = row.get('species_raw', '')
+            
+            # Check the final species (from species_final_redund)
+            if species_final_redund and pd.notna(species_final_redund):
+                final_sp = str(species_final_redund).strip()
+                # Handle cf. notation - extract implied species
+                cf_species = extract_species_from_cf(final_sp)
+                if cf_species:
+                    species_to_check.add(cf_species)
+                elif len(final_sp.split()) >= 2:
+                    species_to_check.add(final_sp)
+            
+            # ALWAYS check the original DADA2 assignment if it's a valid binomial
+            # This catches cases where species was dropped to genus but original was invasive/threatened
+            if species_raw and pd.notna(species_raw):
+                orig_sp = str(species_raw).strip()
+                if len(orig_sp.split()) >= 2:
+                    species_to_check.add(orig_sp)
+        
+        species_to_check = [s for s in species_to_check if s and len(s.split()) >= 2]
+        print(f"  Checking {len(species_to_check)} unique species...")
+        print(f"    (includes final species, cf. implied species, and all original DADA2 assignments)")
+        
+        if check_iucn and not iucn_token:
+            print("  Warning: --check-iucn specified but no IUCN API token found!")
+            print("  Place your token in: starting_files/iucn_api_token.txt")
+            check_iucn = False
+        
+        if species_to_check:
+            conservation_results = asyncio.run(
+                check_conservation_status(
+                    species_to_check,
+                    iucn_token=iucn_token if check_iucn else None,
+                    check_invasive=check_invasive
+                )
+            )
+            
+            # Print summary
+            if check_iucn:
+                print("\n  IUCN Red List Summary:")
+                categories = {}
+                for sp, result in conservation_results.items():
+                    cat = result.get('iucn_category', 'NA')
+                    categories[cat] = categories.get(cat, 0) + 1
+                for cat in ['CR', 'EN', 'VU', 'NT', 'LC', 'DD', 'NE', 'NA', 'NOT_CHECKED']:
+                    if cat in categories:
+                        label = {'CR': 'Critically Endangered', 'EN': 'Endangered', 
+                                'VU': 'Vulnerable', 'NT': 'Near Threatened',
+                                'LC': 'Least Concern', 'DD': 'Data Deficient',
+                                'NE': 'Not Evaluated', 'NA': 'Not Available',
+                                'NOT_CHECKED': 'Not Checked'}.get(cat, cat)
+                        print(f"    {cat} ({label}): {categories[cat]}")
+            
+            if check_invasive:
+                print("\n  Invasive Species Summary:")
+                statuses = {}
+                for sp, result in conservation_results.items():
+                    status = result.get('invasive_status', 'NA')
+                    statuses[status] = statuses.get(status, 0) + 1
+                for status in ['INVASIVE', 'INTRODUCED', 'NOT_LISTED', 'NA', 'NOT_CHECKED']:
+                    if status in statuses:
+                        print(f"    {status}: {statuses[status]}")
+    
+    # Map conservation results to merged dataframe (only if we have results)
+    for idx, row in merged.iterrows():
+        species_final_redund = row.get('species_final_redund', '')
+        species_raw = row.get('species_raw', '')
+        decision = row.get('final_decision', '')
+        
+        # Look up FINAL species (from species_final_redund)
+        lookup_final = None
+        if species_final_redund and pd.notna(species_final_redund):
+            final_sp = str(species_final_redund).strip()
+            # Handle cf. notation - extract implied species
+            cf_species = extract_species_from_cf(final_sp)
+            if cf_species:
+                lookup_final = cf_species
+            elif len(final_sp.split()) >= 2:
+                lookup_final = final_sp
+        
+        if lookup_final and lookup_final in conservation_results:
+            result = conservation_results[lookup_final]
+            merged.at[idx, 'iucn_category'] = result.get('iucn_category', 'NA')
+            merged.at[idx, 'iucn_population_trend'] = result.get('iucn_population_trend', 'NA')
+            merged.at[idx, 'invasive_status'] = result.get('invasive_status', 'NA')
+            merged.at[idx, 'invasive_source'] = result.get('invasive_source', 'NA')
+        
+        # ALWAYS look up ORIGINAL species if it's a valid binomial
+        # This catches invasive/threatened species even when dropped to genus
+        if species_raw and pd.notna(species_raw):
+            orig_sp = str(species_raw).strip()
+            if len(orig_sp.split()) >= 2 and orig_sp in conservation_results:
+                result = conservation_results[orig_sp]
+                merged.at[idx, 'iucn_category_original'] = result.get('iucn_category', 'NA')
+                merged.at[idx, 'invasive_status_original'] = result.get('invasive_status', 'NA')
+    
+    # Create species_concern_flag column (considers BOTH final and original for REASSIGN)
+    def get_concern_flag(row):
+        # Final species status
+        iucn_final = row.get('iucn_category', '')
+        invasive_final = row.get('invasive_status', '')
+        
+        # Original species status (only for REASSIGN)
+        iucn_orig = row.get('iucn_category_original', '')
+        invasive_orig = row.get('invasive_status_original', '')
+        
+        # Check if either final OR original is threatened/invasive
+        threatened = iucn_final in ('CR', 'EN', 'VU') or iucn_orig in ('CR', 'EN', 'VU')
+        is_invasive = invasive_final in ('INVASIVE', 'INTRODUCED') or invasive_orig in ('INVASIVE', 'INTRODUCED')
+        
+        if threatened and is_invasive:
+            return 'THREATENED+INVASIVE'
+        elif threatened:
+            return 'THREATENED'
+        elif is_invasive:
+            return 'INVASIVE'
+        else:
+            return 'NONE'
+    
+    merged['species_concern_flag'] = merged.apply(get_concern_flag, axis=1)
+    
     # Create phyloseq output
     phyloseq_cols = ['ASV_ID', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus',
                      'species_final', 'species_final_collapse', 'species_original', 'habitat',
@@ -1688,19 +2074,20 @@ def run_pipeline(taxonomy_csv, sequences_fasta, midori_path, bbox, species_colum
     phyloseq_df['best_db_match'] = [m[0] for m in best_matches]
     phyloseq_df['best_db_match_pct'] = [m[1] for m in best_matches]
     
-    # Add species_final_redund column (strip trailing numbers)
-    def strip_trailing_number(s):
-        """Remove trailing integer from species name like 'Phoxinus 2' -> 'Phoxinus'"""
-        if pd.isna(s) or not s:
-            return ''
-        s = str(s).strip()
-        # Match pattern: text followed by space and one or more digits at end
-        match = re.match(r'^(.+?)\s+\d+$', s)
-        if match:
-            return match.group(1).strip()
-        return s
+    # Use species_final_redund from merged (already computed during conservation check)
+    phyloseq_df['species_final_redund'] = merged['species_final_redund']
     
-    phyloseq_df['species_final_redund'] = phyloseq_df['species_final'].apply(strip_trailing_number)
+    # Add conservation/invasive status columns for FINAL species
+    phyloseq_df['iucn_category'] = merged['iucn_category']
+    phyloseq_df['iucn_population_trend'] = merged['iucn_population_trend']
+    phyloseq_df['invasive_status'] = merged['invasive_status']
+    
+    # Add conservation/invasive status columns for ORIGINAL species (REASSIGN only)
+    phyloseq_df['iucn_category_original'] = merged['iucn_category_original']
+    phyloseq_df['invasive_status_original'] = merged['invasive_status_original']
+    
+    # Combined concern flag (considers both final and original)
+    phyloseq_df['species_concern_flag'] = merged['species_concern_flag']
     
     phyloseq_output = f"{output_prefix}_phyloseq.csv"
     phyloseq_df.to_csv(phyloseq_output, index=False)
@@ -1830,6 +2217,13 @@ With custom thresholds:
     comp_opts.add_argument("--vsearch-path", default="vsearch",
                         help="Path to vsearch executable if installed (default: vsearch)")
     
+    # === Conservation and invasive species settings ===
+    cons_opts = parser.add_argument_group('Conservation and invasive species settings')
+    cons_opts.add_argument("--check-iucn", action="store_true",
+                        help="Check IUCN Red List status for species (requires iucn_api_token.txt in starting_files)")
+    cons_opts.add_argument("--check-invasive", action="store_true",
+                        help="Check invasive species status via GBIF/GRIIS")
+    
     args = parser.parse_args()
     
     # Resolve input file paths
@@ -1931,6 +2325,25 @@ With custom thresholds:
     print(f"  Min family %%: {CONFIG['min_family_pct']}")
     print(f"  cf. threshold %%: {CONFIG['cf_threshold_pct']}")
     print(f"  Reassign diff %%: {CONFIG['reassign_diff_pct']}")
+    
+    # Read IUCN token if checking IUCN
+    iucn_token = None
+    if args.check_iucn:
+        iucn_token = read_iucn_token(args.starting_dir)
+        if iucn_token:
+            print(f"  IUCN Red List check: ENABLED (token loaded)")
+        else:
+            print(f"  IUCN Red List check: ENABLED (WARNING: no token file found)")
+            print(f"    -> Create: {args.starting_dir}/iucn_api_token.txt")
+            print(f"    -> Get token at: https://apiv3.iucnredlist.org/")
+    else:
+        print(f"  IUCN Red List check: disabled (use --check-iucn to enable)")
+    
+    if args.check_invasive:
+        print(f"  Invasive species check: ENABLED")
+    else:
+        print(f"  Invasive species check: disabled (use --check-invasive to enable)")
+    
     print()
     
     # Run pipeline
@@ -1940,7 +2353,10 @@ With custom thresholds:
         midori_path=str(midori_path),
         bbox=tuple(args.bbox),
         species_column=args.species_column,
-        output_prefix=str(output_prefix)
+        output_prefix=str(output_prefix),
+        check_iucn=args.check_iucn,
+        check_invasive=args.check_invasive,
+        iucn_token=iucn_token
     )
 
 
