@@ -2,7 +2,7 @@
 
 **Unified Eukaryote eDNA Taxonomy Identification Validation Pipeline**
 
-Validates species identifications from eDNA metabarcoding by cross-referencing:
+Validates species identifications for eukaryote eDNA metabarcoding by cross-referencing:
 1. **Geographic plausibility** — GBIF/OBIS occurrence databases
 2. **Sequence identity** — MIDORI2 reference database
 3. **Regional biodiversity** — Local congener availability
@@ -19,6 +19,8 @@ DADA2's `assignTaxonomy()` is a sequence analysis exercise that ignores species 
 - Geographic context is ignored (assigns Pacific species to Atlantic samples)
 
 VAL_OTU_ID corrects these issues by validating each ASV against occurrence records and re-evaluating sequence matches within the geographic context.
+
+This pipeline is predominately for eukaryote identification validations, as the prokaryotes are not well representedn in aggregator biodiversity databases such is GBIF etc
 
 ## Key Features
 
@@ -299,7 +301,7 @@ conda install -c bioconda vsearch  # conda
 
 If you use VAL_OTU_ID in your research, please cite:
 
-> Dunshea, G. (2024). VAL_OTU_ID: Unified eDNA Taxonomy Validation Pipeline. https://github.com/[your-repo]
+> Dunshea, G. (2024). VAL_OTU_ID: A unified eukaryote eDNA Taxonomy Validation Pipeline. https://github.com/[your-repo]
 
 ## License
 

@@ -1,406 +1,406 @@
 ASV_ID,assigned_species,genus,assigned_in_db,assigned_n_refs,assigned_pct_identity,n_congeners_in_region,n_congeners_in_db,n_congeners_missing,congeners_in_db,congeners_missing,best_congener,best_congener_pct_identity,validation_flag
-ASV1,Salmo macrostigma,Salmo,True,9.0,100.0,156.0,12.0,144.0,Salmo carpio; Salmo caspius; Salmo cenerinus; Salmo ischchan; Salmo labrax; Salmo macrostigma; Salmo marmoratus; Salmo obtusirostris; Salmo pallaryi; Salmo rhodanensis,Fario aurora; Salmo abanticus; Salmo adirondacus; Salmo akairos; Salmo alipes; Salmo americanus; Salmo aphelios; Salmo arabatsch; Salmo araxensis; Salmo arcticus,Salmo cenerinus,100.0,CONFIDENT
+ASV1,Salmo macrostigma,Salmo,True,9.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV2,,Clupea,False,0.0,0.0,0.0,2.0,0.0,Clupea harengus; Clupea pallasii,,Clupea pallasii,99.4,GENUS_ONLY
-ASV3,Ctenolabrus rupestris,Ctenolabrus,True,7.0,100.0,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,CONFIDENT
-ASV4,Ctenolabrus rupestris,Ctenolabrus,True,7.0,100.0,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,CONFIDENT
-ASV5,Clupea harengus,Clupea,True,48.0,100.0,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,99.4,CONFIDENT
+ASV3,Ctenolabrus rupestris,Ctenolabrus,True,7.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV4,Ctenolabrus rupestris,Ctenolabrus,True,7.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV5,Clupea harengus,Clupea,True,48.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV6,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,98.3,GENUS_ONLY
-ASV7,Pollachius virens,Pollachius,True,10.0,100.0,2.0,2.0,0.0,Pollachius pollachius; Pollachius virens,,Pollachius pollachius,99.4,CONFIDENT
-ASV8,Clupea pallasii,Clupea,True,8.0,100.0,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,,,CONFIDENT
-ASV9,Salmo salar,Salmo,True,21.0,100.0,156.0,12.0,144.0,Salmo carpio; Salmo caspius; Salmo cenerinus; Salmo ischchan; Salmo labrax; Salmo macrostigma; Salmo marmoratus; Salmo obtusirostris; Salmo pallaryi; Salmo rhodanensis,Fario aurora; Salmo abanticus; Salmo adirondacus; Salmo akairos; Salmo alipes; Salmo americanus; Salmo aphelios; Salmo arabatsch; Salmo araxensis; Salmo arcticus,Salmo marmoratus,98.2,CONFIDENT
-ASV10,Scomber scombrus,Scomber,True,11.0,100.0,52.0,4.0,48.0,Scomber australasicus; Scomber colias; Scomber japonicus; Scomber scombrus,Auxis caucasica; Pneumatophorus euodus; Scomber aculeatus; Scomber ascensionis; Scomber auratus; Scomber aureus; Scomber australiensis; Scomber bimaculatus; Scomber capensis; Scomber chrisops,Scomber colias,94.7,CONFIDENT
-ASV11,Pholis gunnellus,Pholis,True,8.0,100.0,15.0,9.0,6.0,Pholis clemensi; Pholis crassispina; Pholis fangi; Pholis fasciata; Pholis gunnellus; Pholis laeta; Pholis nebulosa; Pholis ornata; Pholis picta,Centronotus islandicus; Gunnellus crassispina; Gunnellus ruberrimus; Gunnellus vulgaris; Pholis nea; Pholis schultzi,Pholis fasciata,98.8,CONFIDENT
-ASV12,Gasterosteus aculeatus,Gasterosteus,True,30.0,100.0,25.0,4.0,21.0,Gasterosteus aculeatus; Gasterosteus gymnurus; Gasterosteus nipponicus; Gasterosteus wheatlandi,Gasterosteus acanthias; Gasterosteus apeltes; Gasterosteus atherinus; Gasterosteus biaculeatus; Gasterosteus carolinensis; Gasterosteus columbarius; Gasterosteus crenobiontus; Gasterosteus glaber; Gasterosteus glaucus; Gasterosteus islandicus,Gasterosteus gymnurus,100.0,CONFIDENT
-ASV13,Clupea harengus,Clupea,True,48.0,98.8,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,98.3,UNCERTAIN
-ASV14,Merluccius merluccius,Merluccius,True,13.0,100.0,38.0,12.0,26.0,Merluccius albidus; Merluccius angustimanus; Merluccius australis; Merluccius bilinearis; Merluccius capensis; Merluccius gayi; Merluccius hubbsi; Merluccius merluccius; Merluccius paradoxus; Merluccius polli,Gobius macroactus; Merluccius abreviatus; Merluccius argentatus; Merluccius athanasiui; Merluccius attenuatus; Merluccius balticus; Merluccius emarginatus; Merluccius fimbriatus; Merluccius guttatus; Merluccius hernandezi,Merluccius senegalensis,98.8,CONFIDENT
-ASV15,Homo sapiens,Homo,True,2498.0,100.0,28.0,2.0,26.0,Homo heidelbergensis; Homo sapiens,Helacyton gartleri; Homo afer; Homo americanus; Homo antecessor; Homo asiaticus; Homo bodoensis; Homo cepranensis; Homo denisova; Homo erectus; Homo ergaster,Homo heidelbergensis,97.1,CONFIDENT
-ASV16,Molva molva,Molva,True,3.0,100.0,6.0,3.0,3.0,Molva dypterygia; Molva macrophthalma; Molva molva,Molva dubia; Molva huntia; Molva palaeomorpha,Molva dypterygia,96.5,CONFIDENT
-ASV17,Platichthys stellatus,Platichthys,True,5.0,100.0,4.0,2.0,2.0,Platichthys flesus; Platichthys stellatus,Passer oculatus; Platichthys solemdali,,,CONFIDENT
-ASV18,Clupea harengus,Clupea,True,48.0,99.4,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,98.8,UNCERTAIN
-ASV19,Pollachius virens,Pollachius,True,10.0,99.4,2.0,2.0,0.0,Pollachius pollachius; Pollachius virens,,Pollachius pollachius,100.0,REASSIGN
-ASV20,Labrus mixtus,Labrus,True,5.0,100.0,111.0,2.0,109.0,Labrus bergylta; Labrus mixtus,Labrus adriaticus; Labrus agon; Labrus albidus; Labrus aristatus; Labrus barffi; Labrus bobba; Labrus brunellus; Labrus caeruleus; Labrus calophthalmus; Labrus calops,,,CONFIDENT
-ASV21,Labrus bergylta,Labrus,True,7.0,100.0,111.0,2.0,109.0,Labrus bergylta; Labrus mixtus,Labrus adriaticus; Labrus agon; Labrus albidus; Labrus aristatus; Labrus barffi; Labrus bobba; Labrus brunellus; Labrus caeruleus; Labrus calophthalmus; Labrus calops,Labrus mixtus,95.1,CONFIDENT
+ASV7,Pollachius virens,Pollachius,True,10.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV8,Clupea pallasii,Clupea,True,8.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV9,Salmo salar,Salmo,True,21.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV10,Scomber scombrus,Scomber,True,11.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV11,Pholis gunnellus,Pholis,True,8.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV12,Gasterosteus aculeatus,Gasterosteus,True,30.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV13,Clupea harengus,Clupea,True,48.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV14,Merluccius merluccius,Merluccius,True,13.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV15,Homo sapiens,Homo,True,2498.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV16,Molva molva,Molva,True,3.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV17,Platichthys stellatus,Platichthys,True,5.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV18,Clupea harengus,Clupea,True,48.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV19,Pollachius virens,Pollachius,True,10.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV20,Labrus mixtus,Labrus,True,5.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV21,Labrus bergylta,Labrus,True,7.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV22,Gadus morhua,Gadus,True,62.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
-ASV23,Salvelinus curilus,Salvelinus,True,6.0,100.0,54.0,18.0,36.0,Salvelinus albus; Salvelinus alpinus; Salvelinus boganidae; Salvelinus confluentus; Salvelinus curilus; Salvelinus drjagini; Salvelinus elgyticus; Salvelinus fontinalis; Salvelinus kronocius; Salvelinus kuznetzovi,Salvelinus agassizii; Salvelinus anaktuvukensis; Salvelinus andriashevi; Salvelinus angustus; Salvelinus colii; Salvelinus czerskii; Salvelinus evasus; Salvelinus faroensis; Salvelinus fimbriatus; Salvelinus gracillimus,Salvelinus malma,100.0,CONFIDENT
-ASV24,Zeugopterus punctatus,Zeugopterus,True,2.0,100.0,2.0,2.0,0.0,Zeugopterus punctatus; Zeugopterus regius,,Zeugopterus regius,89.4,CONFIDENT
-ASV25,Lota lota,Lota,True,15.0,100.0,5.0,1.0,4.0,Lota lota,Lota digitata; Lota kumunikar; Lota molva; Lota vulgaris,,,CONFIDENT
-ASV26,Zeugopterus norvegicus,Zeugopterus,True,3.0,100.0,2.0,2.0,0.0,Zeugopterus punctatus; Zeugopterus regius,,Zeugopterus punctatus,95.0,CONFIDENT
+ASV23,Salvelinus curilus,Salvelinus,True,6.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV24,Zeugopterus punctatus,Zeugopterus,True,2.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV25,Lota lota,Lota,True,15.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV26,Zeugopterus norvegicus,Zeugopterus,True,3.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV27,,Gaidropsaridae,,,,,,,,,,,GENUS_ONLY_NO_REF
-ASV28,Myoxocephalus quadricornis,Myoxocephalus,True,5.0,100.0,27.0,9.0,18.0,Myoxocephalus aenaeus; Myoxocephalus brandtii; Myoxocephalus jaok; Myoxocephalus octodecemspinosus; Myoxocephalus polyacanthocephalus; Myoxocephalus quadricornis; Myoxocephalus scorpius; Myoxocephalus stelleri; Myoxocephalus thompsonii,Acanthocottus aeneus; Acanthocottus inermis; Acanthocottus mucosus; Acanthocottus ocellatus; Acanthocottus patris; Ainocottus fasciatus; Myoxocephalus batrachoides; Myoxocephalus edomius; Myoxocephalus matsubarai; Myoxocephalus niger,Myoxocephalus thompsonii,100.0,CONFIDENT
-ASV29,Pomatoschistus pictus,Pomatoschistus,True,7.0,100.0,16.0,8.0,8.0,Pomatoschistus knerii; Pomatoschistus lozanoi; Pomatoschistus marmoratus; Pomatoschistus microps; Pomatoschistus minutus; Pomatoschistus norvegicus; Pomatoschistus pictus; Pomatoschistus quagga,Pomatoschistus anatoliae; Pomatoschistus bacescui; Pomatoschistus bathi; Pomatoschistus bunyatovi; Pomatoschistus canestrinii; Pomatoschistus montenegrensis; Pomatoschistus nanus; Pomatoschistus tortonesei,Pomatoschistus minutus,95.9,CONFIDENT
-ASV30,Raniceps raninus,Raniceps,True,4.0,100.0,7.0,1.0,6.0,Raniceps raninus,Gadi tuberculosus; Raniceps hermani; Raniceps latidens; Raniceps latisulcatus; Raniceps parcus; Raniceps planus,,,CONFIDENT
-ASV31,Symphodus melops,Symphodus,True,5.0,100.0,19.0,8.0,11.0,Symphodus bailloni; Symphodus caeruleus; Symphodus cinereus; Symphodus melops; Symphodus ocellatus; Symphodus roissali; Symphodus rostratus; Symphodus trutta,Crenilabrus chrysophrus; Crenilabrus elegans; Crenilabrus hudsonius; Crenilabrus intermedius; Crenilabrus serranoides; Crenilabrus serranus; Labrus woodwardi; Symphodus doderleini; Symphodus mediterraneus; Symphodus tinca,Symphodus ocellatus,98.8,CONFIDENT
-ASV32,Salmo labrax,Salmo,True,4.0,100.0,156.0,12.0,144.0,Salmo carpio; Salmo caspius; Salmo cenerinus; Salmo ischchan; Salmo labrax; Salmo macrostigma; Salmo marmoratus; Salmo obtusirostris; Salmo pallaryi; Salmo rhodanensis,Fario aurora; Salmo abanticus; Salmo adirondacus; Salmo akairos; Salmo alipes; Salmo americanus; Salmo aphelios; Salmo arabatsch; Salmo araxensis; Salmo arcticus,Salmo marmoratus,100.0,CONFIDENT
-ASV33,Scomber scombrus,Scomber,True,11.0,99.4,52.0,4.0,48.0,Scomber australasicus; Scomber colias; Scomber japonicus; Scomber scombrus,Auxis caucasica; Pneumatophorus euodus; Scomber aculeatus; Scomber ascensionis; Scomber auratus; Scomber aureus; Scomber australiensis; Scomber bimaculatus; Scomber capensis; Scomber chrisops,Scomber colias,94.1,UNCERTAIN
-ASV34,Clupea harengus,Clupea,True,48.0,99.4,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,98.8,UNCERTAIN
+ASV28,Myoxocephalus quadricornis,Myoxocephalus,True,5.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV29,Pomatoschistus pictus,Pomatoschistus,True,7.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV30,Raniceps raninus,Raniceps,True,4.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV31,Symphodus melops,Symphodus,True,5.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV32,Salmo labrax,Salmo,True,4.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV33,Scomber scombrus,Scomber,True,11.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV34,Clupea harengus,Clupea,True,48.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV35,Glyptocephalus zachirus,Glyptocephalus,True,6.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
-ASV36,Gobiusculus flavescens,Gobiusculus,True,4.0,100.0,2.0,1.0,1.0,Gobiusculus flavescens,Gobiusculus flavenscens,,,CONFIDENT
+ASV36,Gobiusculus flavescens,Gobiusculus,True,4.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV37,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,98.3,GENUS_ONLY
 ASV38,,Pleuronectidae,,,,,,,,,,,GENUS_ONLY_NO_REF
 ASV39,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,97.7,GENUS_ONLY
-ASV40,Clupea harengus,Clupea,True,48.0,98.3,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,98.8,UNCERTAIN
+ASV40,Clupea harengus,Clupea,True,48.0,98.3,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV41,,Clupea,False,0.0,0.0,0.0,2.0,0.0,Clupea harengus; Clupea pallasii,,Clupea pallasii,98.8,GENUS_ONLY
-ASV42,Ciliata mustela,Ciliata,True,10.0,100.0,3.0,2.0,1.0,Ciliata mustela; Ciliata septentrionalis,Ciliata tchangi,Ciliata septentrionalis,97.1,CONFIDENT
+ASV42,Ciliata mustela,Ciliata,True,10.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV43,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,97.7,GENUS_ONLY
-ASV44,Gadiculus argenteus,Gadiculus,True,6.0,100.0,7.0,1.0,6.0,Gadiculus argenteus,Gadiculus adversus; Gadiculus antipodus; Gadiculus pereawa; Gadiculus thori; Hymenocephalus labiatus; Macrurus rumanus,,,CONFIDENT
-ASV45,Clupea harengus,Clupea,True,48.0,99.4,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,98.8,UNCERTAIN
-ASV46,Trisopterus minutus,Trisopterus,True,10.0,100.0,5.0,4.0,1.0,Trisopterus capelanus; Trisopterus esmarkii; Trisopterus luscus; Trisopterus minutus,Trisopterus fasciatus,Trisopterus luscus,95.8,CONFIDENT
-ASV47,Centrolabrus exoletus,Centrolabrus,True,4.0,100.0,2.0,1.0,1.0,Centrolabrus exoletus,Centrolabrus melanocercus,,,CONFIDENT
-ASV48,Lophius piscatorius,Lophius,True,4.0,100.0,27.0,6.0,21.0,Lophius americanus; Lophius budegassa; Lophius gastrophysus; Lophius litulon; Lophius piscatorius; Lophius vomerinus,Lophie faujas; Lophie tumidus; Lophius alveolus; Lophius barbatus; Lophius borlasii; Lophius brachysomus; Lophius bufo; Lophius commersonianus; Lophius compressus; Lophius cornubicus,Lophius budegassa,99.4,CONFIDENT
-ASV49,Bos primigenius,Bos,True,17.0,100.0,16.0,4.0,12.0,Bos frontalis; Bos grunniens; Bos javanicus; Bos taurus,Bos acutifrons; Bos africanus; Bos bubaloides; Bos bubalus; Bos makapaani; Bos palaethiopicus; Bos planifrons; Bos priscus; Bos sauveli; Bos scythicus,Bos javanicus,100.0,CONFIDENT
+ASV44,Gadiculus argenteus,Gadiculus,True,6.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV45,Clupea harengus,Clupea,True,48.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV46,Trisopterus minutus,Trisopterus,True,10.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV47,Centrolabrus exoletus,Centrolabrus,True,4.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV48,Lophius piscatorius,Lophius,True,4.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV49,Bos primigenius,Bos,True,17.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV50,,Zoarces,False,0.0,0.0,0.0,4.0,0.0,Zoarces americanus; Zoarces elongatus; Zoarces gillii; Zoarces viviparus,,Zoarces viviparus,100.0,GENUS_ONLY
 ASV51,Anguilla anguilla,Anguilla,True,30.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
-ASV52,Ctenolabrus rupestris,Ctenolabrus,True,7.0,99.4,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,UNCERTAIN
+ASV52,Ctenolabrus rupestris,Ctenolabrus,True,7.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV53,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,97.7,GENUS_ONLY
-ASV54,Ctenolabrus rupestris,Ctenolabrus,True,7.0,99.4,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,UNCERTAIN
-ASV55,Ciliata septentrionalis,Ciliata,True,2.0,100.0,3.0,2.0,1.0,Ciliata mustela; Ciliata septentrionalis,Ciliata tchangi,Ciliata mustela,95.9,CONFIDENT
-ASV56,Chelidonichthys spinosus,Chelidonichthys,True,8.0,100.0,11.0,5.0,6.0,Chelidonichthys capensis; Chelidonichthys cuculus; Chelidonichthys kumu; Chelidonichthys lucerna; Chelidonichthys spinosus,Chelidonichthys gabonensis; Chelidonichthys ischyrus; Chelidonichthys lastoviza; Chelidonichthys obscurus; Chelidonichthys queketti; Trigla macroptera,Chelidonichthys lucerna,100.0,CONFIDENT
-ASV57,Clupea pallasii,Clupea,True,8.0,99.4,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,,,UNCERTAIN
-ASV58,Sebastes viviparus,Sebastes,True,4.0,100.0,160.0,105.0,55.0,Sebastes aleutianus; Sebastes alutus; Sebastes atrovirens; Sebastes auriculatus; Sebastes aurora; Sebastes babcocki; Sebastes baramenuke; Sebastes borealis; Sebastes brevispinis; Sebastes capensis,Rixator ineziae; Sebastes crassispinis; Sebastes crocotulus; Sebastes davidi; Sebastes defitnetus; Sebastes diaconus; Sebastes elegans; Sebastes fuscescens; Sebastes heltzeni; Sebastes ijimae,Sebastes norvegicus,100.0,CONFIDENT
-ASV59,Taurulus bubalis,Taurulus,True,7.0,100.0,1.0,1.0,0.0,Taurulus bubalis,,,,CONFIDENT
-ASV60,Clupea harengus,Clupea,True,48.0,99.4,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,98.8,UNCERTAIN
-ASV61,Clupea harengus,Clupea,True,48.0,99.4,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,98.8,UNCERTAIN
-ASV62,Labrus mixtus,Labrus,True,5.0,99.4,111.0,2.0,109.0,Labrus bergylta; Labrus mixtus,Labrus adriaticus; Labrus agon; Labrus albidus; Labrus aristatus; Labrus barffi; Labrus bobba; Labrus brunellus; Labrus caeruleus; Labrus calophthalmus; Labrus calops,,,UNCERTAIN
-ASV63,Brosme brosme,Brosme,True,5.0,100.0,5.0,1.0,4.0,Brosme brosme,Brosmius andrussovi; Brosmius exiguus; Brosmius udanad; Brosmius venustus,,,CONFIDENT
-ASV64,Clupea harengus,Clupea,True,48.0,99.4,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,98.8,UNCERTAIN
-ASV65,Pollachius virens,Pollachius,True,10.0,99.4,2.0,2.0,0.0,Pollachius pollachius; Pollachius virens,,Pollachius pollachius,98.8,CONFIDENT
-ASV66,Brosme brosme,Brosme,True,5.0,99.4,5.0,1.0,4.0,Brosme brosme,Brosmius andrussovi; Brosmius exiguus; Brosmius udanad; Brosmius venustus,,,UNCERTAIN
-ASV67,Clupea harengus,Clupea,True,48.0,99.4,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,98.8,UNCERTAIN
-ASV68,Sebastes mentella,Sebastes,True,6.0,100.0,160.0,105.0,55.0,Sebastes aleutianus; Sebastes alutus; Sebastes atrovirens; Sebastes auriculatus; Sebastes aurora; Sebastes babcocki; Sebastes baramenuke; Sebastes borealis; Sebastes brevispinis; Sebastes capensis,Rixator ineziae; Sebastes crassispinis; Sebastes crocotulus; Sebastes davidi; Sebastes defitnetus; Sebastes diaconus; Sebastes elegans; Sebastes fuscescens; Sebastes heltzeni; Sebastes ijimae,Sebastes norvegicus,100.0,CONFIDENT
+ASV54,Ctenolabrus rupestris,Ctenolabrus,True,7.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV55,Ciliata septentrionalis,Ciliata,True,2.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV56,Chelidonichthys spinosus,Chelidonichthys,True,8.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV57,Clupea pallasii,Clupea,True,8.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV58,Sebastes viviparus,Sebastes,True,4.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV59,Taurulus bubalis,Taurulus,True,7.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV60,Clupea harengus,Clupea,True,48.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV61,Clupea harengus,Clupea,True,48.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV62,Labrus mixtus,Labrus,True,5.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV63,Brosme brosme,Brosme,True,5.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV64,Clupea harengus,Clupea,True,48.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV65,Pollachius virens,Pollachius,True,10.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV66,Brosme brosme,Brosme,True,5.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV67,Clupea harengus,Clupea,True,48.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV68,Sebastes mentella,Sebastes,True,6.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV69,,Anas,False,0.0,0.0,0.0,17.0,0.0,Anas acuta; Anas aucklandica; Anas bernieri; Anas carolinensis; Anas castanea; Anas chlorotis; Anas crecca; Anas diazi; Anas gibberifrons; Anas gracilis,,Anas diazi,99.5,GENUS_ONLY
-ASV70,Somateria mollissima,Somateria,True,8.0,100.0,5.0,3.0,2.0,Somateria fischeri; Somateria mollissima; Somateria spectabilis,Somateria gravipes; Somateria mollissima x spectabilis,Somateria spectabilis,100.0,CONFIDENT
-ASV71,Anas poecilorhyncha,Anas,True,2.0,100.0,69.0,17.0,52.0,Anas acuta; Anas aucklandica; Anas bernieri; Anas carolinensis; Anas castanea; Anas chlorotis; Anas crecca; Anas diazi; Anas gibberifrons; Anas gracilis,Anas acuta x platyrhynchos; Anas adunca; Anas albogularis; Anas amotape; Anas andium; Anas apscheronica; Anas bahamenfis; Anas bahamensis; Anas basaltica; Anas berniela,Anas rubripes,100.0,CONFIDENT
-ASV72,Myoxocephalus quadricornis,Myoxocephalus,True,5.0,99.4,27.0,9.0,18.0,Myoxocephalus aenaeus; Myoxocephalus brandtii; Myoxocephalus jaok; Myoxocephalus octodecemspinosus; Myoxocephalus polyacanthocephalus; Myoxocephalus quadricornis; Myoxocephalus scorpius; Myoxocephalus stelleri; Myoxocephalus thompsonii,Acanthocottus aeneus; Acanthocottus inermis; Acanthocottus mucosus; Acanthocottus ocellatus; Acanthocottus patris; Ainocottus fasciatus; Myoxocephalus batrachoides; Myoxocephalus edomius; Myoxocephalus matsubarai; Myoxocephalus niger,Myoxocephalus thompsonii,99.4,UNCERTAIN
-ASV73,Molva molva,Molva,True,3.0,99.4,6.0,3.0,3.0,Molva dypterygia; Molva macrophthalma; Molva molva,Molva dubia; Molva huntia; Molva palaeomorpha,Molva dypterygia,95.9,UNCERTAIN
+ASV70,Somateria mollissima,Somateria,True,8.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV71,Anas poecilorhyncha,Anas,True,2.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV72,Myoxocephalus quadricornis,Myoxocephalus,True,5.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV73,Molva molva,Molva,True,3.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV74,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,97.7,GENUS_ONLY
-ASV75,Clupea harengus,Clupea,True,48.0,98.8,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,99.4,REASSIGN
-ASV76,Myoxocephalus quadricornis,Myoxocephalus,True,5.0,98.8,27.0,9.0,18.0,Myoxocephalus aenaeus; Myoxocephalus brandtii; Myoxocephalus jaok; Myoxocephalus octodecemspinosus; Myoxocephalus polyacanthocephalus; Myoxocephalus quadricornis; Myoxocephalus scorpius; Myoxocephalus stelleri; Myoxocephalus thompsonii,Acanthocottus aeneus; Acanthocottus inermis; Acanthocottus mucosus; Acanthocottus ocellatus; Acanthocottus patris; Ainocottus fasciatus; Myoxocephalus batrachoides; Myoxocephalus edomius; Myoxocephalus matsubarai; Myoxocephalus niger,Myoxocephalus thompsonii,98.8,UNCERTAIN
+ASV75,Clupea harengus,Clupea,True,48.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV76,Myoxocephalus quadricornis,Myoxocephalus,True,5.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV77,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,97.7,GENUS_ONLY
-ASV78,Ctenolabrus rupestris,Ctenolabrus,True,7.0,99.4,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,UNCERTAIN
-ASV79,Clupea harengus,Clupea,True,48.0,99.4,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,98.8,UNCERTAIN
-ASV80,Zeugopterus punctatus,Zeugopterus,True,2.0,100.0,2.0,2.0,0.0,Zeugopterus punctatus; Zeugopterus regius,,Zeugopterus regius,89.4,CONFIDENT
+ASV78,Ctenolabrus rupestris,Ctenolabrus,True,7.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV79,Clupea harengus,Clupea,True,48.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV80,Zeugopterus punctatus,Zeugopterus,True,2.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV81,,Gobiidae,,,,,,,,,,,GENUS_ONLY_NO_REF
-ASV82,Turdus abyssinicus,Turdus,True,6.0,98.4,119.0,69.0,50.0,Turdus abyssinicus; Turdus albicollis; Turdus albocinctus; Turdus amaurochalinus; Turdus assimilis; Turdus atrogularis; Turdus aurantius; Turdus bewsheri; Turdus boulboul; Turdus cardis,Turdus anthracinus; Turdus ardosiaceus; Turdus atriceps; Turdus atrogularis x eunomus/naumanni; Turdus badius; Turdus borbonicus; Turdus bresciensis; Turdus capensis; Turdus caudatus; Turdus cochinchinensis,Turdus obscurus,98.4,UNCERTAIN
-ASV83,Lipophrys pholis,Lipophrys,True,11.0,100.0,2.0,2.0,0.0,Lipophrys pholis; Lipophrys trigloides,,,,CONFIDENT
-ASV84,Labrus mixtus,Labrus,True,5.0,99.4,111.0,2.0,109.0,Labrus bergylta; Labrus mixtus,Labrus adriaticus; Labrus agon; Labrus albidus; Labrus aristatus; Labrus barffi; Labrus bobba; Labrus brunellus; Labrus caeruleus; Labrus calophthalmus; Labrus calops,,,UNCERTAIN
-ASV85,Scomber scombrus,Scomber,True,11.0,99.4,52.0,4.0,48.0,Scomber australasicus; Scomber colias; Scomber japonicus; Scomber scombrus,Auxis caucasica; Pneumatophorus euodus; Scomber aculeatus; Scomber ascensionis; Scomber auratus; Scomber aureus; Scomber australiensis; Scomber bimaculatus; Scomber capensis; Scomber chrisops,Scomber colias,94.1,UNCERTAIN
-ASV86,Homo sapiens,Homo,True,2498.0,99.4,28.0,2.0,26.0,Homo heidelbergensis; Homo sapiens,Helacyton gartleri; Homo afer; Homo americanus; Homo antecessor; Homo asiaticus; Homo bodoensis; Homo cepranensis; Homo denisova; Homo erectus; Homo ergaster,Homo heidelbergensis,96.5,UNCERTAIN
+ASV82,Turdus abyssinicus,Turdus,True,6.0,98.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV83,Lipophrys pholis,Lipophrys,True,11.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV84,Labrus mixtus,Labrus,True,5.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV85,Scomber scombrus,Scomber,True,11.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV86,Homo sapiens,Homo,True,2498.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV87,,Actinopteri,,,,,,,,,,,GENUS_ONLY_NO_REF
-ASV88,Clupea harengus,Clupea,True,48.0,98.8,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,98.3,UNCERTAIN
-ASV89,Lepidorhombus whiffiagonis,Lepidorhombus,True,7.0,100.0,4.0,2.0,2.0,Lepidorhombus boscii; Lepidorhombus whiffiagonis,Lepidorhombus borali; Lepidorhombus compressus,,,CONFIDENT
-ASV90,Molva molva,Molva,True,3.0,99.4,6.0,3.0,3.0,Molva dypterygia; Molva macrophthalma; Molva molva,Molva dubia; Molva huntia; Molva palaeomorpha,Molva dypterygia,95.9,UNCERTAIN
-ASV91,Clupea pallasii,Clupea,True,8.0,98.8,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,,,UNCERTAIN
+ASV88,Clupea harengus,Clupea,True,48.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV89,Lepidorhombus whiffiagonis,Lepidorhombus,True,7.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV90,Molva molva,Molva,True,3.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV91,Clupea pallasii,Clupea,True,8.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV92,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,97.7,GENUS_ONLY
-ASV93,Pollachius virens,Pollachius,True,10.0,99.4,2.0,2.0,0.0,Pollachius pollachius; Pollachius virens,,Pollachius pollachius,98.8,CONFIDENT
-ASV94,Clupea harengus,Clupea,True,48.0,99.4,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,98.8,UNCERTAIN
-ASV95,Gobiusculus flavescens,Gobiusculus,True,4.0,99.4,2.0,1.0,1.0,Gobiusculus flavescens,Gobiusculus flavenscens,,,UNCERTAIN
-ASV96,Gasterosteus aculeatus,Gasterosteus,True,30.0,99.4,25.0,4.0,21.0,Gasterosteus aculeatus; Gasterosteus gymnurus; Gasterosteus nipponicus; Gasterosteus wheatlandi,Gasterosteus acanthias; Gasterosteus apeltes; Gasterosteus atherinus; Gasterosteus biaculeatus; Gasterosteus carolinensis; Gasterosteus columbarius; Gasterosteus crenobiontus; Gasterosteus glaber; Gasterosteus glaucus; Gasterosteus islandicus,Gasterosteus gymnurus,99.4,UNCERTAIN
-ASV97,Zeugopterus norvegicus,Zeugopterus,True,3.0,98.8,2.0,2.0,0.0,Zeugopterus punctatus; Zeugopterus regius,,Zeugopterus punctatus,94.3,LIKELY
+ASV93,Pollachius virens,Pollachius,True,10.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV94,Clupea harengus,Clupea,True,48.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV95,Gobiusculus flavescens,Gobiusculus,True,4.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV96,Gasterosteus aculeatus,Gasterosteus,True,30.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV97,Zeugopterus norvegicus,Zeugopterus,True,3.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV98,,Gadidae,,,,,,,,,,,GENUS_ONLY_NO_REF
 ASV99,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,97.7,GENUS_ONLY
 ASV100,Capreolus capreolus,Capreolus,True,33.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
-ASV101,Micrenophrys lilljeborgii,Micrenophrys,True,1.0,100.0,1.0,1.0,0.0,Micrenophrys lilljeborgii,,,,CONFIDENT
-ASV102,Enchelyopus cimbrius,Enchelyopus,True,8.0,100.0,2.0,1.0,1.0,Enchelyopus cimbrius,Enchelyopus cimbricus,,,CONFIDENT
+ASV101,Micrenophrys lilljeborgii,Micrenophrys,True,1.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV102,Enchelyopus cimbrius,Enchelyopus,True,8.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV103,,Clupea,False,0.0,0.0,0.0,2.0,0.0,Clupea harengus; Clupea pallasii,,Clupea pallasii,97.7,GENUS_ONLY
-ASV104,Melanogrammus aeglefinus,Melanogrammus,True,11.0,100.0,1.0,1.0,0.0,Melanogrammus aeglefinus,,,,CONFIDENT
+ASV104,Melanogrammus aeglefinus,Melanogrammus,True,11.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV105,,Corvus,False,0.0,0.0,0.0,17.0,0.0,Corvus albus; Corvus bennetti; Corvus brachyrhynchos; Corvus corax; Corvus cornix; Corvus corone; Corvus coronoides; Corvus cryptoleucus; Corvus dauuricus; Corvus frugilegus,,Corvus brachyrhynchos,100.0,GENUS_ONLY
-ASV106,Pomatoschistus minutus,Pomatoschistus,True,10.0,100.0,16.0,8.0,8.0,Pomatoschistus knerii; Pomatoschistus lozanoi; Pomatoschistus marmoratus; Pomatoschistus microps; Pomatoschistus minutus; Pomatoschistus norvegicus; Pomatoschistus pictus; Pomatoschistus quagga,Pomatoschistus anatoliae; Pomatoschistus bacescui; Pomatoschistus bathi; Pomatoschistus bunyatovi; Pomatoschistus canestrinii; Pomatoschistus montenegrensis; Pomatoschistus nanus; Pomatoschistus tortonesei,Pomatoschistus pictus,95.9,CONFIDENT
-ASV107,Molva dypterygia,Molva,True,4.0,100.0,6.0,3.0,3.0,Molva dypterygia; Molva macrophthalma; Molva molva,Molva dubia; Molva huntia; Molva palaeomorpha,Molva molva,96.5,CONFIDENT
-ASV108,Ctenolabrus rupestris,Ctenolabrus,True,7.0,98.2,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,UNCERTAIN
+ASV106,Pomatoschistus minutus,Pomatoschistus,True,10.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV107,Molva dypterygia,Molva,True,4.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV108,Ctenolabrus rupestris,Ctenolabrus,True,7.0,98.2,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV109,,Gobiidae,,,,,,,,,,,GENUS_ONLY_NO_REF
-ASV110,Gasterosteus aculeatus,Gasterosteus,True,30.0,99.4,25.0,4.0,21.0,Gasterosteus aculeatus; Gasterosteus gymnurus; Gasterosteus nipponicus; Gasterosteus wheatlandi,Gasterosteus acanthias; Gasterosteus apeltes; Gasterosteus atherinus; Gasterosteus biaculeatus; Gasterosteus carolinensis; Gasterosteus columbarius; Gasterosteus crenobiontus; Gasterosteus glaber; Gasterosteus glaucus; Gasterosteus islandicus,Gasterosteus gymnurus,99.4,UNCERTAIN
-ASV111,Pholis crassispina,Pholis,True,7.0,99.4,15.0,9.0,6.0,Pholis clemensi; Pholis crassispina; Pholis fangi; Pholis fasciata; Pholis gunnellus; Pholis laeta; Pholis nebulosa; Pholis ornata; Pholis picta,Centronotus islandicus; Gunnellus crassispina; Gunnellus ruberrimus; Gunnellus vulgaris; Pholis nea; Pholis schultzi,Pholis fasciata,99.4,UNCERTAIN
+ASV110,Gasterosteus aculeatus,Gasterosteus,True,30.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV111,Pholis crassispina,Pholis,True,7.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV112,,Pholis,False,0.0,0.0,0.0,9.0,0.0,Pholis clemensi; Pholis crassispina; Pholis fangi; Pholis fasciata; Pholis gunnellus; Pholis laeta; Pholis nebulosa; Pholis ornata; Pholis picta,,Pholis gunnellus,99.4,GENUS_ONLY
-ASV113,Callionymus lyra,Callionymus,True,3.0,100.0,149.0,18.0,131.0,Callionymus bairdi; Callionymus belcheri; Callionymus beniteguri; Callionymus enneactis; Callionymus formosanus; Callionymus guentheri; Callionymus hindsii; Callionymus izuensis; Callionymus japonicus; Callionymus koreanus,Callionymus aagilis; Callionymus acutirostris; Callionymus admirabilis; Callionymus affinis; Callionymus afilum; Callionymus africanus; Callionymus alisae; Callionymus altipinnis; Callionymus amboina; Callionymus annulatus,Callionymus maculatus,91.6,CONFIDENT
+ASV113,Callionymus lyra,Callionymus,True,3.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV114,Anguilla anguilla,Anguilla,True,30.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV115,,Stichaeidae,,,,,,,,,,,GENUS_ONLY_NO_REF
-ASV116,Homo sapiens,Homo,True,2498.0,99.4,28.0,2.0,26.0,Homo heidelbergensis; Homo sapiens,Helacyton gartleri; Homo afer; Homo americanus; Homo antecessor; Homo asiaticus; Homo bodoensis; Homo cepranensis; Homo denisova; Homo erectus; Homo ergaster,Homo heidelbergensis,96.5,UNCERTAIN
-ASV117,Pomatoschistus microps,Pomatoschistus,True,7.0,100.0,16.0,8.0,8.0,Pomatoschistus knerii; Pomatoschistus lozanoi; Pomatoschistus marmoratus; Pomatoschistus microps; Pomatoschistus minutus; Pomatoschistus norvegicus; Pomatoschistus pictus; Pomatoschistus quagga,Pomatoschistus anatoliae; Pomatoschistus bacescui; Pomatoschistus bathi; Pomatoschistus bunyatovi; Pomatoschistus canestrinii; Pomatoschistus montenegrensis; Pomatoschistus nanus; Pomatoschistus tortonesei,Pomatoschistus knerii,96.5,CONFIDENT
-ASV118,Clupea pallasii,Clupea,True,8.0,98.3,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,,,UNCERTAIN
+ASV116,Homo sapiens,Homo,True,2498.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV117,Pomatoschistus microps,Pomatoschistus,True,7.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV118,Clupea pallasii,Clupea,True,8.0,98.3,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV119,Phycis blennoides,Phycis,True,5.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV120,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,97.7,GENUS_ONLY
-ASV121,Clupea harengus,Clupea,True,48.0,98.3,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,97.7,UNCERTAIN
+ASV121,Clupea harengus,Clupea,True,48.0,98.3,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV122,,Clupea,False,0.0,0.0,0.0,2.0,0.0,Clupea harengus; Clupea pallasii,,Clupea pallasii,99.4,GENUS_ONLY
-ASV123,Ctenolabrus rupestris,Ctenolabrus,True,7.0,98.8,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,UNCERTAIN
-ASV124,Clupea harengus,Clupea,True,48.0,98.8,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,98.3,UNCERTAIN
-ASV125,Scophthalmus maximus,Scophthalmus,True,6.0,100.0,22.0,3.0,19.0,Scophthalmus aquosus; Scophthalmus maximus; Scophthalmus rhombus,Psetta rhombea; Rhombus argentipinnis; Rhombus bourbonensis; Rhombus candidissimus; Rhombus crenulatus; Rhombus cristatus; Rhombus diaphanus; Rhombus fitzingerii; Rhombus irroratus; Rhombus minimus,Scophthalmus rhombus,95.9,CONFIDENT
-ASV126,Molva molva,Molva,True,3.0,100.0,6.0,3.0,3.0,Molva dypterygia; Molva macrophthalma; Molva molva,Molva dubia; Molva huntia; Molva palaeomorpha,Molva dypterygia,95.9,CONFIDENT
-ASV127,Clupea harengus,Clupea,True,48.0,98.8,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,98.3,UNCERTAIN
-ASV128,Clupea harengus,Clupea,True,48.0,99.4,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,98.8,UNCERTAIN
+ASV123,Ctenolabrus rupestris,Ctenolabrus,True,7.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV124,Clupea harengus,Clupea,True,48.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV125,Scophthalmus maximus,Scophthalmus,True,6.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV126,Molva molva,Molva,True,3.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV127,Clupea harengus,Clupea,True,48.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV128,Clupea harengus,Clupea,True,48.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV129,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus bigerri,98.3,GENUS_ONLY
-ASV130,Clupea pallasii,Clupea,True,8.0,100.0,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,,,CONFIDENT
-ASV131,Phocoena phocoena,Phocoena,True,26.0,99.4,4.0,4.0,0.0,Phocoena dioptrica; Phocoena phocoena; Phocoena sinus; Phocoena spinipinnis,,Phocoena sinus,95.3,CONFIDENT
-ASV132,Pomatoschistus pictus,Pomatoschistus,True,7.0,99.4,16.0,8.0,8.0,Pomatoschistus knerii; Pomatoschistus lozanoi; Pomatoschistus marmoratus; Pomatoschistus microps; Pomatoschistus minutus; Pomatoschistus norvegicus; Pomatoschistus pictus; Pomatoschistus quagga,Pomatoschistus anatoliae; Pomatoschistus bacescui; Pomatoschistus bathi; Pomatoschistus bunyatovi; Pomatoschistus canestrinii; Pomatoschistus montenegrensis; Pomatoschistus nanus; Pomatoschistus tortonesei,Pomatoschistus minutus,95.3,UNCERTAIN
-ASV133,Gasterosteus aculeatus,Gasterosteus,True,30.0,99.4,25.0,4.0,21.0,Gasterosteus aculeatus; Gasterosteus gymnurus; Gasterosteus nipponicus; Gasterosteus wheatlandi,Gasterosteus acanthias; Gasterosteus apeltes; Gasterosteus atherinus; Gasterosteus biaculeatus; Gasterosteus carolinensis; Gasterosteus columbarius; Gasterosteus crenobiontus; Gasterosteus glaber; Gasterosteus glaucus; Gasterosteus islandicus,Gasterosteus gymnurus,99.4,UNCERTAIN
-ASV134,Cyclopterus lumpus,Cyclopterus,True,6.0,100.0,7.0,1.0,6.0,Cyclopterus lumpus,Cyclopterus gelatinosus; Cyclopterus montacuti; Cyclopterus musculus; Cyclopterus pinnulatus; Cyclopterus rarior; Cyclopterus trifoliatus,,,CONFIDENT
-ASV135,Salvelinus curilus,Salvelinus,True,6.0,99.4,54.0,18.0,36.0,Salvelinus albus; Salvelinus alpinus; Salvelinus boganidae; Salvelinus confluentus; Salvelinus curilus; Salvelinus drjagini; Salvelinus elgyticus; Salvelinus fontinalis; Salvelinus kronocius; Salvelinus kuznetzovi,Salvelinus agassizii; Salvelinus anaktuvukensis; Salvelinus andriashevi; Salvelinus angustus; Salvelinus colii; Salvelinus czerskii; Salvelinus evasus; Salvelinus faroensis; Salvelinus fimbriatus; Salvelinus gracillimus,Salvelinus malma,99.4,UNCERTAIN
-ASV136,Alces alces,Alces,True,15.0,99.4,3.0,1.0,2.0,Alces alces,Alces americanus; Alces machlis,,,UNCERTAIN
-ASV137,Clupea harengus,Clupea,True,48.0,98.3,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,98.3,UNCERTAIN
-ASV138,Clupea harengus,Clupea,True,48.0,98.8,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,98.8,UNCERTAIN
-ASV139,Platichthys stellatus,Platichthys,True,5.0,99.4,4.0,2.0,2.0,Platichthys flesus; Platichthys stellatus,Passer oculatus; Platichthys solemdali,,,UNCERTAIN
-ASV140,Canis lupus,Canis,True,510.0,100.0,63.0,7.0,56.0,Canis adustus; Canis aureus; Canis latrans; Canis lupaster; Canis lupus; Canis mesomelas; Canis simensis,Canis accitanus; Canis africanus; Canis alopex; Canis antarcticus; Canis antarticus; Canis anthus; Canis antonii; Canis apolloniensis; Canis armbrusteri; Canis arnensis,Canis lupaster,98.2,CONFIDENT
-ASV141,Ctenolabrus rupestris,Ctenolabrus,True,7.0,98.2,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,UNCERTAIN
-ASV142,Pholis gunnellus,Pholis,True,8.0,99.4,15.0,9.0,6.0,Pholis clemensi; Pholis crassispina; Pholis fangi; Pholis fasciata; Pholis gunnellus; Pholis laeta; Pholis nebulosa; Pholis ornata; Pholis picta,Centronotus islandicus; Gunnellus crassispina; Gunnellus ruberrimus; Gunnellus vulgaris; Pholis nea; Pholis schultzi,Pholis fasciata,98.2,UNCERTAIN
+ASV130,Clupea pallasii,Clupea,True,8.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV131,Phocoena phocoena,Phocoena,True,26.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV132,Pomatoschistus pictus,Pomatoschistus,True,7.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV133,Gasterosteus aculeatus,Gasterosteus,True,30.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV134,Cyclopterus lumpus,Cyclopterus,True,6.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV135,Salvelinus curilus,Salvelinus,True,6.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV136,Alces alces,Alces,True,15.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV137,Clupea harengus,Clupea,True,48.0,98.3,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV138,Clupea harengus,Clupea,True,48.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV139,Platichthys stellatus,Platichthys,True,5.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV140,Canis lupus,Canis,True,510.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV141,Ctenolabrus rupestris,Ctenolabrus,True,7.0,98.2,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV142,Pholis gunnellus,Pholis,True,8.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV143,,Larus,False,0.0,0.0,0.0,13.0,0.0,Larus argentatus; Larus brachyrhynchus; Larus canus; Larus crassirostris; Larus delawarensis; Larus dominicanus; Larus glaucoides; Larus heermanni; Larus hyperboreus; Larus marinus,,Larus argentatus,100.0,GENUS_ONLY
 ASV144,,Pleuronectidae,,,,,,,,,,,GENUS_ONLY_NO_REF
-ASV145,Ammodytes personatus,Ammodytes,True,5.0,99.4,3.0,3.0,0.0,Ammodytes hexapterus; Ammodytes marinus; Ammodytes tobianus,,Ammodytes marinus,100.0,REASSIGN
-ASV146,Callionymus maculatus,Callionymus,True,3.0,100.0,149.0,18.0,131.0,Callionymus bairdi; Callionymus belcheri; Callionymus beniteguri; Callionymus enneactis; Callionymus formosanus; Callionymus guentheri; Callionymus hindsii; Callionymus izuensis; Callionymus japonicus; Callionymus koreanus,Callionymus aagilis; Callionymus acutirostris; Callionymus admirabilis; Callionymus affinis; Callionymus afilum; Callionymus africanus; Callionymus alisae; Callionymus altipinnis; Callionymus amboina; Callionymus annulatus,Callionymus lyra,91.6,CONFIDENT
+ASV145,Ammodytes personatus,Ammodytes,True,5.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV146,Callionymus maculatus,Callionymus,True,3.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV147,,Pholis,False,0.0,0.0,0.0,9.0,0.0,Pholis clemensi; Pholis crassispina; Pholis fangi; Pholis fasciata; Pholis gunnellus; Pholis laeta; Pholis nebulosa; Pholis ornata; Pholis picta,,Pholis gunnellus,99.4,GENUS_ONLY
-ASV148,Homo sapiens,Homo,True,2498.0,99.4,28.0,2.0,26.0,Homo heidelbergensis; Homo sapiens,Helacyton gartleri; Homo afer; Homo americanus; Homo antecessor; Homo asiaticus; Homo bodoensis; Homo cepranensis; Homo denisova; Homo erectus; Homo ergaster,Homo heidelbergensis,96.5,UNCERTAIN
-ASV149,Clupea harengus,Clupea,True,48.0,98.3,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,97.7,UNCERTAIN
-ASV150,Salmo salar,Salmo,True,21.0,99.4,156.0,12.0,144.0,Salmo carpio; Salmo caspius; Salmo cenerinus; Salmo ischchan; Salmo labrax; Salmo macrostigma; Salmo marmoratus; Salmo obtusirostris; Salmo pallaryi; Salmo rhodanensis,Fario aurora; Salmo abanticus; Salmo adirondacus; Salmo akairos; Salmo alipes; Salmo americanus; Salmo aphelios; Salmo arabatsch; Salmo araxensis; Salmo arcticus,Salmo marmoratus,97.6,UNCERTAIN
-ASV151,Clupea harengus,Clupea,True,48.0,98.8,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,98.3,UNCERTAIN
-ASV152,Platichthys stellatus,Platichthys,True,5.0,99.4,4.0,2.0,2.0,Platichthys flesus; Platichthys stellatus,Passer oculatus; Platichthys solemdali,,,UNCERTAIN
-ASV153,Esox lucius,Esox,True,19.0,100.0,50.0,6.0,44.0,Esox americanus; Esox cisalpinus; Esox lucius; Esox masquinongy; Esox niger; Esox reichertii,Esox acus; Esox affinis; Esox alepidotus; Esox amentus; Esox angulatus; Esox aquitanicus; Esox australis; Esox chilensis; Esox cirrhatus; Esox clathratus,Esox cisalpinus,99.4,CONFIDENT
+ASV148,Homo sapiens,Homo,True,2498.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV149,Clupea harengus,Clupea,True,48.0,98.3,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV150,Salmo salar,Salmo,True,21.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV151,Clupea harengus,Clupea,True,48.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV152,Platichthys stellatus,Platichthys,True,5.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV153,Esox lucius,Esox,True,19.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV154,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,97.1,GENUS_ONLY
-ASV155,Molva molva,Molva,True,3.0,99.4,6.0,3.0,3.0,Molva dypterygia; Molva macrophthalma; Molva molva,Molva dubia; Molva huntia; Molva palaeomorpha,Molva dypterygia,95.9,UNCERTAIN
-ASV156,Ctenolabrus rupestris,Ctenolabrus,True,7.0,98.8,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,UNCERTAIN
-ASV157,Gobiusculus flavescens,Gobiusculus,True,4.0,98.2,2.0,1.0,1.0,Gobiusculus flavescens,Gobiusculus flavenscens,,,UNCERTAIN
+ASV155,Molva molva,Molva,True,3.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV156,Ctenolabrus rupestris,Ctenolabrus,True,7.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV157,Gobiusculus flavescens,Gobiusculus,True,4.0,98.2,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV158,Chimaera monstrosa,Chimaera,True,5.0,99.5,0.0,0.0,0.0,,,,,NO_CONGENERS
-ASV159,Clupea harengus,Clupea,True,48.0,98.3,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,97.7,UNCERTAIN
-ASV160,Callionymus reticulatus,Callionymus,True,1.0,100.0,149.0,18.0,131.0,Callionymus bairdi; Callionymus belcheri; Callionymus beniteguri; Callionymus enneactis; Callionymus formosanus; Callionymus guentheri; Callionymus hindsii; Callionymus izuensis; Callionymus japonicus; Callionymus koreanus,Callionymus aagilis; Callionymus acutirostris; Callionymus admirabilis; Callionymus affinis; Callionymus afilum; Callionymus africanus; Callionymus alisae; Callionymus altipinnis; Callionymus amboina; Callionymus annulatus,Callionymus lyra,86.7,CONFIDENT
-ASV161,Sus scrofa,Sus,True,271.0,98.8,26.0,5.0,21.0,Sus barbatus; Sus cebifrons; Sus celebensis; Sus scrofa; Sus verrucosus,Sus ahoenobarbus; Sus antediluvianus; Sus bucculentus; Sus erymanthius; Sus giganteus; Sus hysudricus; Sus nanus; Sus oliveri; Sus palaeochoerus; Sus palustris,Sus cebifrons,97.6,UNCERTAIN
-ASV162,Raniceps raninus,Raniceps,True,4.0,99.4,7.0,1.0,6.0,Raniceps raninus,Gadi tuberculosus; Raniceps hermani; Raniceps latidens; Raniceps latisulcatus; Raniceps parcus; Raniceps planus,,,UNCERTAIN
-ASV163,Microtus agrestis,Microtus,True,4.0,99.4,96.0,22.0,74.0,Microtus agrestis; Microtus arvalis; Microtus cabrerae; Microtus californicus; Microtus chrotorrhinus; Microtus daghestanicus; Microtus duodecimcostatus; Microtus felteni; Microtus guentheri; Microtus ilaeus,Hipudaeus brecciensis; Microtus abbreviatus; Microtus anatolicus; Microtus asio; Microtus australis; Microtus bavaricus; Microtus brachycercus; Microtus brandti; Microtus brecciensis; Microtus brewer,Microtus lavernedii,98.8,UNCERTAIN
-ASV164,Salvelinus curilus,Salvelinus,True,6.0,99.4,54.0,18.0,36.0,Salvelinus albus; Salvelinus alpinus; Salvelinus boganidae; Salvelinus confluentus; Salvelinus curilus; Salvelinus drjagini; Salvelinus elgyticus; Salvelinus fontinalis; Salvelinus kronocius; Salvelinus kuznetzovi,Salvelinus agassizii; Salvelinus anaktuvukensis; Salvelinus andriashevi; Salvelinus angustus; Salvelinus colii; Salvelinus czerskii; Salvelinus evasus; Salvelinus faroensis; Salvelinus fimbriatus; Salvelinus gracillimus,Salvelinus malma,99.4,UNCERTAIN
-ASV165,Pomatoschistus pictus,Pomatoschistus,True,7.0,100.0,16.0,8.0,8.0,Pomatoschistus knerii; Pomatoschistus lozanoi; Pomatoschistus marmoratus; Pomatoschistus microps; Pomatoschistus minutus; Pomatoschistus norvegicus; Pomatoschistus pictus; Pomatoschistus quagga,Pomatoschistus anatoliae; Pomatoschistus bacescui; Pomatoschistus bathi; Pomatoschistus bunyatovi; Pomatoschistus canestrinii; Pomatoschistus montenegrensis; Pomatoschistus nanus; Pomatoschistus tortonesei,Pomatoschistus minutus,95.3,CONFIDENT
-ASV166,Gobius niger,Gobius,True,9.0,100.0,191.0,8.0,183.0,Gobius auratus; Gobius bucchichi; Gobius cobitis; Gobius cruentatus; Gobius incognitus; Gobius niger; Gobius paganellus; Gobius xanthocephalus,Gobius aidouri; Gobius albescens; Gobius albus; Gobius alepidoptus; Gobius alepidotus; Gobius anguillaris; Gobius anthonyi; Gobius aphya; Gobius apuseniensis; Gobius arenarius,Gobius cruentatus,82.6,CONFIDENT
-ASV167,Clupea pallasii,Clupea,True,8.0,98.3,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,,,UNCERTAIN
-ASV168,Clupea pallasii,Clupea,True,8.0,98.8,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,,,UNCERTAIN
-ASV169,Brosme brosme,Brosme,True,5.0,100.0,5.0,1.0,4.0,Brosme brosme,Brosmius andrussovi; Brosmius exiguus; Brosmius udanad; Brosmius venustus,,,CONFIDENT
-ASV170,Homo sapiens,Homo,True,2498.0,99.4,28.0,2.0,26.0,Homo heidelbergensis; Homo sapiens,Helacyton gartleri; Homo afer; Homo americanus; Homo antecessor; Homo asiaticus; Homo bodoensis; Homo cepranensis; Homo denisova; Homo erectus; Homo ergaster,Homo heidelbergensis,96.5,UNCERTAIN
-ASV171,Callionymus reticulatus,Callionymus,True,1.0,99.4,149.0,18.0,131.0,Callionymus bairdi; Callionymus belcheri; Callionymus beniteguri; Callionymus enneactis; Callionymus formosanus; Callionymus guentheri; Callionymus hindsii; Callionymus izuensis; Callionymus japonicus; Callionymus koreanus,Callionymus aagilis; Callionymus acutirostris; Callionymus admirabilis; Callionymus affinis; Callionymus afilum; Callionymus africanus; Callionymus alisae; Callionymus altipinnis; Callionymus amboina; Callionymus annulatus,Callionymus lyra,86.1,UNCERTAIN
-ASV172,Pomatoschistus minutus,Pomatoschistus,True,10.0,99.4,16.0,8.0,8.0,Pomatoschistus knerii; Pomatoschistus lozanoi; Pomatoschistus marmoratus; Pomatoschistus microps; Pomatoschistus minutus; Pomatoschistus norvegicus; Pomatoschistus pictus; Pomatoschistus quagga,Pomatoschistus anatoliae; Pomatoschistus bacescui; Pomatoschistus bathi; Pomatoschistus bunyatovi; Pomatoschistus canestrinii; Pomatoschistus montenegrensis; Pomatoschistus nanus; Pomatoschistus tortonesei,Pomatoschistus pictus,96.5,UNCERTAIN
+ASV159,Clupea harengus,Clupea,True,48.0,98.3,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV160,Callionymus reticulatus,Callionymus,True,1.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV161,Sus scrofa,Sus,True,271.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV162,Raniceps raninus,Raniceps,True,4.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV163,Microtus agrestis,Microtus,True,4.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV164,Salvelinus curilus,Salvelinus,True,6.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV165,Pomatoschistus pictus,Pomatoschistus,True,7.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV166,Gobius niger,Gobius,True,9.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV167,Clupea pallasii,Clupea,True,8.0,98.3,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV168,Clupea pallasii,Clupea,True,8.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV169,Brosme brosme,Brosme,True,5.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV170,Homo sapiens,Homo,True,2498.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV171,Callionymus reticulatus,Callionymus,True,1.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV172,Pomatoschistus minutus,Pomatoschistus,True,10.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV173,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus phoxinus,95.4,GENUS_ONLY
-ASV174,Clupea pallasii,Clupea,True,8.0,97.7,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,,,UNCERTAIN
-ASV175,Crystallogobius linearis,Crystallogobius,True,3.0,100.0,1.0,1.0,0.0,Crystallogobius linearis,,,,CONFIDENT
-ASV176,Ctenolabrus rupestris,Ctenolabrus,True,7.0,99.4,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,UNCERTAIN
-ASV177,Zeugopterus punctatus,Zeugopterus,True,2.0,99.4,2.0,2.0,0.0,Zeugopterus punctatus; Zeugopterus regius,,Zeugopterus regius,89.4,CONFIDENT
+ASV174,Clupea pallasii,Clupea,True,8.0,97.7,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV175,Crystallogobius linearis,Crystallogobius,True,3.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV176,Ctenolabrus rupestris,Ctenolabrus,True,7.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV177,Zeugopterus punctatus,Zeugopterus,True,2.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV178,Glyptocephalus zachirus,Glyptocephalus,True,6.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
-ASV179,Gobiusculus flavescens,Gobiusculus,True,4.0,99.4,2.0,1.0,1.0,Gobiusculus flavescens,Gobiusculus flavenscens,,,UNCERTAIN
+ASV179,Gobiusculus flavescens,Gobiusculus,True,4.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV180,,Pleuronectidae,,,,,,,,,,,GENUS_ONLY_NO_REF
-ASV181,Homo sapiens,Homo,True,2498.0,99.4,28.0,2.0,26.0,Homo heidelbergensis; Homo sapiens,Helacyton gartleri; Homo afer; Homo americanus; Homo antecessor; Homo asiaticus; Homo bodoensis; Homo cepranensis; Homo denisova; Homo erectus; Homo ergaster,Homo heidelbergensis,96.5,UNCERTAIN
-ASV182,Salvelinus curilus,Salvelinus,True,6.0,99.4,54.0,18.0,36.0,Salvelinus albus; Salvelinus alpinus; Salvelinus boganidae; Salvelinus confluentus; Salvelinus curilus; Salvelinus drjagini; Salvelinus elgyticus; Salvelinus fontinalis; Salvelinus kronocius; Salvelinus kuznetzovi,Salvelinus agassizii; Salvelinus anaktuvukensis; Salvelinus andriashevi; Salvelinus angustus; Salvelinus colii; Salvelinus czerskii; Salvelinus evasus; Salvelinus faroensis; Salvelinus fimbriatus; Salvelinus gracillimus,Salvelinus malma,99.4,UNCERTAIN
-ASV183,Bucephala islandica,Bucephala,True,1.0,99.5,5.0,3.0,2.0,Bucephala albeola; Bucephala clangula; Bucephala islandica,Bucephala angustipes; Bucephala ossivallis,Bucephala clangula,100.0,UNCERTAIN
-ASV184,Ctenolabrus rupestris,Ctenolabrus,True,7.0,99.4,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,UNCERTAIN
-ASV185,Gobiusculus flavescens,Gobiusculus,True,4.0,99.4,2.0,1.0,1.0,Gobiusculus flavescens,Gobiusculus flavenscens,,,UNCERTAIN
-ASV186,Salvelinus curilus,Salvelinus,True,6.0,99.4,54.0,18.0,36.0,Salvelinus albus; Salvelinus alpinus; Salvelinus boganidae; Salvelinus confluentus; Salvelinus curilus; Salvelinus drjagini; Salvelinus elgyticus; Salvelinus fontinalis; Salvelinus kronocius; Salvelinus kuznetzovi,Salvelinus agassizii; Salvelinus anaktuvukensis; Salvelinus andriashevi; Salvelinus angustus; Salvelinus colii; Salvelinus czerskii; Salvelinus evasus; Salvelinus faroensis; Salvelinus fimbriatus; Salvelinus gracillimus,Salvelinus malma,99.4,UNCERTAIN
+ASV181,Homo sapiens,Homo,True,2498.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV182,Salvelinus curilus,Salvelinus,True,6.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV183,Bucephala islandica,Bucephala,True,1.0,99.5,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV184,Ctenolabrus rupestris,Ctenolabrus,True,7.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV185,Gobiusculus flavescens,Gobiusculus,True,4.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV186,Salvelinus curilus,Salvelinus,True,6.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV187,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,97.1,GENUS_ONLY
-ASV188,Clupea pallasii,Clupea,True,8.0,98.8,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,,,UNCERTAIN
-ASV189,Symphodus melops,Symphodus,True,5.0,99.4,19.0,8.0,11.0,Symphodus bailloni; Symphodus caeruleus; Symphodus cinereus; Symphodus melops; Symphodus ocellatus; Symphodus roissali; Symphodus rostratus; Symphodus trutta,Crenilabrus chrysophrus; Crenilabrus elegans; Crenilabrus hudsonius; Crenilabrus intermedius; Crenilabrus serranoides; Crenilabrus serranus; Labrus woodwardi; Symphodus doderleini; Symphodus mediterraneus; Symphodus tinca,Symphodus ocellatus,98.2,UNCERTAIN
-ASV190,Etmopterus spinax,Etmopterus,True,7.0,100.0,47.0,31.0,16.0,Etmopterus alphus; Etmopterus baxteri; Etmopterus benchleyi; Etmopterus bigelowi; Etmopterus brachyurus; Etmopterus brosei; Etmopterus bullisi; Etmopterus carteri; Etmopterus compagnoi; Etmopterus dianthus,Etmopterus acutidens; Etmopterus burgessi; Etmopterus cahuzaci; Etmopterus caudistigmus; Etmopterus decacuspidatus; Etmopterus hillianus; Etmopterus joungi; Etmopterus lailae; Etmopterus marshae; Etmopterus parini,Etmopterus princeps,98.4,CONFIDENT
+ASV188,Clupea pallasii,Clupea,True,8.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV189,Symphodus melops,Symphodus,True,5.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV190,Etmopterus spinax,Etmopterus,True,7.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV191,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,97.7,GENUS_ONLY
-ASV192,Corvus dauuricus,Corvus,True,1.0,100.0,81.0,16.0,65.0,Corvus albus; Corvus bennetti; Corvus brachyrhynchos; Corvus corax; Corvus cornix; Corvus corone; Corvus coronoides; Corvus cryptoleucus; Corvus frugilegus; Corvus hawaiiensis,Corvus adsimilis; Corvus albicollis; Corvus annectens; Corvus antecorax; Corvus balicassius; Corvus brachyurus; Corvus calvus; Corvus capensis; Corvus caurinus; Corvus cecilae,Corvus cryptoleucus,97.8,CONFIDENT
-ASV193,Crystallogobius linearis,Crystallogobius,True,3.0,100.0,1.0,1.0,0.0,Crystallogobius linearis,,,,CONFIDENT
-ASV194,Zeugopterus norvegicus,Zeugopterus,True,3.0,99.4,2.0,2.0,0.0,Zeugopterus punctatus; Zeugopterus regius,,Zeugopterus punctatus,94.3,CONFIDENT
+ASV192,Corvus dauuricus,Corvus,True,1.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV193,Crystallogobius linearis,Crystallogobius,True,3.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV194,Zeugopterus norvegicus,Zeugopterus,True,3.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV195,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,97.1,GENUS_ONLY
-ASV196,Pholis crassispina,Pholis,True,7.0,98.8,15.0,9.0,6.0,Pholis clemensi; Pholis crassispina; Pholis fangi; Pholis fasciata; Pholis gunnellus; Pholis laeta; Pholis nebulosa; Pholis ornata; Pholis picta,Centronotus islandicus; Gunnellus crassispina; Gunnellus ruberrimus; Gunnellus vulgaris; Pholis nea; Pholis schultzi,Pholis fasciata,98.8,UNCERTAIN
-ASV197,Pollachius virens,Pollachius,True,10.0,99.4,2.0,2.0,0.0,Pollachius pollachius; Pollachius virens,,Pollachius pollachius,98.8,CONFIDENT
+ASV196,Pholis crassispina,Pholis,True,7.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV197,Pollachius virens,Pollachius,True,10.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV198,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,97.7,GENUS_ONLY
-ASV199,Clupea harengus,Clupea,True,48.0,98.8,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,98.3,UNCERTAIN
-ASV200,Acantholabrus palloni,Acantholabrus,True,1.0,98.8,1.0,1.0,0.0,Acantholabrus palloni,,,,LIKELY
-ASV201,Sus scrofa,Sus,True,271.0,100.0,26.0,5.0,21.0,Sus barbatus; Sus cebifrons; Sus celebensis; Sus scrofa; Sus verrucosus,Sus ahoenobarbus; Sus antediluvianus; Sus bucculentus; Sus erymanthius; Sus giganteus; Sus hysudricus; Sus nanus; Sus oliveri; Sus palaeochoerus; Sus palustris,Sus celebensis,98.8,CONFIDENT
-ASV202,Clupea pallasii,Clupea,True,8.0,99.4,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,,,UNCERTAIN
-ASV203,Scomber scombrus,Scomber,True,11.0,98.8,52.0,4.0,48.0,Scomber australasicus; Scomber colias; Scomber japonicus; Scomber scombrus,Auxis caucasica; Pneumatophorus euodus; Scomber aculeatus; Scomber ascensionis; Scomber auratus; Scomber aureus; Scomber australiensis; Scomber bimaculatus; Scomber capensis; Scomber chrisops,Scomber colias,93.5,UNCERTAIN
+ASV199,Clupea harengus,Clupea,True,48.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV200,Acantholabrus palloni,Acantholabrus,True,1.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV201,Sus scrofa,Sus,True,271.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV202,Clupea pallasii,Clupea,True,8.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV203,Scomber scombrus,Scomber,True,11.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV204,,Clupea,False,0.0,0.0,0.0,2.0,0.0,Clupea harengus; Clupea pallasii,,Clupea pallasii,96.5,GENUS_ONLY
-ASV205,Clupea harengus,Clupea,True,48.0,98.3,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,97.7,UNCERTAIN
-ASV206,Acantholabrus palloni,Acantholabrus,True,1.0,99.4,1.0,1.0,0.0,Acantholabrus palloni,,,,CONFIDENT
-ASV207,Ovis orientalis,Ovis,True,8.0,100.0,26.0,5.0,21.0,Ovis ammon; Ovis aries; Ovis canadensis; Ovis dalli; Ovis nivicola,Ovis arabica; Ovis blanfordi; Ovis bochariensis; Ovis collium; Ovis cycloceros; Ovis darwini; Ovis dorshi; Ovis gmelini; Ovis guineensis; Ovis hodgsoni,Ovis aries,100.0,CONFIDENT
-ASV208,Clupea harengus,Clupea,True,48.0,97.1,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,96.5,UNCERTAIN
-ASV209,Clupea pallasii,Clupea,True,8.0,98.8,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,,,UNCERTAIN
-ASV210,Myoxocephalus quadricornis,Myoxocephalus,True,5.0,98.2,27.0,9.0,18.0,Myoxocephalus aenaeus; Myoxocephalus brandtii; Myoxocephalus jaok; Myoxocephalus octodecemspinosus; Myoxocephalus polyacanthocephalus; Myoxocephalus quadricornis; Myoxocephalus scorpius; Myoxocephalus stelleri; Myoxocephalus thompsonii,Acanthocottus aeneus; Acanthocottus inermis; Acanthocottus mucosus; Acanthocottus ocellatus; Acanthocottus patris; Ainocottus fasciatus; Myoxocephalus batrachoides; Myoxocephalus edomius; Myoxocephalus matsubarai; Myoxocephalus niger,Myoxocephalus thompsonii,98.2,UNCERTAIN
-ASV211,Clupea harengus,Clupea,True,48.0,98.8,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,98.3,UNCERTAIN
-ASV212,Ctenolabrus rupestris,Ctenolabrus,True,7.0,98.8,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,UNCERTAIN
-ASV213,Cepphus grylle,Cepphus,True,3.0,100.0,6.0,3.0,3.0,Cepphus carbo; Cepphus columba; Cepphus grylle,Cepphus lacteolus; Cepphus olsoni; Cepphus storeri,Cepphus columba,96.6,CONFIDENT
-ASV214,Clupea harengus,Clupea,True,48.0,97.7,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,97.1,UNCERTAIN
+ASV205,Clupea harengus,Clupea,True,48.0,98.3,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV206,Acantholabrus palloni,Acantholabrus,True,1.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV207,Ovis orientalis,Ovis,True,8.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV208,Clupea harengus,Clupea,True,48.0,97.1,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV209,Clupea pallasii,Clupea,True,8.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV210,Myoxocephalus quadricornis,Myoxocephalus,True,5.0,98.2,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV211,Clupea harengus,Clupea,True,48.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV212,Ctenolabrus rupestris,Ctenolabrus,True,7.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV213,Cepphus grylle,Cepphus,True,3.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV214,Clupea harengus,Clupea,True,48.0,97.7,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV215,,Mammalia,,,,,,,,,,,GENUS_ONLY_NO_REF
-ASV216,Clupea harengus,Clupea,True,48.0,97.7,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,97.1,UNCERTAIN
-ASV217,Pollachius virens,Pollachius,True,10.0,98.8,2.0,2.0,0.0,Pollachius pollachius; Pollachius virens,,Pollachius pollachius,98.2,LIKELY
-ASV218,Anthus hodgsoni,Anthus,True,1.0,100.0,55.0,8.0,47.0,Anthus australis; Anthus campestris; Anthus cervinus; Anthus hodgsoni; Anthus novaeseelandiae; Anthus richardi; Anthus roseatus; Anthus rubescens,Anthus antarcticus; Anthus berthelotii; Anthus bogotensis; Anthus bosniaskii; Anthus brachyurus; Anthus brevirostris; Anthus caffer; Anthus chacoensis; Anthus chii; Anthus chloris,Anthus cervinus,98.4,CONFIDENT
-ASV219,Platichthys stellatus,Platichthys,True,5.0,96.4,4.0,2.0,2.0,Platichthys flesus; Platichthys stellatus,Passer oculatus; Platichthys solemdali,,,UNCERTAIN
-ASV220,Castor fiber,Castor,True,10.0,98.8,9.0,2.0,7.0,Castor canadensis; Castor fiber,Castor californicus; Castor hubbardi; Castor jaegeri; Castor peninsulatus; Castor spec; Castor veterior; Chalicomys anderssoni,Castor canadensis,89.0,UNCERTAIN
-ASV221,Labrus bergylta,Labrus,True,7.0,98.8,111.0,2.0,109.0,Labrus bergylta; Labrus mixtus,Labrus adriaticus; Labrus agon; Labrus albidus; Labrus aristatus; Labrus barffi; Labrus bobba; Labrus brunellus; Labrus caeruleus; Labrus calophthalmus; Labrus calops,Labrus mixtus,93.9,UNCERTAIN
-ASV222,Gasterosteus aculeatus,Gasterosteus,True,30.0,98.2,25.0,4.0,21.0,Gasterosteus aculeatus; Gasterosteus gymnurus; Gasterosteus nipponicus; Gasterosteus wheatlandi,Gasterosteus acanthias; Gasterosteus apeltes; Gasterosteus atherinus; Gasterosteus biaculeatus; Gasterosteus carolinensis; Gasterosteus columbarius; Gasterosteus crenobiontus; Gasterosteus glaber; Gasterosteus glaucus; Gasterosteus islandicus,Gasterosteus gymnurus,98.2,UNCERTAIN
-ASV223,Melanogrammus aeglefinus,Melanogrammus,True,11.0,99.4,1.0,1.0,0.0,Melanogrammus aeglefinus,,,,CONFIDENT
-ASV224,Gasterosteus aculeatus,Gasterosteus,True,30.0,98.8,25.0,4.0,21.0,Gasterosteus aculeatus; Gasterosteus gymnurus; Gasterosteus nipponicus; Gasterosteus wheatlandi,Gasterosteus acanthias; Gasterosteus apeltes; Gasterosteus atherinus; Gasterosteus biaculeatus; Gasterosteus carolinensis; Gasterosteus columbarius; Gasterosteus crenobiontus; Gasterosteus glaber; Gasterosteus glaucus; Gasterosteus islandicus,Gasterosteus gymnurus,98.8,UNCERTAIN
-ASV225,Pollachius virens,Pollachius,True,10.0,98.8,2.0,2.0,0.0,Pollachius pollachius; Pollachius virens,,Pollachius pollachius,99.4,REASSIGN
-ASV226,Clupea pallasii,Clupea,True,8.0,98.8,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,,,UNCERTAIN
+ASV216,Clupea harengus,Clupea,True,48.0,97.7,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV217,Pollachius virens,Pollachius,True,10.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV218,Anthus hodgsoni,Anthus,True,1.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV219,Platichthys stellatus,Platichthys,True,5.0,96.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV220,Castor fiber,Castor,True,10.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV221,Labrus bergylta,Labrus,True,7.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV222,Gasterosteus aculeatus,Gasterosteus,True,30.0,98.2,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV223,Melanogrammus aeglefinus,Melanogrammus,True,11.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV224,Gasterosteus aculeatus,Gasterosteus,True,30.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV225,Pollachius virens,Pollachius,True,10.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV226,Clupea pallasii,Clupea,True,8.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV227,,Salmo,False,0.0,0.0,0.0,12.0,0.0,Salmo carpio; Salmo caspius; Salmo cenerinus; Salmo ischchan; Salmo labrax; Salmo macrostigma; Salmo marmoratus; Salmo obtusirostris; Salmo pallaryi; Salmo rhodanensis,,Salmo labrax,99.4,GENUS_ONLY
 ASV228,Gadus morhua,Gadus,True,62.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV230,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,95.5,GENUS_ONLY
-ASV231,Brosme brosme,Brosme,True,5.0,98.8,5.0,1.0,4.0,Brosme brosme,Brosmius andrussovi; Brosmius exiguus; Brosmius udanad; Brosmius venustus,,,UNCERTAIN
-ASV232,Centrolabrus exoletus,Centrolabrus,True,4.0,99.4,2.0,1.0,1.0,Centrolabrus exoletus,Centrolabrus melanocercus,,,UNCERTAIN
+ASV231,Brosme brosme,Brosme,True,5.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV232,Centrolabrus exoletus,Centrolabrus,True,4.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV233,,Artiodactyla,,,,,,,,,,,GENUS_ONLY_NO_REF
 ASV234,Pica pica,Pica,True,12.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
-ASV235,Brosme brosme,Brosme,True,5.0,98.8,5.0,1.0,4.0,Brosme brosme,Brosmius andrussovi; Brosmius exiguus; Brosmius udanad; Brosmius venustus,,,UNCERTAIN
-ASV237,Salmo macrostigma,Salmo,True,9.0,98.8,156.0,12.0,144.0,Salmo carpio; Salmo caspius; Salmo cenerinus; Salmo ischchan; Salmo labrax; Salmo macrostigma; Salmo marmoratus; Salmo obtusirostris; Salmo pallaryi; Salmo rhodanensis,Fario aurora; Salmo abanticus; Salmo adirondacus; Salmo akairos; Salmo alipes; Salmo americanus; Salmo aphelios; Salmo arabatsch; Salmo araxensis; Salmo arcticus,Salmo trutta,100.0,REASSIGN
+ASV235,Brosme brosme,Brosme,True,5.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV237,Salmo macrostigma,Salmo,True,9.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV238,,Chordata,,,,,,,,,,,GENUS_ONLY_NO_REF
 ASV240,,Clupea,False,0.0,0.0,0.0,2.0,0.0,Clupea harengus; Clupea pallasii,,Clupea pallasii,94.8,GENUS_ONLY
-ASV241,Pollachius virens,Pollachius,True,10.0,98.8,2.0,2.0,0.0,Pollachius pollachius; Pollachius virens,,Pollachius pollachius,98.2,LIKELY
-ASV242,Gobiusculus flavescens,Gobiusculus,True,4.0,99.4,2.0,1.0,1.0,Gobiusculus flavescens,Gobiusculus flavenscens,,,UNCERTAIN
-ASV243,Ctenolabrus rupestris,Ctenolabrus,True,7.0,97.1,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,UNCERTAIN
-ASV244,Lipophrys pholis,Lipophrys,True,11.0,99.4,2.0,2.0,0.0,Lipophrys pholis; Lipophrys trigloides,,,,CONFIDENT
-ASV245,Crystallogobius linearis,Crystallogobius,True,3.0,98.8,1.0,1.0,0.0,Crystallogobius linearis,,,,LIKELY
-ASV246,Delichon urbicum,Delichon,True,4.0,100.0,3.0,1.0,2.0,Delichon urbicum,Delichon dasypus; Delichon nipalense,,,CONFIDENT
-ASV247,Phoxinus phoxinus,Phoxinus,True,17.0,98.9,27.0,9.0,18.0,Phoxinus bigerri; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri; Phoxinus ujmonensis,Phoxinus apollonicus; Phoxinus brachyurus; Phoxinus colchicus; Phoxinus grumi; Phoxinus issykkulensis; Phoxinus jouyi; Phoxinus karsticus; Phoxinus ketmaieri; Phoxinus krkae; Phoxinus kuldschiensis,Phoxinus fayollarum,98.3,UNCERTAIN
+ASV241,Pollachius virens,Pollachius,True,10.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV242,Gobiusculus flavescens,Gobiusculus,True,4.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV243,Ctenolabrus rupestris,Ctenolabrus,True,7.0,97.1,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV244,Lipophrys pholis,Lipophrys,True,11.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV245,Crystallogobius linearis,Crystallogobius,True,3.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV246,Delichon urbicum,Delichon,True,4.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV247,Phoxinus phoxinus,Phoxinus,True,17.0,98.9,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV248,,Perciformes,,,,,,,,,,,GENUS_ONLY_NO_REF
 ASV249,,Gasterosteus,False,0.0,0.0,0.0,4.0,0.0,Gasterosteus aculeatus; Gasterosteus gymnurus; Gasterosteus nipponicus; Gasterosteus wheatlandi,,Gasterosteus gymnurus,96.4,GENUS_ONLY
-ASV250,Spinachia spinachia,Spinachia,True,6.0,99.4,2.0,1.0,1.0,Spinachia spinachia,Spinachia linnei,,,UNCERTAIN
-ASV251,Parus major,Parus,True,8.0,100.0,40.0,2.0,38.0,Parus major; Parus monticolus,Parus afer; Parus albiventris; Parus alpinus; Parus amabilis; Parus aplonotus; Parus aureola; Parus carpi; Parus cinerascens; Parus cinereus; Parus dichrous,Parus monticolus,97.8,CONFIDENT
-ASV252,Merluccius merluccius,Merluccius,True,13.0,98.8,38.0,12.0,26.0,Merluccius albidus; Merluccius angustimanus; Merluccius australis; Merluccius bilinearis; Merluccius capensis; Merluccius gayi; Merluccius hubbsi; Merluccius merluccius; Merluccius paradoxus; Merluccius polli,Gobius macroactus; Merluccius abreviatus; Merluccius argentatus; Merluccius athanasiui; Merluccius attenuatus; Merluccius balticus; Merluccius emarginatus; Merluccius fimbriatus; Merluccius guttatus; Merluccius hernandezi,Merluccius capensis,97.7,UNCERTAIN
-ASV253,Clupea pallasii,Clupea,True,8.0,84.9,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,,,UNCERTAIN
-ASV254,Gobiusculus flavescens,Gobiusculus,True,4.0,98.8,2.0,1.0,1.0,Gobiusculus flavescens,Gobiusculus flavenscens,,,UNCERTAIN
-ASV256,Larus brachyrhynchus,Larus,True,5.0,100.0,53.0,13.0,40.0,Larus argentatus; Larus brachyrhynchus; Larus canus; Larus crassirostris; Larus delawarensis; Larus dominicanus; Larus glaucoides; Larus heermanni; Larus hyperboreus; Larus marinus,Laroides chalcopterus; Larus arcticus; Larus argentatus x hyperboreus; Larus argentatus x marinus; Larus argenteus; Larus armenicus; Larus atlanticus; Larus belcheri; Larus bulleri; Larus cachinnans,Larus canus,100.0,CONFIDENT
-ASV257,Platichthys stellatus,Platichthys,True,5.0,98.8,4.0,2.0,2.0,Platichthys flesus; Platichthys stellatus,Passer oculatus; Platichthys solemdali,,,UNCERTAIN
-ASV258,Clupea pallasii,Clupea,True,8.0,98.3,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,,,UNCERTAIN
-ASV259,Molva molva,Molva,True,3.0,100.0,6.0,3.0,3.0,Molva dypterygia; Molva macrophthalma; Molva molva,Molva dubia; Molva huntia; Molva palaeomorpha,Molva dypterygia,94.7,CONFIDENT
-ASV260,Myoxocephalus quadricornis,Myoxocephalus,True,5.0,99.4,27.0,9.0,18.0,Myoxocephalus aenaeus; Myoxocephalus brandtii; Myoxocephalus jaok; Myoxocephalus octodecemspinosus; Myoxocephalus polyacanthocephalus; Myoxocephalus quadricornis; Myoxocephalus scorpius; Myoxocephalus stelleri; Myoxocephalus thompsonii,Acanthocottus aeneus; Acanthocottus inermis; Acanthocottus mucosus; Acanthocottus ocellatus; Acanthocottus patris; Ainocottus fasciatus; Myoxocephalus batrachoides; Myoxocephalus edomius; Myoxocephalus matsubarai; Myoxocephalus niger,Myoxocephalus thompsonii,99.4,UNCERTAIN
-ASV261,Pomatoschistus microps,Pomatoschistus,True,7.0,99.4,16.0,8.0,8.0,Pomatoschistus knerii; Pomatoschistus lozanoi; Pomatoschistus marmoratus; Pomatoschistus microps; Pomatoschistus minutus; Pomatoschistus norvegicus; Pomatoschistus pictus; Pomatoschistus quagga,Pomatoschistus anatoliae; Pomatoschistus bacescui; Pomatoschistus bathi; Pomatoschistus bunyatovi; Pomatoschistus canestrinii; Pomatoschistus montenegrensis; Pomatoschistus nanus; Pomatoschistus tortonesei,Pomatoschistus knerii,95.9,UNCERTAIN
+ASV250,Spinachia spinachia,Spinachia,True,6.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV251,Parus major,Parus,True,8.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV252,Merluccius merluccius,Merluccius,True,13.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV253,Clupea pallasii,Clupea,True,8.0,84.9,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV254,Gobiusculus flavescens,Gobiusculus,True,4.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV256,Larus brachyrhynchus,Larus,True,5.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV257,Platichthys stellatus,Platichthys,True,5.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV258,Clupea pallasii,Clupea,True,8.0,98.3,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV259,Molva molva,Molva,True,3.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV260,Myoxocephalus quadricornis,Myoxocephalus,True,5.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV261,Pomatoschistus microps,Pomatoschistus,True,7.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV262,,Salmo,False,0.0,0.0,0.0,12.0,0.0,Salmo carpio; Salmo caspius; Salmo cenerinus; Salmo ischchan; Salmo labrax; Salmo macrostigma; Salmo marmoratus; Salmo obtusirostris; Salmo pallaryi; Salmo rhodanensis,,Salmo trutta,100.0,GENUS_ONLY
-ASV263,Scomber scombrus,Scomber,True,11.0,100.0,52.0,4.0,48.0,Scomber australasicus; Scomber colias; Scomber japonicus; Scomber scombrus,Auxis caucasica; Pneumatophorus euodus; Scomber aculeatus; Scomber ascensionis; Scomber auratus; Scomber aureus; Scomber australiensis; Scomber bimaculatus; Scomber capensis; Scomber chrisops,Scomber colias,92.8,CONFIDENT
-ASV264,Turdus abyssinicus,Turdus,True,6.0,99.5,119.0,69.0,50.0,Turdus abyssinicus; Turdus albicollis; Turdus albocinctus; Turdus amaurochalinus; Turdus assimilis; Turdus atrogularis; Turdus aurantius; Turdus bewsheri; Turdus boulboul; Turdus cardis,Turdus anthracinus; Turdus ardosiaceus; Turdus atriceps; Turdus atrogularis x eunomus/naumanni; Turdus badius; Turdus borbonicus; Turdus bresciensis; Turdus capensis; Turdus caudatus; Turdus cochinchinensis,Turdus merula,100.0,UNCERTAIN
-ASV265,Pollachius virens,Pollachius,True,10.0,98.2,2.0,2.0,0.0,Pollachius pollachius; Pollachius virens,,Pollachius pollachius,97.6,LIKELY
-ASV266,Turdus abyssinicus,Turdus,True,6.0,98.9,119.0,69.0,50.0,Turdus abyssinicus; Turdus albicollis; Turdus albocinctus; Turdus amaurochalinus; Turdus assimilis; Turdus atrogularis; Turdus aurantius; Turdus bewsheri; Turdus boulboul; Turdus cardis,Turdus anthracinus; Turdus ardosiaceus; Turdus atriceps; Turdus atrogularis x eunomus/naumanni; Turdus badius; Turdus borbonicus; Turdus bresciensis; Turdus capensis; Turdus caudatus; Turdus cochinchinensis,Turdus philomelos,100.0,REASSIGN
+ASV263,Scomber scombrus,Scomber,True,11.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV264,Turdus abyssinicus,Turdus,True,6.0,99.5,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV265,Pollachius virens,Pollachius,True,10.0,98.2,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV266,Turdus abyssinicus,Turdus,True,6.0,98.9,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV268,Gadus morhua,Gadus,True,62.0,98.2,0.0,0.0,0.0,,,,,NO_CONGENERS
-ASV269,Hirundo rustica,Hirundo,True,31.0,100.0,21.0,10.0,11.0,Hirundo aethiopica; Hirundo albigularis; Hirundo angolensis; Hirundo atrocaerulea; Hirundo dimidiata; Hirundo neoxena; Hirundo nigrita; Hirundo rustica; Hirundo smithii; Hirundo tahitica,Hirundo capensis; Hirundo domicola; Hirundo fossilis; Hirundo javanica; Hirundo leucopyga; Hirundo leucosoma; Hirundo lucida; Hirundo megaensis; Hirundo nigrorufa; Hirundo purpurea,Hirundo smithii,100.0,CONFIDENT
-ASV270,Clupea pallasii,Clupea,True,8.0,87.2,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,,,UNCERTAIN
-ASV271,Molva molva,Molva,True,3.0,98.8,6.0,3.0,3.0,Molva dypterygia; Molva macrophthalma; Molva molva,Molva dubia; Molva huntia; Molva palaeomorpha,Molva dypterygia,95.3,UNCERTAIN
+ASV269,Hirundo rustica,Hirundo,True,31.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV270,Clupea pallasii,Clupea,True,8.0,87.2,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV271,Molva molva,Molva,True,3.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV272,,Mammalia,,,,,,,,,,,GENUS_ONLY_NO_REF
-ASV273,Canis lupus,Canis,True,510.0,100.0,63.0,7.0,56.0,Canis adustus; Canis aureus; Canis latrans; Canis lupaster; Canis lupus; Canis mesomelas; Canis simensis,Canis accitanus; Canis africanus; Canis alopex; Canis antarcticus; Canis antarticus; Canis anthus; Canis antonii; Canis apolloniensis; Canis armbrusteri; Canis arnensis,Canis lupaster,97.0,CONFIDENT
-ASV274,Pollachius virens,Pollachius,True,10.0,95.3,2.0,2.0,0.0,Pollachius pollachius; Pollachius virens,,Pollachius pollachius,94.7,LIKELY
+ASV273,Canis lupus,Canis,True,510.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV274,Pollachius virens,Pollachius,True,10.0,95.3,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV275,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,94.9,GENUS_ONLY
-ASV276,Liparis montagui,Liparis,True,3.0,99.4,197.0,0.0,197.0,,Cestichis dolichopoda; Cestichis platybolba; Cestichis somai; Leptorkis sandersiana; Leptorkis stachyuras; Liparis abyssinica; Liparis acaulis; Liparis acuminata; Liparis acutissima; Liparis affinis,,,UNCERTAIN
+ASV276,Liparis montagui,Liparis,True,3.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV277,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,96.0,GENUS_ONLY
-ASV278,Pollachius virens,Pollachius,True,10.0,98.2,2.0,2.0,0.0,Pollachius pollachius; Pollachius virens,,Pollachius pollachius,98.8,REASSIGN
-ASV279,Liparis montagui,Liparis,True,3.0,100.0,197.0,0.0,197.0,,Cestichis dolichopoda; Cestichis platybolba; Cestichis somai; Leptorkis sandersiana; Leptorkis stachyuras; Liparis abyssinica; Liparis acaulis; Liparis acuminata; Liparis acutissima; Liparis affinis,,,CONFIDENT
-ASV280,Gobiusculus flavescens,Gobiusculus,True,4.0,98.8,2.0,1.0,1.0,Gobiusculus flavescens,Gobiusculus flavenscens,,,UNCERTAIN
-ASV281,Lutra lutra,Lutra,True,22.0,100.0,17.0,2.0,15.0,Lutra lutra; Lutra sumatrana,Cyrnolutra castiglionis; Lutra affinis; Lutra bravardi; Lutra bressana; Lutra fatimazohrae; Lutra franconica; Lutra hessica; Lutra licenti; Lutra lybica; Lutra palaeoleptonyx,Lutra sumatrana,97.0,CONFIDENT
-ASV282,Anarhichas lupus,Anarhichas,True,19.0,100.0,7.0,4.0,3.0,Anarhichas denticulatus; Anarhichas lupus; Anarhichas minor; Anarhichas orientalis,Anarhichas dentex; Anarhichas lupusmarinus; Anarrhichas egerti,Anarhichas denticulatus,100.0,CONFIDENT
-ASV283,Ctenolabrus rupestris,Ctenolabrus,True,7.0,92.4,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,UNCERTAIN
-ASV284,Scomber scombrus,Scomber,True,11.0,100.0,52.0,4.0,48.0,Scomber australasicus; Scomber colias; Scomber japonicus; Scomber scombrus,Auxis caucasica; Pneumatophorus euodus; Scomber aculeatus; Scomber ascensionis; Scomber auratus; Scomber aureus; Scomber australiensis; Scomber bimaculatus; Scomber capensis; Scomber chrisops,Scomber japonicus,94.2,CONFIDENT
-ASV286,Gobiusculus flavescens,Gobiusculus,True,4.0,98.8,2.0,1.0,1.0,Gobiusculus flavescens,Gobiusculus flavenscens,,,UNCERTAIN
-ASV287,Galeus melastomus,Galeus,True,5.0,100.0,18.0,6.0,12.0,Galeus eastmani; Galeus longirostris; Galeus melastomus; Galeus nipponensis; Galeus sauteri; Galeus springeri,Galeus antillensis; Galeus arae; Galeus atlanticus; Galeus cadenati; Galeus corriganae; Galeus gracilis; Galeus mincaronei; Galeus murinus; Galeus piperatus; Galeus polli,Galeus longirostris,89.6,CONFIDENT
+ASV278,Pollachius virens,Pollachius,True,10.0,98.2,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV279,Liparis montagui,Liparis,True,3.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV280,Gobiusculus flavescens,Gobiusculus,True,4.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV281,Lutra lutra,Lutra,True,22.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV282,Anarhichas lupus,Anarhichas,True,19.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV283,Ctenolabrus rupestris,Ctenolabrus,True,7.0,92.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV284,Scomber scombrus,Scomber,True,11.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV286,Gobiusculus flavescens,Gobiusculus,True,4.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV287,Galeus melastomus,Galeus,True,5.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV289,,Merluccius,False,0.0,0.0,0.0,12.0,0.0,Merluccius albidus; Merluccius angustimanus; Merluccius australis; Merluccius bilinearis; Merluccius capensis; Merluccius gayi; Merluccius hubbsi; Merluccius merluccius; Merluccius paradoxus; Merluccius polli,,Merluccius merluccius,94.2,GENUS_ONLY
 ASV290,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,93.7,GENUS_ONLY
-ASV291,Lota lota,Lota,True,15.0,98.2,5.0,1.0,4.0,Lota lota,Lota digitata; Lota kumunikar; Lota molva; Lota vulgaris,,,UNCERTAIN
+ASV291,Lota lota,Lota,True,15.0,98.2,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV292,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,97.1,GENUS_ONLY
 ASV293,,Clupea,False,0.0,0.0,0.0,2.0,0.0,Clupea harengus; Clupea pallasii,,Clupea pallasii,97.1,GENUS_ONLY
-ASV295,Ctenolabrus rupestris,Ctenolabrus,True,7.0,86.9,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,UNCERTAIN
-ASV296,Ctenolabrus rupestris,Ctenolabrus,True,7.0,86.4,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,UNCERTAIN
+ASV295,Ctenolabrus rupestris,Ctenolabrus,True,7.0,86.9,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV296,Ctenolabrus rupestris,Ctenolabrus,True,7.0,86.4,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV297,Gallus sonneratii,Gallus,True,4.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
-ASV298,Pollachius virens,Pollachius,True,10.0,86.9,2.0,2.0,0.0,Pollachius pollachius; Pollachius virens,,Pollachius pollachius,86.4,LIKELY
-ASV299,Clupea harengus,Clupea,True,48.0,97.7,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,97.1,UNCERTAIN
-ASV300,Platichthys stellatus,Platichthys,True,5.0,97.6,4.0,2.0,2.0,Platichthys flesus; Platichthys stellatus,Passer oculatus; Platichthys solemdali,,,UNCERTAIN
-ASV301,Pollachius pollachius,Pollachius,True,7.0,94.8,2.0,2.0,0.0,Pollachius pollachius; Pollachius virens,,Pollachius virens,94.2,LIKELY
-ASV302,Gobiusculus flavescens,Gobiusculus,True,4.0,98.2,2.0,1.0,1.0,Gobiusculus flavescens,Gobiusculus flavenscens,,,UNCERTAIN
+ASV298,Pollachius virens,Pollachius,True,10.0,86.9,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV299,Clupea harengus,Clupea,True,48.0,97.7,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV300,Platichthys stellatus,Platichthys,True,5.0,97.6,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV301,Pollachius pollachius,Pollachius,True,7.0,94.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV302,Gobiusculus flavescens,Gobiusculus,True,4.0,98.2,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV303,,Salmo,False,0.0,0.0,0.0,12.0,0.0,Salmo carpio; Salmo caspius; Salmo cenerinus; Salmo ischchan; Salmo labrax; Salmo macrostigma; Salmo marmoratus; Salmo obtusirostris; Salmo pallaryi; Salmo rhodanensis,,Salmo macrostigma,87.1,GENUS_ONLY
 ASV305,Gadus morhua,Gadus,True,62.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV307,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus phoxinus,92.6,GENUS_ONLY
 ASV308,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,97.1,GENUS_ONLY
 ASV309,,Mammalia,,,,,,,,,,,GENUS_ONLY_NO_REF
-ASV310,Scomber scombrus,Scomber,True,11.0,98.2,52.0,4.0,48.0,Scomber australasicus; Scomber colias; Scomber japonicus; Scomber scombrus,Auxis caucasica; Pneumatophorus euodus; Scomber aculeatus; Scomber ascensionis; Scomber auratus; Scomber aureus; Scomber australiensis; Scomber bimaculatus; Scomber capensis; Scomber chrisops,Scomber colias,92.9,UNCERTAIN
-ASV311,Zoarces viviparus,Zoarces,True,4.0,98.8,6.0,4.0,2.0,Zoarces americanus; Zoarces elongatus; Zoarces gillii; Zoarces viviparus,Zoarces andriashevi; Zoarces fedorovi,Zoarces elongatus,98.2,UNCERTAIN
-ASV312,Belone belone,Belone,True,11.0,100.0,8.0,2.0,6.0,Belone belone; Belone svetovidovi,Belona indica; Belone euxini; Belone fasciata; Belone japonica; Belone mentalis; Belone microstoma,,,CONFIDENT
+ASV310,Scomber scombrus,Scomber,True,11.0,98.2,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV311,Zoarces viviparus,Zoarces,True,4.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV312,Belone belone,Belone,True,11.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV314,,Turdidae,,,,,,,,,,,GENUS_ONLY_NO_REF
-ASV315,Gasterosteus gymnurus,Gasterosteus,True,1.0,91.7,25.0,4.0,21.0,Gasterosteus aculeatus; Gasterosteus gymnurus; Gasterosteus nipponicus; Gasterosteus wheatlandi,Gasterosteus acanthias; Gasterosteus apeltes; Gasterosteus atherinus; Gasterosteus biaculeatus; Gasterosteus carolinensis; Gasterosteus columbarius; Gasterosteus crenobiontus; Gasterosteus glaber; Gasterosteus glaucus; Gasterosteus islandicus,Gasterosteus nipponicus,91.1,UNCERTAIN
+ASV315,Gasterosteus gymnurus,Gasterosteus,True,1.0,91.7,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV316,,Actinopteri,,,,,,,,,,,GENUS_ONLY_NO_REF
 ASV317,,Primates,,,,,,,,,,,GENUS_ONLY_NO_REF
-ASV318,Ctenolabrus rupestris,Ctenolabrus,True,7.0,85.8,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,UNCERTAIN
-ASV319,Clupea pallasii,Clupea,True,8.0,95.4,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,,,UNCERTAIN
-ASV320,Pholis gunnellus,Pholis,True,8.0,98.8,15.0,9.0,6.0,Pholis clemensi; Pholis crassispina; Pholis fangi; Pholis fasciata; Pholis gunnellus; Pholis laeta; Pholis nebulosa; Pholis ornata; Pholis picta,Centronotus islandicus; Gunnellus crassispina; Gunnellus ruberrimus; Gunnellus vulgaris; Pholis nea; Pholis schultzi,Pholis fasciata,97.6,UNCERTAIN
+ASV318,Ctenolabrus rupestris,Ctenolabrus,True,7.0,85.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV319,Clupea pallasii,Clupea,True,8.0,95.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV320,Pholis gunnellus,Pholis,True,8.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV321,,Pleuronectidae,,,,,,,,,,,GENUS_ONLY_NO_REF
-ASV324,Helicolenus hilgendorfi,Helicolenus,True,9.0,100.0,11.0,2.0,9.0,Helicolenus avius; Helicolenus dactylopterus,Helicolenus barathri; Helicolenus fedorovi; Helicolenus hilgendorfii; Helicolenus lahillei; Helicolenus lengerichi; Helicolenus microphthalmus; Helicolenus mouchezi; Helicolenus percoides; Helicolenus uruguayensis,Helicolenus avius,100.0,CONFIDENT
+ASV324,Helicolenus hilgendorfi,Helicolenus,True,9.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV325,,Salmo,False,0.0,0.0,0.0,12.0,0.0,Salmo carpio; Salmo caspius; Salmo cenerinus; Salmo ischchan; Salmo labrax; Salmo macrostigma; Salmo marmoratus; Salmo obtusirostris; Salmo pallaryi; Salmo rhodanensis,,Salmo salar,97.6,GENUS_ONLY
-ASV326,Lota lota,Lota,True,15.0,98.8,5.0,1.0,4.0,Lota lota,Lota digitata; Lota kumunikar; Lota molva; Lota vulgaris,,,UNCERTAIN
-ASV327,Clupea pallasii,Clupea,True,8.0,87.2,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,,,UNCERTAIN
-ASV328,Micromesistius poutassou,Micromesistius,True,11.0,100.0,4.0,1.0,3.0,Micromesistius poutassou,Micromesistius australis; Micromesistius boscheinei; Micromesistius schwarzhansi,,,CONFIDENT
-ASV329,Scomber scombrus,Scomber,True,11.0,97.1,52.0,4.0,48.0,Scomber australasicus; Scomber colias; Scomber japonicus; Scomber scombrus,Auxis caucasica; Pneumatophorus euodus; Scomber aculeatus; Scomber ascensionis; Scomber auratus; Scomber aureus; Scomber australiensis; Scomber bimaculatus; Scomber capensis; Scomber chrisops,Scomber australasicus,92.3,UNCERTAIN
-ASV330,Merluccius senegalensis,Merluccius,True,2.0,86.9,38.0,12.0,26.0,Merluccius albidus; Merluccius angustimanus; Merluccius australis; Merluccius bilinearis; Merluccius capensis; Merluccius gayi; Merluccius hubbsi; Merluccius merluccius; Merluccius paradoxus; Merluccius polli,Gobius macroactus; Merluccius abreviatus; Merluccius argentatus; Merluccius athanasiui; Merluccius attenuatus; Merluccius balticus; Merluccius emarginatus; Merluccius fimbriatus; Merluccius guttatus; Merluccius hernandezi,Merluccius capensis,97.0,REASSIGN
-ASV332,Gobiusculus flavescens,Gobiusculus,True,4.0,98.2,2.0,1.0,1.0,Gobiusculus flavescens,Gobiusculus flavenscens,,,UNCERTAIN
-ASV335,Clupea pallasii,Clupea,True,8.0,87.7,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,,,UNCERTAIN
-ASV336,Homo heidelbergensis,Homo,True,1.0,93.6,28.0,2.0,26.0,Homo heidelbergensis; Homo sapiens,Helacyton gartleri; Homo afer; Homo americanus; Homo antecessor; Homo asiaticus; Homo bodoensis; Homo cepranensis; Homo denisova; Homo erectus; Homo ergaster,Homo sapiens,90.6,UNCERTAIN
+ASV326,Lota lota,Lota,True,15.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV327,Clupea pallasii,Clupea,True,8.0,87.2,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV328,Micromesistius poutassou,Micromesistius,True,11.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV329,Scomber scombrus,Scomber,True,11.0,97.1,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV330,Merluccius senegalensis,Merluccius,True,2.0,86.9,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV332,Gobiusculus flavescens,Gobiusculus,True,4.0,98.2,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV335,Clupea pallasii,Clupea,True,8.0,87.7,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV336,Homo heidelbergensis,Homo,True,1.0,93.6,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV338,,Salmo,False,0.0,0.0,0.0,12.0,0.0,Salmo carpio; Salmo caspius; Salmo cenerinus; Salmo ischchan; Salmo labrax; Salmo macrostigma; Salmo marmoratus; Salmo obtusirostris; Salmo pallaryi; Salmo rhodanensis,,Salmo caspius,92.5,GENUS_ONLY
-ASV339,Salvelinus curilus,Salvelinus,True,6.0,97.1,54.0,18.0,36.0,Salvelinus albus; Salvelinus alpinus; Salvelinus boganidae; Salvelinus confluentus; Salvelinus curilus; Salvelinus drjagini; Salvelinus elgyticus; Salvelinus fontinalis; Salvelinus kronocius; Salvelinus kuznetzovi,Salvelinus agassizii; Salvelinus anaktuvukensis; Salvelinus andriashevi; Salvelinus angustus; Salvelinus colii; Salvelinus czerskii; Salvelinus evasus; Salvelinus faroensis; Salvelinus fimbriatus; Salvelinus gracillimus,Salvelinus taranetzi,97.6,UNCERTAIN
+ASV339,Salvelinus curilus,Salvelinus,True,6.0,97.1,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV340,,Pholis,False,0.0,0.0,0.0,9.0,0.0,Pholis clemensi; Pholis crassispina; Pholis fangi; Pholis fasciata; Pholis gunnellus; Pholis laeta; Pholis nebulosa; Pholis ornata; Pholis picta,,Pholis gunnellus,98.2,GENUS_ONLY
-ASV346,Ctenolabrus rupestris,Ctenolabrus,True,7.0,86.4,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,UNCERTAIN
-ASV347,Ctenolabrus rupestris,Ctenolabrus,True,7.0,86.9,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,UNCERTAIN
+ASV346,Ctenolabrus rupestris,Ctenolabrus,True,7.0,86.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV347,Ctenolabrus rupestris,Ctenolabrus,True,7.0,86.9,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV351,,Salmo,False,0.0,0.0,0.0,12.0,0.0,Salmo carpio; Salmo caspius; Salmo cenerinus; Salmo ischchan; Salmo labrax; Salmo macrostigma; Salmo marmoratus; Salmo obtusirostris; Salmo pallaryi; Salmo rhodanensis,,Salmo carpio,95.9,GENUS_ONLY
 ASV352,,Salmo,False,0.0,0.0,0.0,12.0,0.0,Salmo carpio; Salmo caspius; Salmo cenerinus; Salmo ischchan; Salmo labrax; Salmo macrostigma; Salmo marmoratus; Salmo obtusirostris; Salmo pallaryi; Salmo rhodanensis,,Salmo caspius,88.2,GENUS_ONLY
-ASV353,Molva molva,Molva,True,3.0,99.3,6.0,3.0,3.0,Molva dypterygia; Molva macrophthalma; Molva molva,Molva dubia; Molva huntia; Molva palaeomorpha,Molva dypterygia,95.3,UNCERTAIN
-ASV355,Mergus merganser,Mergus,True,8.0,100.0,9.0,5.0,4.0,Mergus australis; Mergus merganser; Mergus octosetaceus; Mergus serrator; Mergus squamatus,Mergus milleneri; Mergus minutus; Mergus miscellus; Mergus spec,Mergus octosetaceus,96.9,CONFIDENT
-ASV358,Salmo labrax,Salmo,True,4.0,98.8,156.0,12.0,144.0,Salmo carpio; Salmo caspius; Salmo cenerinus; Salmo ischchan; Salmo labrax; Salmo macrostigma; Salmo marmoratus; Salmo obtusirostris; Salmo pallaryi; Salmo rhodanensis,Fario aurora; Salmo abanticus; Salmo adirondacus; Salmo akairos; Salmo alipes; Salmo americanus; Salmo aphelios; Salmo arabatsch; Salmo araxensis; Salmo arcticus,Salmo trutta,99.4,REASSIGN
-ASV359,Motacilla tschutschensis,Motacilla,True,4.0,100.0,53.0,6.0,47.0,Motacilla alba; Motacilla cinerea; Motacilla flava; Motacilla flaviventris; Motacilla grandis; Motacilla tschutschensis,Motacilla acredula; Motacilla aguimp; Motacilla arenarea; Motacilla aurorea; Motacilla borealis; Motacilla caffra; Motacilla calidris; Motacilla camtschatkensis; Motacilla capensis; Motacilla cinereocapilla,Motacilla alba,100.0,CONFIDENT
-ASV362,Scomber scombrus,Scomber,True,11.0,99.2,52.0,4.0,48.0,Scomber australasicus; Scomber colias; Scomber japonicus; Scomber scombrus,Auxis caucasica; Pneumatophorus euodus; Scomber aculeatus; Scomber ascensionis; Scomber auratus; Scomber aureus; Scomber australiensis; Scomber bimaculatus; Scomber capensis; Scomber chrisops,Scomber japonicus,93.5,UNCERTAIN
-ASV364,Zeugopterus norvegicus,Zeugopterus,True,3.0,91.1,2.0,2.0,0.0,Zeugopterus punctatus; Zeugopterus regius,,Zeugopterus regius,87.1,LIKELY
+ASV353,Molva molva,Molva,True,3.0,99.3,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV355,Mergus merganser,Mergus,True,8.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV358,Salmo labrax,Salmo,True,4.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV359,Motacilla tschutschensis,Motacilla,True,4.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV362,Scomber scombrus,Scomber,True,11.0,99.2,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV364,Zeugopterus norvegicus,Zeugopterus,True,3.0,91.1,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV365,,Pleuronectidae,,,,,,,,,,,GENUS_ONLY_NO_REF
-ASV369,Ctenolabrus rupestris,Ctenolabrus,True,7.0,85.8,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,UNCERTAIN
+ASV369,Ctenolabrus rupestris,Ctenolabrus,True,7.0,85.8,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV370,Gadus finnmarchicus,Gadus,True,2.0,85.3,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV374,,Mammalia,,,,,,,,,,,GENUS_ONLY_NO_REF
 ASV376,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,97.1,GENUS_ONLY
-ASV377,Myoxocephalus thompsonii,Myoxocephalus,True,3.0,85.7,27.0,9.0,18.0,Myoxocephalus aenaeus; Myoxocephalus brandtii; Myoxocephalus jaok; Myoxocephalus octodecemspinosus; Myoxocephalus polyacanthocephalus; Myoxocephalus quadricornis; Myoxocephalus scorpius; Myoxocephalus stelleri; Myoxocephalus thompsonii,Acanthocottus aeneus; Acanthocottus inermis; Acanthocottus mucosus; Acanthocottus ocellatus; Acanthocottus patris; Ainocottus fasciatus; Myoxocephalus batrachoides; Myoxocephalus edomius; Myoxocephalus matsubarai; Myoxocephalus niger,Myoxocephalus stelleri,85.7,UNCERTAIN
-ASV378,Entelurus aequoreus,Entelurus,True,6.0,100.0,1.0,1.0,0.0,Entelurus aequoreus,,,,CONFIDENT
+ASV377,Myoxocephalus thompsonii,Myoxocephalus,True,3.0,85.7,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV378,Entelurus aequoreus,Entelurus,True,6.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV379,Apodemus sylvaticus,Apodemus,True,6.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
-ASV385,Felis margarita,Felis,True,3.0,99.4,59.0,5.0,54.0,Felis catus; Felis chaus; Felis margarita; Felis nigripes; Felis silvestris,Felis antediluviana; Felis aphanista; Felis arundivaza; Felis atrox; Felis attica; Felis bieti; Felis borealis; Felis cafra; Felis crassidens; Felis fearonii,Felis catus,99.4,UNCERTAIN
-ASV387,Salmo labrax,Salmo,True,4.0,98.2,156.0,12.0,144.0,Salmo carpio; Salmo caspius; Salmo cenerinus; Salmo ischchan; Salmo labrax; Salmo macrostigma; Salmo marmoratus; Salmo obtusirostris; Salmo pallaryi; Salmo rhodanensis,Fario aurora; Salmo abanticus; Salmo adirondacus; Salmo akairos; Salmo alipes; Salmo americanus; Salmo aphelios; Salmo arabatsch; Salmo araxensis; Salmo arcticus,Salmo trutta,99.4,REASSIGN
-ASV388,Symphodus melops,Symphodus,True,5.0,97.8,19.0,8.0,11.0,Symphodus bailloni; Symphodus caeruleus; Symphodus cinereus; Symphodus melops; Symphodus ocellatus; Symphodus roissali; Symphodus rostratus; Symphodus trutta,Crenilabrus chrysophrus; Crenilabrus elegans; Crenilabrus hudsonius; Crenilabrus intermedius; Crenilabrus serranoides; Crenilabrus serranus; Labrus woodwardi; Symphodus doderleini; Symphodus mediterraneus; Symphodus tinca,Symphodus ocellatus,96.4,UNCERTAIN
-ASV389,Rattus norvegicus,Rattus,True,27.0,100.0,78.0,21.0,57.0,Rattus andamanensis; Rattus baluensis; Rattus exulans; Rattus fuscipes; Rattus giluwensis; Rattus hoogerwerfi; Rattus korinchi; Rattus leucopus; Rattus lutreolus; Rattus niobe,Rattus adustus; Rattus annandalei; Rattus arfakiensis; Rattus argentiventer; Rattus arrogans; Rattus assimilis; Rattus blangorum; Rattus bontanus; Rattus browni; Rattus burrus,Rattus exulans,98.8,CONFIDENT
+ASV385,Felis margarita,Felis,True,3.0,99.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV387,Salmo labrax,Salmo,True,4.0,98.2,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV388,Symphodus melops,Symphodus,True,5.0,97.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV389,Rattus norvegicus,Rattus,True,27.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV390,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,97.1,GENUS_ONLY
 ASV397,,Salmo,False,0.0,0.0,0.0,12.0,0.0,Salmo carpio; Salmo caspius; Salmo cenerinus; Salmo ischchan; Salmo labrax; Salmo macrostigma; Salmo marmoratus; Salmo obtusirostris; Salmo pallaryi; Salmo rhodanensis,,Salmo carpio,87.8,GENUS_ONLY
 ASV398,,Pleuronectidae,,,,,,,,,,,GENUS_ONLY_NO_REF
 ASV399,,Clupeidae,,,,,,,,,,,GENUS_ONLY_NO_REF
 ASV401,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,97.1,GENUS_ONLY
-ASV403,Symphodus melops,Symphodus,True,5.0,97.8,19.0,8.0,11.0,Symphodus bailloni; Symphodus caeruleus; Symphodus cinereus; Symphodus melops; Symphodus ocellatus; Symphodus roissali; Symphodus rostratus; Symphodus trutta,Crenilabrus chrysophrus; Crenilabrus elegans; Crenilabrus hudsonius; Crenilabrus intermedius; Crenilabrus serranoides; Crenilabrus serranus; Labrus woodwardi; Symphodus doderleini; Symphodus mediterraneus; Symphodus tinca,Symphodus ocellatus,95.9,UNCERTAIN
+ASV403,Symphodus melops,Symphodus,True,5.0,97.8,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV404,,Pleuronectidae,,,,,,,,,,,GENUS_ONLY_NO_REF
 ASV408,,Salmo,False,0.0,0.0,0.0,12.0,0.0,Salmo carpio; Salmo caspius; Salmo cenerinus; Salmo ischchan; Salmo labrax; Salmo macrostigma; Salmo marmoratus; Salmo obtusirostris; Salmo pallaryi; Salmo rhodanensis,,Salmo labrax,95.3,GENUS_ONLY
-ASV411,Gavia stellata,Gavia,True,10.0,100.0,14.0,5.0,9.0,Gavia adamsii; Gavia arctica; Gavia immer; Gavia pacifica; Gavia stellata,Gavia brodkorbi; Gavia concinna; Gavia egeriana; Gavia fortis; Gavia howardae; Gavia immer x arctica; Gavia moldavica; Gavia paradoxa; Gavia schultzi,Gavia arctica,92.5,CONFIDENT
+ASV411,Gavia stellata,Gavia,True,10.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV412,,Clupeidae,,,,,,,,,,,GENUS_ONLY_NO_REF
-ASV415,Melanogrammus aeglefinus,Melanogrammus,True,11.0,100.0,1.0,1.0,0.0,Melanogrammus aeglefinus,,,,CONFIDENT
-ASV416,Sorex araneus,Sorex,True,6.0,98.9,130.0,22.0,108.0,Sorex alpinus; Sorex antinorii; Sorex araneus; Sorex bedfordiae; Sorex caecutiens; Sorex cinereus; Sorex coronatus; Sorex cylindricauda; Sorex daphaenodon; Sorex excelsus,Microsorex pratensis; Neosorex lacustris; Sorex alaskanus; Sorex alpinoides; Sorex altoensis; Sorex arcticus; Sorex arizonae; Sorex arunchi; Sorex asper; Sorex averini,Sorex antinorii,98.3,UNCERTAIN
-ASV417,Scomber scombrus,Scomber,True,11.0,99.2,52.0,4.0,48.0,Scomber australasicus; Scomber colias; Scomber japonicus; Scomber scombrus,Auxis caucasica; Pneumatophorus euodus; Scomber aculeatus; Scomber ascensionis; Scomber auratus; Scomber aureus; Scomber australiensis; Scomber bimaculatus; Scomber capensis; Scomber chrisops,Scomber japonicus,93.5,UNCERTAIN
-ASV421,Ctenolabrus rupestris,Ctenolabrus,True,7.0,95.9,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,UNCERTAIN
+ASV415,Melanogrammus aeglefinus,Melanogrammus,True,11.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV416,Sorex araneus,Sorex,True,6.0,98.9,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV417,Scomber scombrus,Scomber,True,11.0,99.2,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV421,Ctenolabrus rupestris,Ctenolabrus,True,7.0,95.9,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV422,,Clupea,False,0.0,0.0,0.0,2.0,0.0,Clupea harengus; Clupea pallasii,,Clupea pallasii,95.4,GENUS_ONLY
 ASV423,,Clupeidae,,,,,,,,,,,GENUS_ONLY_NO_REF
-ASV424,Gasterosteus gymnurus,Gasterosteus,True,1.0,95.3,25.0,4.0,21.0,Gasterosteus aculeatus; Gasterosteus gymnurus; Gasterosteus nipponicus; Gasterosteus wheatlandi,Gasterosteus acanthias; Gasterosteus apeltes; Gasterosteus atherinus; Gasterosteus biaculeatus; Gasterosteus carolinensis; Gasterosteus columbarius; Gasterosteus crenobiontus; Gasterosteus glaber; Gasterosteus glaucus; Gasterosteus islandicus,Gasterosteus nipponicus,94.7,UNCERTAIN
-ASV425,Ctenolabrus rupestris,Ctenolabrus,True,7.0,94.1,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,UNCERTAIN
-ASV426,Ctenolabrus rupestris,Ctenolabrus,True,7.0,92.9,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,UNCERTAIN
+ASV424,Gasterosteus gymnurus,Gasterosteus,True,1.0,95.3,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV425,Ctenolabrus rupestris,Ctenolabrus,True,7.0,94.1,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV426,Ctenolabrus rupestris,Ctenolabrus,True,7.0,92.9,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV427,,Pollachius,False,0.0,0.0,0.0,2.0,0.0,Pollachius pollachius; Pollachius virens,,Pollachius pollachius,93.0,GENUS_ONLY
-ASV428,Ctenolabrus rupestris,Ctenolabrus,True,7.0,81.2,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,UNCERTAIN
-ASV429,Equus caballus,Equus,True,186.0,100.0,62.0,10.0,52.0,Equus asinus; Equus caballus; Equus grevyi; Equus hemionus; Equus hydruntinus; Equus kiang; Equus ovodovi; Equus przewalskii; Equus quagga; Equus zebra,Equus africanus; Equus alaskae; Equus andium; Equus australis; Equus calobatus; Equus capensis; Equus cedralensis; Equus coliemensis; Equus complicatus; Equus conversidens,Equus przewalskii,100.0,CONFIDENT
-ASV432,Pollachius virens,Pollachius,True,10.0,86.4,2.0,2.0,0.0,Pollachius pollachius; Pollachius virens,,Pollachius pollachius,85.8,LIKELY
+ASV428,Ctenolabrus rupestris,Ctenolabrus,True,7.0,81.2,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV429,Equus caballus,Equus,True,186.0,100.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV432,Pollachius virens,Pollachius,True,10.0,86.4,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV433,,Pholis,False,0.0,0.0,0.0,9.0,0.0,Pholis clemensi; Pholis crassispina; Pholis fangi; Pholis fasciata; Pholis gunnellus; Pholis laeta; Pholis nebulosa; Pholis ornata; Pholis picta,,Pholis clemensi,97.0,GENUS_ONLY
 ASV434,,Salmo,False,0.0,0.0,0.0,12.0,0.0,Salmo carpio; Salmo caspius; Salmo cenerinus; Salmo ischchan; Salmo labrax; Salmo macrostigma; Salmo marmoratus; Salmo obtusirostris; Salmo pallaryi; Salmo rhodanensis,,Salmo trutta,91.8,GENUS_ONLY
-ASV436,Pomatoschistus pictus,Pomatoschistus,True,7.0,96.4,16.0,8.0,8.0,Pomatoschistus knerii; Pomatoschistus lozanoi; Pomatoschistus marmoratus; Pomatoschistus microps; Pomatoschistus minutus; Pomatoschistus norvegicus; Pomatoschistus pictus; Pomatoschistus quagga,Pomatoschistus anatoliae; Pomatoschistus bacescui; Pomatoschistus bathi; Pomatoschistus bunyatovi; Pomatoschistus canestrinii; Pomatoschistus montenegrensis; Pomatoschistus nanus; Pomatoschistus tortonesei,Pomatoschistus minutus,92.4,UNCERTAIN
+ASV436,Pomatoschistus pictus,Pomatoschistus,True,7.0,96.4,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV437,,Gasterosteus,False,0.0,0.0,0.0,4.0,0.0,Gasterosteus aculeatus; Gasterosteus gymnurus; Gasterosteus nipponicus; Gasterosteus wheatlandi,,Gasterosteus gymnurus,93.5,GENUS_ONLY
 ASV438,,Actinopteri,,,,,,,,,,,GENUS_ONLY_NO_REF
 ASV439,,Clupeidae,,,,,,,,,,,GENUS_ONLY_NO_REF
-ASV443,Pholis crassispina,Pholis,True,7.0,98.2,15.0,9.0,6.0,Pholis clemensi; Pholis crassispina; Pholis fangi; Pholis fasciata; Pholis gunnellus; Pholis laeta; Pholis nebulosa; Pholis ornata; Pholis picta,Centronotus islandicus; Gunnellus crassispina; Gunnellus ruberrimus; Gunnellus vulgaris; Pholis nea; Pholis schultzi,Pholis fasciata,98.2,UNCERTAIN
-ASV444,Pholis crassispina,Pholis,True,7.0,98.8,15.0,9.0,6.0,Pholis clemensi; Pholis crassispina; Pholis fangi; Pholis fasciata; Pholis gunnellus; Pholis laeta; Pholis nebulosa; Pholis ornata; Pholis picta,Centronotus islandicus; Gunnellus crassispina; Gunnellus ruberrimus; Gunnellus vulgaris; Pholis nea; Pholis schultzi,Pholis fasciata,98.8,UNCERTAIN
-ASV446,Ctenolabrus rupestris,Ctenolabrus,True,7.0,92.0,2.0,1.0,1.0,Ctenolabrus rupestris,Ctenolabrus knoxi,,,UNCERTAIN
-ASV447,Labrus mixtus,Labrus,True,5.0,97.6,111.0,2.0,109.0,Labrus bergylta; Labrus mixtus,Labrus adriaticus; Labrus agon; Labrus albidus; Labrus aristatus; Labrus barffi; Labrus bobba; Labrus brunellus; Labrus caeruleus; Labrus calophthalmus; Labrus calops,,,UNCERTAIN
+ASV443,Pholis crassispina,Pholis,True,7.0,98.2,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV444,Pholis crassispina,Pholis,True,7.0,98.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV446,Ctenolabrus rupestris,Ctenolabrus,True,7.0,92.0,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV447,Labrus mixtus,Labrus,True,5.0,97.6,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV448,,Homo,False,0.0,0.0,0.0,2.0,0.0,Homo heidelbergensis; Homo sapiens,,Homo sapiens,92.4,GENUS_ONLY
 ASV449,,Salmo,False,0.0,0.0,0.0,12.0,0.0,Salmo carpio; Salmo caspius; Salmo cenerinus; Salmo ischchan; Salmo labrax; Salmo macrostigma; Salmo marmoratus; Salmo obtusirostris; Salmo pallaryi; Salmo rhodanensis,,Salmo labrax,97.1,GENUS_ONLY
-ASV450,Clupea pallasii,Clupea,True,8.0,95.4,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,,,UNCERTAIN
-ASV451,Merluccius senegalensis,Merluccius,True,2.0,89.3,38.0,12.0,26.0,Merluccius albidus; Merluccius angustimanus; Merluccius australis; Merluccius bilinearis; Merluccius capensis; Merluccius gayi; Merluccius hubbsi; Merluccius merluccius; Merluccius paradoxus; Merluccius polli,Gobius macroactus; Merluccius abreviatus; Merluccius argentatus; Merluccius athanasiui; Merluccius attenuatus; Merluccius balticus; Merluccius emarginatus; Merluccius fimbriatus; Merluccius guttatus; Merluccius hernandezi,Merluccius capensis,90.9,REASSIGN
-ASV452,Labrus bergylta,Labrus,True,7.0,93.5,111.0,2.0,109.0,Labrus bergylta; Labrus mixtus,Labrus adriaticus; Labrus agon; Labrus albidus; Labrus aristatus; Labrus barffi; Labrus bobba; Labrus brunellus; Labrus caeruleus; Labrus calophthalmus; Labrus calops,Labrus mixtus,90.9,UNCERTAIN
-ASV453,Ciliata septentrionalis,Ciliata,True,2.0,91.2,3.0,2.0,1.0,Ciliata mustela; Ciliata septentrionalis,Ciliata tchangi,Ciliata mustela,91.8,REASSIGN
-ASV454,Phoxinus bigerri,Phoxinus,True,5.0,97.1,27.0,9.0,18.0,Phoxinus bigerri; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri; Phoxinus ujmonensis,Phoxinus apollonicus; Phoxinus brachyurus; Phoxinus colchicus; Phoxinus grumi; Phoxinus issykkulensis; Phoxinus jouyi; Phoxinus karsticus; Phoxinus ketmaieri; Phoxinus krkae; Phoxinus kuldschiensis,Phoxinus fayollarum,96.6,UNCERTAIN
+ASV450,Clupea pallasii,Clupea,True,8.0,95.4,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV451,Merluccius senegalensis,Merluccius,True,2.0,89.3,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV452,Labrus bergylta,Labrus,True,7.0,93.5,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV453,Ciliata septentrionalis,Ciliata,True,2.0,91.2,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV454,Phoxinus bigerri,Phoxinus,True,5.0,97.1,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV455,,Scombriformes,,,,,,,,,,,GENUS_ONLY_NO_REF
-ASV456,Pollachius virens,Pollachius,True,10.0,95.3,2.0,2.0,0.0,Pollachius pollachius; Pollachius virens,,Pollachius pollachius,94.8,LIKELY
+ASV456,Pollachius virens,Pollachius,True,10.0,95.3,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV459,,Actinopteri,,,,,,,,,,,GENUS_ONLY_NO_REF
-ASV460,Labrus mixtus,Labrus,True,5.0,91.8,111.0,2.0,109.0,Labrus bergylta; Labrus mixtus,Labrus adriaticus; Labrus agon; Labrus albidus; Labrus aristatus; Labrus barffi; Labrus bobba; Labrus brunellus; Labrus caeruleus; Labrus calophthalmus; Labrus calops,,,UNCERTAIN
-ASV463,Clupea pallasii,Clupea,True,8.0,94.2,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,,,UNCERTAIN
-ASV464,Zeugopterus punctatus,Zeugopterus,True,2.0,91.1,2.0,2.0,0.0,Zeugopterus punctatus; Zeugopterus regius,,Zeugopterus regius,87.9,LIKELY
+ASV460,Labrus mixtus,Labrus,True,5.0,91.8,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV463,Clupea pallasii,Clupea,True,8.0,94.2,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV464,Zeugopterus punctatus,Zeugopterus,True,2.0,91.1,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV465,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus bigerri,90.3,GENUS_ONLY
-ASV467,Clupea harengus,Clupea,True,48.0,96.5,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,Clupea pallasii,95.9,UNCERTAIN
+ASV467,Clupea harengus,Clupea,True,48.0,96.5,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV468,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus fayollarum,97.1,GENUS_ONLY
 ASV469,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus phoxinus,94.9,GENUS_ONLY
-ASV470,Merluccius senegalensis,Merluccius,True,2.0,91.7,38.0,12.0,26.0,Merluccius albidus; Merluccius angustimanus; Merluccius australis; Merluccius bilinearis; Merluccius capensis; Merluccius gayi; Merluccius hubbsi; Merluccius merluccius; Merluccius paradoxus; Merluccius polli,Gobius macroactus; Merluccius abreviatus; Merluccius argentatus; Merluccius athanasiui; Merluccius attenuatus; Merluccius balticus; Merluccius emarginatus; Merluccius fimbriatus; Merluccius guttatus; Merluccius hernandezi,Merluccius merluccius,91.8,UNCERTAIN
+ASV470,Merluccius senegalensis,Merluccius,True,2.0,91.7,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV471,,Pholis,False,0.0,0.0,0.0,9.0,0.0,Pholis clemensi; Pholis crassispina; Pholis fangi; Pholis fasciata; Pholis gunnellus; Pholis laeta; Pholis nebulosa; Pholis ornata; Pholis picta,,Pholis clemensi,96.4,GENUS_ONLY
 ASV472,,Symphodus,False,0.0,0.0,0.0,8.0,0.0,Symphodus bailloni; Symphodus caeruleus; Symphodus cinereus; Symphodus melops; Symphodus ocellatus; Symphodus roissali; Symphodus rostratus; Symphodus trutta,,Symphodus melops,89.1,GENUS_ONLY
-ASV474,Myoxocephalus quadricornis,Myoxocephalus,True,5.0,95.9,27.0,9.0,18.0,Myoxocephalus aenaeus; Myoxocephalus brandtii; Myoxocephalus jaok; Myoxocephalus octodecemspinosus; Myoxocephalus polyacanthocephalus; Myoxocephalus quadricornis; Myoxocephalus scorpius; Myoxocephalus stelleri; Myoxocephalus thompsonii,Acanthocottus aeneus; Acanthocottus inermis; Acanthocottus mucosus; Acanthocottus ocellatus; Acanthocottus patris; Ainocottus fasciatus; Myoxocephalus batrachoides; Myoxocephalus edomius; Myoxocephalus matsubarai; Myoxocephalus niger,Myoxocephalus stelleri,95.9,UNCERTAIN
-ASV475,Labrus mixtus,Labrus,True,5.0,94.1,111.0,2.0,109.0,Labrus bergylta; Labrus mixtus,Labrus adriaticus; Labrus agon; Labrus albidus; Labrus aristatus; Labrus barffi; Labrus bobba; Labrus brunellus; Labrus caeruleus; Labrus calophthalmus; Labrus calops,,,UNCERTAIN
-ASV477,Molva molva,Molva,True,3.0,99.3,6.0,3.0,3.0,Molva dypterygia; Molva macrophthalma; Molva molva,Molva dubia; Molva huntia; Molva palaeomorpha,Molva dypterygia,95.3,UNCERTAIN
-ASV478,Clupea pallasii,Clupea,True,8.0,98.3,61.0,2.0,59.0,Clupea harengus; Clupea pallasii,Clupea anomalura; Clupea arcuata; Clupea arezedi; Clupea beurardi; Clupea brevis; Clupea chinensis; Clupea chrysotaenia; Clupea curta; Clupea dentex; Clupea elongata,,,UNCERTAIN
+ASV474,Myoxocephalus quadricornis,Myoxocephalus,True,5.0,95.9,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV475,Labrus mixtus,Labrus,True,5.0,94.1,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV477,Molva molva,Molva,True,3.0,99.3,0.0,0.0,0.0,,,,,NO_CONGENERS
+ASV478,Clupea pallasii,Clupea,True,8.0,98.3,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV479,,Phoxinus,False,0.0,0.0,0.0,11.0,0.0,Phoxinus bigerri; Phoxinus csikii; Phoxinus dragarum; Phoxinus fayollarum; Phoxinus keumkang; Phoxinus lumaireul; Phoxinus phoxinus; Phoxinus semotilus; Phoxinus septimaniae; Phoxinus steindachneri,,Phoxinus bigerri,97.7,GENUS_ONLY
-ASV481,Pholis gunnellus,Pholis,True,8.0,98.2,15.0,9.0,6.0,Pholis clemensi; Pholis crassispina; Pholis fangi; Pholis fasciata; Pholis gunnellus; Pholis laeta; Pholis nebulosa; Pholis ornata; Pholis picta,Centronotus islandicus; Gunnellus crassispina; Gunnellus ruberrimus; Gunnellus vulgaris; Pholis nea; Pholis schultzi,Pholis fasciata,97.0,UNCERTAIN
+ASV481,Pholis gunnellus,Pholis,True,8.0,98.2,0.0,0.0,0.0,,,,,NO_CONGENERS
 ASV482,,Merluccius,False,0.0,0.0,0.0,12.0,0.0,Merluccius albidus; Merluccius angustimanus; Merluccius australis; Merluccius bilinearis; Merluccius capensis; Merluccius gayi; Merluccius hubbsi; Merluccius merluccius; Merluccius paradoxus; Merluccius polli,,Merluccius capensis,90.2,GENUS_ONLY
