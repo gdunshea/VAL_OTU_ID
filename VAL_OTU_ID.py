@@ -656,7 +656,7 @@ async def validate_species_geography(species_list, bbox):
 # =============================================================================
 
 def parse_midori_fasta(fasta_path, target_genera):
-    """Parse MIDORI2 FASTA and index by species for target genera only."""
+    """Parse reference database FASTA and index by species for target genera only."""
     db_index = defaultdict(list)
     
     # Count lines first for progress
@@ -675,7 +675,7 @@ def parse_midori_fasta(fasta_path, target_genera):
         current_header = None
         current_seq = []
         
-        pbar = tqdm(total=n_seqs, desc="    Parsing MIDORI2", unit="seq")
+        pbar = tqdm(total=n_seqs, desc="    Parsing database", unit="seq")
         
         for line in f:
             line = line.strip()
@@ -710,19 +710,99 @@ def parse_midori_fasta(fasta_path, target_genera):
     return db_index
 
 
+def parse_midori_fasta_all(fasta_path):
+    """Parse reference database FASTA and index ALL species (no genus filter).
+    
+    Used as fallback when taxonomy uses non-standard ranks (e.g., SILVA).
+    """
+    db_index = defaultdict(list)
+    
+    # Count lines first for progress
+    print(f"    Counting sequences...")
+    n_seqs = 0
+    with open(fasta_path, 'r') as f:
+        for line in f:
+            if line.startswith('>'):
+                n_seqs += 1
+    print(f"    Found {n_seqs:,} sequences in database")
+    
+    print(f"    Indexing ALL species (no genus filter)...")
+    indexed = 0
+    unique_species = set()
+    
+    with open(fasta_path, 'r') as f:
+        current_header = None
+        current_seq = []
+        
+        pbar = tqdm(total=n_seqs, desc="    Parsing database", unit="seq")
+        
+        for line in f:
+            line = line.strip()
+            if line.startswith('>'):
+                # Save previous sequence
+                if current_header and current_seq:
+                    species = extract_species_from_midori_header(current_header)
+                    if species:
+                        db_index[species].append(''.join(current_seq))
+                        unique_species.add(species)
+                        indexed += 1
+                
+                pbar.update(1)
+                if indexed % 10000 == 0:
+                    pbar.set_postfix({'indexed': indexed, 'species': len(unique_species)})
+                
+                current_header = line[1:]  # Remove >
+                current_seq = []
+            else:
+                current_seq.append(line)
+        
+        # Don't forget last sequence
+        if current_header and current_seq:
+            species = extract_species_from_midori_header(current_header)
+            if species:
+                db_index[species].append(''.join(current_seq))
+                unique_species.add(species)
+        
+        pbar.close()
+    
+    return db_index
+
+
 def extract_species_from_midori_header(header):
-    """Extract species name from MIDORI2 header format."""
-    # Format: Kingdom;Phylum;...;Genus_ID;Species name_ID;
-    parts = header.split(';')
-    if len(parts) >= 2:
-        # Last non-empty part should be species
-        species_part = parts[-2] if parts[-1] == '' else parts[-1]
-        # Remove trailing ID number
-        species = re.sub(r'_\d+$', '', species_part)
-        # Clean up
-        species = species.replace('_', ' ').strip()
-        if ' ' in species:  # Should be binomial
-            return species
+    """Extract species name from reference database header format.
+    
+    Handles multiple formats:
+    - MIDORI2: Kingdom_ID;Phylum_ID;...;Genus_ID;Genus species_ID;
+    - SILVA: Kingdom;Phylum;...;Genus_species_(common);AccessionNumber;
+    """
+    parts = [p.strip() for p in header.split(';') if p.strip()]
+    
+    if len(parts) < 2:
+        return None
+    
+    # Try each part from the end, looking for a valid binomial species name
+    for part in reversed(parts):
+        # Skip obvious accession numbers (contain only dots/numbers after initial chars)
+        if re.match(r'^[A-Z]{1,3}\d+\.\d+', part):
+            continue
+        
+        # MIDORI2 format: "Genus species_123456" 
+        # Remove trailing _ID number
+        cleaned = re.sub(r'_\d+$', '', part)
+        cleaned = cleaned.replace('_', ' ').strip()
+        
+        # Check if it's a valid binomial (two words, first capitalized)
+        words = cleaned.split()
+        if len(words) >= 2:
+            # Handle SILVA format with parenthetical common names: "Homo sapiens (human)"
+            # Take just the first two words as the binomial
+            genus = words[0]
+            # Remove any parenthetical content from species epithet
+            epithet = re.sub(r'\s*\([^)]*\)\s*', '', words[1]).strip()
+            
+            if genus and genus[0].isupper() and epithet and epithet[0].islower():
+                return f"{genus} {epithet}"
+    
     return None
 
 
@@ -790,6 +870,133 @@ def calculate_identity_vsearch(seq1, seq2):
     return 0
 
 
+def find_best_db_match(asv_seq, db_index, limit_species=None):
+    """Find the best matching species in the database for a given ASV sequence.
+    
+    Args:
+        asv_seq: The ASV sequence to match
+        db_index: Dictionary mapping species names to list of reference sequences
+        limit_species: Optional list of species to search (if None, searches all)
+    
+    Returns:
+        Tuple of (best_species, best_pct) or (None, None) if no match found
+    """
+    if not asv_seq or not db_index:
+        return None, None
+    
+    best_species = None
+    best_pct = 0
+    
+    search_species = limit_species if limit_species else sorted(db_index.keys())
+    
+    # Performance optimization: if searching very large database, sample species
+    # This trades off comprehensiveness for speed
+    if len(search_species) > 5000:
+        # Take every Nth species to get ~2000 samples
+        step = max(1, len(search_species) // 2000)
+        search_species = search_species[::step]
+    
+    for sp in search_species:
+        # Check up to 3 reference sequences per species
+        for ref_seq in db_index.get(sp, [])[:3]:
+            pct = calculate_sequence_identity(asv_seq, ref_seq)
+            if pct > best_pct:
+                best_pct = pct
+                best_species = sp
+    
+    if best_species:
+        return best_species, round(best_pct, 1)
+    else:
+        return None, None
+
+
+def batch_search_best_matches(asv_sequences, midori_path):
+    """Batch search for best database matches using vsearch.
+    
+    Much faster than individual searches when many ASVs need broad search.
+    
+    Args:
+        asv_sequences: Dict mapping ASV_ID to sequence
+        midori_path: Path to reference database FASTA
+    
+    Returns:
+        Dict mapping ASV_ID to (best_species, best_pct)
+    """
+    import tempfile
+    import os
+    
+    if not asv_sequences:
+        return {}
+    
+    results = {}
+    
+    # Check if vsearch is available
+    try:
+        subprocess.run([CONFIG['vsearch_path'], '--version'], 
+                      capture_output=True, check=True)
+    except (FileNotFoundError, subprocess.CalledProcessError):
+        print("    WARNING: vsearch not available for batch search")
+        print("    Falling back to slower individual searches...")
+        return None  # Signal to use fallback
+    
+    with tempfile.TemporaryDirectory() as tmpdir:
+        # Write ASV sequences to temp file
+        query_file = os.path.join(tmpdir, 'query.fasta')
+        output_file = os.path.join(tmpdir, 'results.tsv')
+        
+        with open(query_file, 'w') as f:
+            for asv_id, seq in asv_sequences.items():
+                f.write(f">{asv_id}\n{seq}\n")
+        
+        # Run vsearch
+        try:
+            result = subprocess.run([
+                CONFIG['vsearch_path'],
+                '--usearch_global', query_file,
+                '--db', midori_path,
+                '--id', '0.5',  # Low threshold to find best match
+                '--maxaccepts', '1',
+                '--maxrejects', '32',
+                '--userout', output_file,
+                '--userfields', 'query+target+id',
+                '--threads', '4',
+                '--quiet'
+            ], capture_output=True, text=True, timeout=3600)  # 1 hour timeout
+            
+            if result.returncode != 0:
+                print(f"    WARNING: vsearch failed: {result.stderr}")
+                return None
+            
+            # Parse results
+            if os.path.exists(output_file):
+                with open(output_file, 'r') as f:
+                    for line in f:
+                        parts = line.strip().split('\t')
+                        if len(parts) >= 3:
+                            asv_id = parts[0]
+                            target_header = parts[1]
+                            pct_id = float(parts[2])
+                            
+                            # Extract species from header
+                            species = extract_species_from_midori_header(target_header)
+                            if species:
+                                results[asv_id] = (species, round(pct_id, 1))
+            
+            # Fill in missing ASVs with None
+            for asv_id in asv_sequences:
+                if asv_id not in results:
+                    results[asv_id] = (None, None)
+                    
+        except subprocess.TimeoutExpired:
+            print("    WARNING: vsearch timed out")
+            return None
+        except Exception as e:
+            print(f"    WARNING: vsearch error: {e}")
+            return None
+    
+    return results
+
+
 async def validate_database_coverage(taxonomy_df, sequences, midori_path, bbox, species_column):
     """Validate taxonomy assignments against MIDORI2 database."""
     results = []
@@ -812,10 +1019,20 @@ async def validate_database_coverage(taxonomy_df, sequences, midori_path, bbox, 
     
     print(f"  Found {len(genera)} unique genera to check")
     
-    # Parse MIDORI2 for relevant genera
-    print(f"  Parsing MIDORI2 database (this may take a minute)...")
+    # Parse reference database for relevant genera
+    print(f"  Parsing reference database (this may take a minute)...")
     db_index = parse_midori_fasta(midori_path, genera)
-    print(f"  Indexed {len(db_index)} species from MIDORI2")
+    print(f"  Indexed {len(db_index)} species from reference database")
+    
+    # Fallback: If very few species were indexed despite having genera,
+    # the taxonomy might use non-standard ranks (e.g., SILVA)
+    # In this case, index ALL species from the database
+    if len(genera) > 0 and len(db_index) == 0:
+        print(f"  WARNING: No species found matching genera in taxonomy!")
+        print(f"           This may indicate non-standard taxonomy ranks (e.g., SILVA)")
+        print(f"           Falling back to indexing ALL species from database...")
+        db_index = parse_midori_fasta_all(midori_path)
+        print(f"  Indexed {len(db_index)} species (full database)")
     
     # Get congeners for each genus from GBIF
     print(f"  Querying GBIF for regional congeners...")
@@ -838,6 +1055,31 @@ async def validate_database_coverage(taxonomy_df, sequences, midori_path, bbox, 
             pbar.update(len(batch))
         pbar.close()
     
+    # Pre-compute best matches for ALL ASVs using batch vsearch
+    # This is MUCH faster than doing individual searches in the loop
+    print(f"  Pre-computing best database matches for all ASVs...")
+    
+    # Collect all ASVs with sequences
+    asvs_with_sequences = {}
+    for idx, row in taxonomy_df.iterrows():
+        asv_id = row.get('ASV_ID', f'ASV{idx}')
+        asv_seq = sequences.get(asv_id, '')
+        if asv_seq:
+            asvs_with_sequences[asv_id] = asv_seq
+    
+    print(f"    {len(asvs_with_sequences)} ASVs have sequences")
+    
+    # Batch process using vsearch
+    broad_search_results = {}
+    if len(asvs_with_sequences) > 0:
+        batch_results = batch_search_best_matches(asvs_with_sequences, midori_path)
+        if batch_results is not None:
+            broad_search_results = batch_results
+            n_matches = sum(1 for v in broad_search_results.values() if v[0] is not None)
+            print(f"    Found best matches for {n_matches}/{len(asvs_with_sequences)} ASVs")
+        else:
+            print(f"    Batch search unavailable - will compute matches as needed (slower)")
+    
     # Validate each ASV
     print(f"  Validating ASV sequences...")
     total_asvs = len(taxonomy_df)
@@ -854,19 +1096,39 @@ async def validate_database_coverage(taxonomy_df, sequences, midori_path, bbox, 
             if genus_from_tax and pd.notna(genus_from_tax) and str(genus_from_tax).strip() and asv_seq:
                 genus = str(genus_from_tax).strip()
                 
-                # Find all species in this genus from MIDORI2
+                # Find all species in this genus from reference database
                 genus_species = [sp for sp in db_index.keys() if get_genus(sp) == genus]
                 
+                # Fallback: If no species match this "genus" (likely non-standard taxonomy like SILVA),
+                # search among ALL indexed species
+                if not genus_species and len(db_index) > 0:
+                    # Use pre-computed result if available
+                    if asv_id in broad_search_results:
+                        best_species, best_pct = broad_search_results[asv_id]
+                    else:
+                        best_species, best_pct = find_best_db_match(asv_seq, db_index)
+                    
+                    results.append({
+                        'ASV_ID': asv_id,
+                        'assigned_species': None,
+                        'genus': genus,
+                        'assigned_in_db': False,
+                        'assigned_n_refs': 0,
+                        'assigned_pct_identity': 0,
+                        'n_congeners_in_region': 0,
+                        'n_congeners_in_db': 0,
+                        'n_congeners_missing': 0,
+                        'congeners_in_db': '',
+                        'congeners_missing': '',
+                        'best_congener': best_species,
+                        'best_congener_pct_identity': best_pct,
+                        'validation_flag': 'GENUS_ONLY_BROAD_SEARCH'
+                    })
+                    continue
+                
                 if genus_species:
-                    # Find best matching species
-                    best_species = None
-                    best_pct = 0
-                    for sp in genus_species:
-                        for ref_seq in db_index[sp][:3]:
-                            pct = calculate_sequence_identity(asv_seq, ref_seq)
-                            if pct > best_pct:
-                                best_pct = pct
-                                best_species = sp
+                    # Find best matching species within this genus
+                    best_species, best_pct = find_best_db_match(asv_seq, db_index, limit_species=genus_species)
                     
                     results.append({
                         'ASV_ID': asv_id,
@@ -881,22 +1143,70 @@ async def validate_database_coverage(taxonomy_df, sequences, midori_path, bbox, 
                         'congeners_in_db': '; '.join(sorted(genus_species)[:10]),
                         'congeners_missing': '',
                         'best_congener': best_species,
-                        'best_congener_pct_identity': round(best_pct, 1) if best_species else None,
+                        'best_congener_pct_identity': best_pct,
                         'validation_flag': 'GENUS_ONLY'
+                    })
+                else:
+                    # No species from this genus in database - search ALL species
+                    if asv_seq and len(db_index) > 0:
+                        # Use pre-computed result if available
+                        if asv_id in broad_search_results:
+                            best_species, best_pct = broad_search_results[asv_id]
+                        else:
+                            best_species, best_pct = find_best_db_match(asv_seq, db_index)
+                        results.append({
+                            'ASV_ID': asv_id,
+                            'assigned_species': None,
+                            'genus': genus,
+                            'assigned_in_db': False,
+                            'assigned_n_refs': 0,
+                            'assigned_pct_identity': 0,
+                            'n_congeners_in_region': 0,
+                            'n_congeners_in_db': 0,
+                            'n_congeners_missing': 0,
+                            'congeners_in_db': '',
+                            'congeners_missing': '',
+                            'best_congener': best_species,
+                            'best_congener_pct_identity': best_pct,
+                            'validation_flag': 'GENUS_ONLY_NO_REF'
+                        })
+                    else:
+                        results.append({
+                            'ASV_ID': asv_id,
+                            'assigned_species': None,
+                            'genus': genus,
+                            'validation_flag': 'GENUS_ONLY_NO_REF'
+                        })
+            else:
+                # No genus information - search ALL species if we have a sequence
+                if asv_seq and len(db_index) > 0:
+                    # Use pre-computed result if available
+                    if asv_id in broad_search_results:
+                        best_species, best_pct = broad_search_results[asv_id]
+                    else:
+                        best_species, best_pct = find_best_db_match(asv_seq, db_index)
+                    results.append({
+                        'ASV_ID': asv_id,
+                        'assigned_species': None,
+                        'genus': None,
+                        'assigned_in_db': False,
+                        'assigned_n_refs': 0,
+                        'assigned_pct_identity': 0,
+                        'n_congeners_in_region': 0,
+                        'n_congeners_in_db': 0,
+                        'n_congeners_missing': 0,
+                        'congeners_in_db': '',
+                        'congeners_missing': '',
+                        'best_congener': best_species,
+                        'best_congener_pct_identity': best_pct,
+                        'validation_flag': 'NO_SPECIES_BROAD_SEARCH'
                     })
                 else:
                     results.append({
                         'ASV_ID': asv_id,
                         'assigned_species': None,
-                        'genus': genus,
-                        'validation_flag': 'GENUS_ONLY_NO_REF'
+                        'validation_flag': None
                     })
-            else:
-                results.append({
-                    'ASV_ID': asv_id,
-                    'assigned_species': None,
-                    'validation_flag': None
-                })
             continue
         
         species = str(species).strip()
@@ -942,8 +1252,22 @@ async def validate_database_coverage(taxonomy_df, sequences, midori_path, bbox, 
         # Determine validation flag
         if not assigned_in_db:
             flag = 'NO_REF'
+            # If assigned species not in DB and no congener match found, do full search
+            if not best_congener and asv_seq:
+                # Use pre-computed result if available
+                if asv_id in broad_search_results:
+                    best_congener, best_congener_pct = broad_search_results[asv_id]
+                else:
+                    best_congener, best_congener_pct = find_best_db_match(asv_seq, db_index)
         elif not regional_congeners:
             flag = 'NO_CONGENERS'
+            # If no regional congeners and no good match, do full search
+            if not best_congener and asv_seq:
+                # Use pre-computed result if available
+                if asv_id in broad_search_results:
+                    best_congener, best_congener_pct = broad_search_results[asv_id]
+                else:
+                    best_congener, best_congener_pct = find_best_db_match(asv_seq, db_index)
         elif best_congener_pct > assigned_pct + 0.5:
             flag = 'REASSIGN'
         elif len(congeners_missing) > 0 and assigned_pct < 100:
@@ -1609,8 +1933,18 @@ def run_pipeline(taxonomy_csv, sequences_fasta, midori_path, bbox, species_colum
     tax_df = pd.read_csv(taxonomy_csv)
     if 'Unnamed: 0' in tax_df.columns:
         tax_df = tax_df.rename(columns={'Unnamed: 0': 'ASV_ID'})
-    elif 'ASV_ID' not in tax_df.columns:
+    elif 'ASV_ID' not in tax_df.columns and 'asv_id' not in [c.lower() for c in tax_df.columns]:
         tax_df['ASV_ID'] = [f'ASV{i+1}' for i in range(len(tax_df))]
+    
+    # Normalize column names to lowercase for consistency
+    # This handles files with "Kingdom" vs "kingdom", "Species" vs "species", etc.
+    tax_df.columns = [c.lower() if c.lower() in ['asv_id', 'kingdom', 'phylum', 'class', 'order', 
+                                                   'family', 'genus', 'species', 'domain'] 
+                      else c for c in tax_df.columns]
+    
+    # Also handle ASV_ID case variations
+    if 'asv_id' in tax_df.columns and 'ASV_ID' not in tax_df.columns:
+        tax_df = tax_df.rename(columns={'asv_id': 'ASV_ID'})
     
     print(f"  Loaded {len(tax_df)} ASVs")
     
@@ -1632,6 +1966,10 @@ def run_pipeline(taxonomy_csv, sequences_fasta, midori_path, bbox, species_colum
         if current_id and current_seq:
             sequences[current_id] = ''.join(current_seq)
     print(f"  Loaded {len(sequences)} sequences")
+    
+    # Normalize species_column to lowercase if it matches a normalized column
+    if species_column not in tax_df.columns and species_column.lower() in tax_df.columns:
+        species_column = species_column.lower()
     
     # Get species list
     species_list = tax_df[species_column].dropna().unique().tolist()
@@ -1697,7 +2035,7 @@ def run_pipeline(taxonomy_csv, sequences_fasta, midori_path, bbox, species_colum
     
     # Print summary
     print("\nDatabase Validation Summary:")
-    for flag in ['CONFIDENT', 'LIKELY', 'UNCERTAIN', 'REASSIGN', 'NO_REF', 'NO_CONGENERS']:
+    for flag in ['CONFIDENT', 'LIKELY', 'UNCERTAIN', 'REASSIGN', 'NO_REF', 'NO_CONGENERS', 'GENUS_ONLY', 'GENUS_ONLY_BROAD_SEARCH', 'GENUS_ONLY_NO_REF', 'NO_SPECIES_BROAD_SEARCH']:
         count = (db_results['validation_flag'] == flag).sum()
         if count > 0:
             print(f"  {flag}: {count}")
