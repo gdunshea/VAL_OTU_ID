@@ -11,7 +11,7 @@
 
 <meta name="author" content="Glenn Dunshea - with Claude AI for python script refinement" />
 
-<meta name="date" content="2025-12-03" />
+<meta name="date" content="2025-12-09" />
 
 <title>VAL_OTU_ID: eDNA Taxonomy Validation Pipeline</title>
 
@@ -2905,7 +2905,7 @@ Pipeline</h1>
 <h3 class="subtitle">Detailed Instructions and Decision Logic</h3>
 <h4 class="author">Glenn Dunshea - with Claude AI for python script
 refinement</h4>
-<h4 class="date">2025-12-03</h4>
+<h4 class="date">2025-12-09</h4>
 
 </div>
 
@@ -2970,7 +2970,8 @@ profiles).</li>
 file or CSV with species assignments</li>
 <li><strong>ASV sequences</strong>: FASTA file (extracted automatically
 from <code>.rds</code>)</li>
-<li><strong>Reference database</strong>: MIDORI2 FASTA file</li>
+<li><strong>Reference database</strong>: A reference database FASTA file
+in dada2 format</li>
 <li><strong>Study area</strong>: Bounding box coordinates (minLon,
 minLat, maxLon, maxLat)</li>
 </ol>
@@ -3002,7 +3003,7 @@ and a fasta file of the the sequences of each ASV/OTU can be used.</p>
 </tr>
 <tr class="even">
 <td><code>*_database_validated.csv</code></td>
-<td>MIDORI2 sequence comparison results</td>
+<td>Ref DB sequence comparison results</td>
 </tr>
 <tr class="odd">
 <td><code>*_combined_decisions.csv</code></td>
@@ -3025,8 +3026,8 @@ and a fasta file of the the sequences of each ASV/OTU can be used.</p>
 and OBIS using a <strong>tiered bounding box approach</strong>:</p>
 <p>The bounding box is defined for the study area and can be specified
 by the user</p>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-d484db076555fab6e670" style="width:768px;height:672px;"></div>
-<script type="application/json" data-for="htmlwidget-d484db076555fab6e670">{"x":{"diagram":"\ndigraph geographic_validation {\n  graph [rankdir=TB, fontname=\"Helvetica\", nodesep=0.25, ranksep=0.35]\n  node [shape=box, style=\"filled,rounded\", fontname=\"Helvetica\", fontsize=14, margin=\"0.12,0.06\"]\n  edge [fontname=\"Helvetica\", fontsize=12, penwidth=1.3]\n  \n  start [label=\"Query GBIF/OBIS\\nfor species records\", fillcolor=\"#E8F4FD\", shape=ellipse, fontsize=14]\n  \n  tier1 [label=\"Records in study area?\", fillcolor=\"#FFEAA7\", shape=diamond, width=2]\n  tier2 [label=\"Records in buffer zone?\", fillcolor=\"#FFEAA7\", shape=diamond, width=2]\n  tier3 [label=\"Records in threshold zone?\", fillcolor=\"#FFEAA7\", shape=diamond, width=2.2]\n  tier4 [label=\"Any global records?\", fillcolor=\"#FFEAA7\", shape=diamond, width=1.8]\n  \n  confirmed [label=\"CONFIRMED\", fillcolor=\"#55EFC4\", fontsize=14]\n  plausible [label=\"PLAUSIBLE\", fillcolor=\"#81ECEC\", fontsize=14]\n  possible [label=\"POSSIBLE\", fillcolor=\"#74B9FF\", fontsize=14]\n  doubtful [label=\"DOUBTFUL\", fillcolor=\"#FF7675\", fontcolor=\"white\", fontsize=14]\n  no_records [label=\"NO_RECORDS\", fillcolor=\"#636E72\", fontcolor=\"white\", fontsize=14]\n  \n  start -> tier1\n  tier1 -> confirmed [label=\"YES\"]\n  tier1 -> tier2 [label=\"NO\"]\n  tier2 -> plausible [label=\"YES\"]\n  tier2 -> tier3 [label=\"NO\"]\n  tier3 -> possible [label=\"YES\"]\n  tier3 -> tier4 [label=\"NO\"]\n  tier4 -> doubtful [label=\"YES\"]\n  tier4 -> no_records [label=\"NO\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-978dee24b9aa12c4924c" style="width:768px;height:672px;"></div>
+<script type="application/json" data-for="htmlwidget-978dee24b9aa12c4924c">{"x":{"diagram":"\ndigraph geographic_validation {\n  graph [rankdir=TB, fontname=\"Helvetica\", nodesep=0.25, ranksep=0.35]\n  node [shape=box, style=\"filled,rounded\", fontname=\"Helvetica\", fontsize=14, margin=\"0.12,0.06\"]\n  edge [fontname=\"Helvetica\", fontsize=12, penwidth=1.3]\n  \n  start [label=\"Query GBIF/OBIS\\nfor species records\", fillcolor=\"#E8F4FD\", shape=ellipse, fontsize=14]\n  \n  tier1 [label=\"Records in study area?\", fillcolor=\"#FFEAA7\", shape=diamond, width=2]\n  tier2 [label=\"Records in buffer zone?\", fillcolor=\"#FFEAA7\", shape=diamond, width=2]\n  tier3 [label=\"Records in threshold zone?\", fillcolor=\"#FFEAA7\", shape=diamond, width=2.2]\n  tier4 [label=\"Any global records?\", fillcolor=\"#FFEAA7\", shape=diamond, width=1.8]\n  \n  confirmed [label=\"CONFIRMED\", fillcolor=\"#55EFC4\", fontsize=14]\n  plausible [label=\"PLAUSIBLE\", fillcolor=\"#81ECEC\", fontsize=14]\n  possible [label=\"POSSIBLE\", fillcolor=\"#74B9FF\", fontsize=14]\n  doubtful [label=\"DOUBTFUL\", fillcolor=\"#FF7675\", fontcolor=\"white\", fontsize=14]\n  no_records [label=\"NO_RECORDS\", fillcolor=\"#636E72\", fontcolor=\"white\", fontsize=14]\n  \n  start -> tier1\n  tier1 -> confirmed [label=\"YES\"]\n  tier1 -> tier2 [label=\"NO\"]\n  tier2 -> plausible [label=\"YES\"]\n  tier2 -> tier3 [label=\"NO\"]\n  tier3 -> possible [label=\"YES\"]\n  tier3 -> tier4 [label=\"NO\"]\n  tier4 -> doubtful [label=\"YES\"]\n  tier4 -> no_records [label=\"NO\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="geographic-assessment-categories" class="section level2">
 <h2>Geographic Assessment Categories</h2>
@@ -3095,7 +3096,7 @@ exist</li>
 <p>For each ASV, the pipeline:</p>
 <ol style="list-style-type: decimal">
 <li><strong>Extracts the genus</strong> from the DADA2 assignment</li>
-<li><strong>Indexes all species of that genus</strong> from MIDORI2</li>
+<li><strong>Indexes all species of that genus</strong> from Ref. DB</li>
 <li><strong>Calculates sequence identity</strong> between the ASV and
 all reference sequences</li>
 <li><strong>Identifies the best-matching species</strong></li>
@@ -3137,7 +3138,7 @@ K-mer similarity is NOT equivalent to true sequence identity.</p>
 </tr>
 <tr class="odd">
 <td><strong>UNCERTAIN</strong></td>
-<td>Some regional congeners missing from MIDORI2</td>
+<td>Some regional congeners missing from Ref. DB</td>
 </tr>
 <tr class="even">
 <td><strong>REASSIGN</strong></td>
@@ -3145,7 +3146,7 @@ K-mer similarity is NOT equivalent to true sequence identity.</p>
 </tr>
 <tr class="odd">
 <td><strong>NO_REF</strong></td>
-<td>Assigned species not in MIDORI2</td>
+<td>Assigned species not in Ref. DB</td>
 </tr>
 <tr class="even">
 <td><strong>NO_CONGENERS</strong></td>
@@ -3205,9 +3206,9 @@ happens to match better in the database. For example:</p>
 </div>
 <div id="master-decision-flowchart" class="section level2">
 <h2>Master Decision Flowchart</h2>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-ba6d8315cc05dc342613" style="width:960px;height:1056px;"></div>
-<script type="application/json" data-for="htmlwidget-ba6d8315cc05dc342613">{"x":{"diagram":"\ndigraph decision_tree {\n  graph [rankdir=TB, fontname=\"Helvetica\", nodesep=0.2, ranksep=0.3]\n  node [shape=box, style=\"filled,rounded\", fontname=\"Helvetica\", fontsize=13, margin=\"0.1,0.05\"]\n  edge [fontname=\"Helvetica\", fontsize=11, penwidth=1.2]\n  \n  # Start\n  start [label=\"START: ASV with taxonomy\", fillcolor=\"#E8F4FD\", shape=ellipse, fontsize=14]\n  \n  # Check 1\n  check_sp [label=\"Has species-level ID?\", fillcolor=\"#FFEAA7\", shape=diamond, width=2]\n  already [label=\"ALREADY_GENUS\", fillcolor=\"#B2BEC3\"]\n  \n  # Check 2 - Ref. DB sequence check\n  seq_ok [label=\"Ref. DB: Sequence ≥ min_species_pct?\", fillcolor=\"#FFEAA7\", shape=diamond, width=2.8]\n  \n  # Low seq - use rank for side placement\n  drop_g1 [label=\"DROP_TO_GENUS\", fillcolor=\"#FDCB6E\"]\n  drop_f [label=\"DROP_TO_FAMILY\", fillcolor=\"#E17055\", fontcolor=white]\n  drop_o [label=\"DROP_TO_ORDER\", fillcolor=\"#D63031\", fontcolor=white]\n  \n  # Check 3 - Ref. DB congener check\n  db_chk [label=\"Ref. DB: Better-matching congener?\", fillcolor=\"#FFEAA7\", shape=diamond, width=2.8]\n  \n  # Two main branches - GBIF/OBIS checks\n  geo [label=\"GBIF/OBIS: Geographic assessment?\", fillcolor=\"#74B9FF\", shape=diamond, width=2.6]\n  cong_loc [label=\"GBIF/OBIS: Is congener local?\", fillcolor=\"#74B9FF\", shape=diamond, width=2.4]\n  \n  # Geo branch outcomes\n  keep_hi [label=\"KEEP (high)\", fillcolor=\"#00B894\", fontcolor=white]\n  keep_md [label=\"KEEP (medium)\", fillcolor=\"#55EFC4\"]\n  doubt [label=\"GBIF/OBIS: Local congeners exist?\", fillcolor=\"#FFEAA7\", shape=diamond, width=2.6]\n  drop_g2 [label=\"DROP_TO_GENUS\", fillcolor=\"#FDCB6E\"]\n  \n  # Congener branch - not local\n  asgn_ok [label=\"Assigned sp. local (GBIF/OBIS)\\n& meets seq threshold (Ref. DB)?\", fillcolor=\"#FFEAA7\", shape=diamond, width=2.8]\n  keep_nl [label=\"KEEP\", fillcolor=\"#55EFC4\"]\n  drop_g3 [label=\"DROP_TO_GENUS\", fillcolor=\"#FDCB6E\"]\n  \n  # Congener branch - is local\n  n_local [label=\"GBIF/OBIS: # local\\ncongeners?\", fillcolor=\"#FFEAA7\", shape=diamond, width=2]\n  reass1 [label=\"REASSIGN\", fillcolor=\"#00B894\", fontcolor=white]\n  pct_ok [label=\"Ref. DB: Seq diff\\n≥ reassign_diff_pct?\", fillcolor=\"#FFEAA7\", shape=diamond, width=2]\n  reass2 [label=\"REASSIGN\", fillcolor=\"#00B894\", fontcolor=white]\n  drop_g4 [label=\"DROP_TO_GENUS\", fillcolor=\"#FDCB6E\"]\n  \n  # Layout hints\n  {rank=same; already; seq_ok}\n  {rank=same; drop_g1; drop_f; drop_o}\n  {rank=same; geo; cong_loc}\n  {rank=same; keep_hi; keep_md; asgn_ok; n_local}\n  {rank=same; doubt; keep_nl; drop_g3; reass1; pct_ok}\n  {rank=same; drop_g2; reass2; drop_g4}\n  \n  # EDGES\n  start -> check_sp\n  check_sp -> already [label=\"NO\"]\n  check_sp -> seq_ok [label=\"YES\"]\n  \n  seq_ok -> drop_g1 [label=\"NO ≥90%\"]\n  seq_ok -> drop_f [label=\"NO 80-90%\"]\n  seq_ok -> drop_o [label=\"NO <80%\"]\n  seq_ok -> db_chk [label=\"YES\"]\n  \n  db_chk -> geo [label=\"NO\"]\n  db_chk -> cong_loc [label=\"YES\"]\n  \n  geo -> keep_hi [label=\"CONFIRMED ≥99%\"]\n  geo -> keep_md [label=\"CONFIRMED/PLAUSIBLE\"]\n  geo -> doubt [label=\"DOUBTFUL\"]\n  doubt -> drop_g2 [label=\"YES\"]\n  doubt -> drop_g1 [label=\"NO\", style=dashed]\n  \n  cong_loc -> n_local [label=\"YES\"]\n  cong_loc -> asgn_ok [label=\"NO\"]\n  asgn_ok -> keep_nl [label=\"YES\"]\n  asgn_ok -> drop_g3 [label=\"NO\"]\n  \n  n_local -> reass1 [label=\"1\"]\n  n_local -> pct_ok [label=\">1\"]\n  pct_ok -> reass2 [label=\"YES\"]\n  pct_ok -> drop_g4 [label=\"NO\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p><strong>Legend:</strong> MIDORI2 = sequence reference database
+<div class="grViz html-widget html-fill-item" id="htmlwidget-45dbb5ab86b54efc0579" style="width:960px;height:1056px;"></div>
+<script type="application/json" data-for="htmlwidget-45dbb5ab86b54efc0579">{"x":{"diagram":"\ndigraph decision_tree {\n  graph [rankdir=TB, fontname=\"Helvetica\", nodesep=0.2, ranksep=0.3]\n  node [shape=box, style=\"filled,rounded\", fontname=\"Helvetica\", fontsize=13, margin=\"0.1,0.05\"]\n  edge [fontname=\"Helvetica\", fontsize=11, penwidth=1.2]\n  \n  # Start\n  start [label=\"START: ASV with taxonomy\", fillcolor=\"#E8F4FD\", shape=ellipse, fontsize=14]\n  \n  # Check 1\n  check_sp [label=\"Has species-level ID?\", fillcolor=\"#FFEAA7\", shape=diamond, width=2]\n  already [label=\"ALREADY_GENUS\", fillcolor=\"#B2BEC3\"]\n  \n  # Check 2 - Ref. DB sequence check\n  seq_ok [label=\"Ref. DB: Sequence ≥ min_species_pct?\", fillcolor=\"#FFEAA7\", shape=diamond, width=2.8]\n  \n  # Low seq - use rank for side placement\n  drop_g1 [label=\"DROP_TO_GENUS\", fillcolor=\"#FDCB6E\"]\n  drop_f [label=\"DROP_TO_FAMILY\", fillcolor=\"#E17055\", fontcolor=white]\n  drop_o [label=\"DROP_TO_ORDER\", fillcolor=\"#D63031\", fontcolor=white]\n  \n  # Check 3 - Ref. DB congener check\n  db_chk [label=\"Ref. DB: Better-matching congener?\", fillcolor=\"#FFEAA7\", shape=diamond, width=2.8]\n  \n  # Two main branches - GBIF/OBIS checks\n  geo [label=\"GBIF/OBIS: Geographic assessment?\", fillcolor=\"#74B9FF\", shape=diamond, width=2.6]\n  cong_loc [label=\"GBIF/OBIS: Is congener local?\", fillcolor=\"#74B9FF\", shape=diamond, width=2.4]\n  \n  # Geo branch outcomes\n  keep_hi [label=\"KEEP (high)\", fillcolor=\"#00B894\", fontcolor=white]\n  keep_md [label=\"KEEP (medium)\", fillcolor=\"#55EFC4\"]\n  doubt [label=\"GBIF/OBIS: Local congeners exist?\", fillcolor=\"#FFEAA7\", shape=diamond, width=2.6]\n  drop_g2 [label=\"DROP_TO_GENUS\", fillcolor=\"#FDCB6E\"]\n  \n  # Congener branch - not local\n  asgn_ok [label=\"Assigned sp. local (GBIF/OBIS)\\n& meets seq threshold (Ref. DB)?\", fillcolor=\"#FFEAA7\", shape=diamond, width=2.8]\n  keep_nl [label=\"KEEP\", fillcolor=\"#55EFC4\"]\n  drop_g3 [label=\"DROP_TO_GENUS\", fillcolor=\"#FDCB6E\"]\n  \n  # Congener branch - is local\n  n_local [label=\"GBIF/OBIS: # local\\ncongeners?\", fillcolor=\"#FFEAA7\", shape=diamond, width=2]\n  reass1 [label=\"REASSIGN\", fillcolor=\"#00B894\", fontcolor=white]\n  pct_ok [label=\"Ref. DB: Seq diff\\n≥ reassign_diff_pct?\", fillcolor=\"#FFEAA7\", shape=diamond, width=2]\n  reass2 [label=\"REASSIGN\", fillcolor=\"#00B894\", fontcolor=white]\n  drop_g4 [label=\"DROP_TO_GENUS\", fillcolor=\"#FDCB6E\"]\n  \n  # Layout hints\n  {rank=same; already; seq_ok}\n  {rank=same; drop_g1; drop_f; drop_o}\n  {rank=same; geo; cong_loc}\n  {rank=same; keep_hi; keep_md; asgn_ok; n_local}\n  {rank=same; doubt; keep_nl; drop_g3; reass1; pct_ok}\n  {rank=same; drop_g2; reass2; drop_g4}\n  \n  # EDGES\n  start -> check_sp\n  check_sp -> already [label=\"NO\"]\n  check_sp -> seq_ok [label=\"YES\"]\n  \n  seq_ok -> drop_g1 [label=\"NO ≥90%\"]\n  seq_ok -> drop_f [label=\"NO 80-90%\"]\n  seq_ok -> drop_o [label=\"NO <80%\"]\n  seq_ok -> db_chk [label=\"YES\"]\n  \n  db_chk -> geo [label=\"NO\"]\n  db_chk -> cong_loc [label=\"YES\"]\n  \n  geo -> keep_hi [label=\"CONFIRMED ≥99%\"]\n  geo -> keep_md [label=\"CONFIRMED/PLAUSIBLE\"]\n  geo -> doubt [label=\"DOUBTFUL\"]\n  doubt -> drop_g2 [label=\"YES\"]\n  doubt -> drop_g1 [label=\"NO\", style=dashed]\n  \n  cong_loc -> n_local [label=\"YES\"]\n  cong_loc -> asgn_ok [label=\"NO\"]\n  asgn_ok -> keep_nl [label=\"YES\"]\n  asgn_ok -> drop_g3 [label=\"NO\"]\n  \n  n_local -> reass1 [label=\"1\"]\n  n_local -> pct_ok [label=\">1\"]\n  pct_ok -> reass2 [label=\"YES\"]\n  pct_ok -> drop_g4 [label=\"NO\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p><strong>Legend:</strong> Ref. DB = sequence reference database
 checks. GBIF/OBIS = geographic occurrence checks. Green = confident ID.
 Yellow = dropped to higher rank.</p>
 </div>
@@ -3219,7 +3220,7 @@ Yellow = dropped to higher rank.</p>
 <ul>
 <li><strong>Geographic CONFIRMED/PLAUSIBLE</strong> + sequence identity
 ≥ min_species_pct</li>
-<li>A better-matching congener exists in MIDORI2 but is <strong>NOT
+<li>A better-matching congener exists in Ref. DB but is <strong>NOT
 geographically local</strong></li>
 <li>Monotypic genus (no congeners to confuse with)</li>
 </ul>
@@ -3271,8 +3272,8 @@ but not confirmed”</p>
 </div>
 <div id="when-is-cf.-used" class="section level2">
 <h2>When is cf. Used?</h2>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-5fb82d795169893d75bd" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-5fb82d795169893d75bd">{"x":{"diagram":"\ndigraph cf_notation {\n  graph [rankdir=TB, fontname=\"Helvetica\", nodesep=0.25, ranksep=0.35]\n  node [shape=box, style=\"filled,rounded\", fontname=\"Helvetica\", fontsize=14, margin=\"0.12,0.06\"]\n  edge [fontname=\"Helvetica\", fontsize=12, penwidth=1.3]\n  \n  start [label=\"Decision: DROP_TO_GENUS\", fillcolor=\"#E8F4FD\", shape=ellipse]\n  single [label=\"GBIF/OBIS: Only 1 local congener?\", fillcolor=\"#FFEAA7\", shape=diamond, width=2.6]\n  match [label=\"MIDORI2: Seq match ≥ cf_threshold_pct?\", fillcolor=\"#FFEAA7\", shape=diamond, width=2.8]\n  cf [label=\"Genus sp. cf. species\", fillcolor=\"#55EFC4\", fontsize=14]\n  no_cf [label=\"Genus only\", fillcolor=\"#FDCB6E\", fontsize=14]\n  \n  {rank=same; cf; no_cf}\n  \n  start -> single\n  single -> match [label=\"YES\"]\n  single -> no_cf [label=\"NO (0 or >1)\"]\n  match -> cf [label=\"YES\"]\n  match -> no_cf [label=\"NO\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-9d2a5262d9a033adfe2f" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-9d2a5262d9a033adfe2f">{"x":{"diagram":"\ndigraph cf_notation {\n  graph [rankdir=TB, fontname=\"Helvetica\", nodesep=0.25, ranksep=0.35]\n  node [shape=box, style=\"filled,rounded\", fontname=\"Helvetica\", fontsize=14, margin=\"0.12,0.06\"]\n  edge [fontname=\"Helvetica\", fontsize=12, penwidth=1.3]\n  \n  start [label=\"Decision: DROP_TO_GENUS\", fillcolor=\"#E8F4FD\", shape=ellipse]\n  single [label=\"GBIF/OBIS: Only 1 local congener?\", fillcolor=\"#FFEAA7\", shape=diamond, width=2.6]\n  match [label=\"REF. DB: Seq match ≥ cf_threshold_pct?\", fillcolor=\"#FFEAA7\", shape=diamond, width=2.8]\n  cf [label=\"Genus sp. cf. species\", fillcolor=\"#55EFC4\", fontsize=14]\n  no_cf [label=\"Genus only\", fillcolor=\"#FDCB6E\", fontsize=14]\n  \n  {rank=same; cf; no_cf}\n  \n  start -> single\n  single -> match [label=\"YES\"]\n  single -> no_cf [label=\"NO (0 or >1)\"]\n  match -> cf [label=\"YES\"]\n  match -> no_cf [label=\"NO\"]\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p><strong>Conditions for cf. notation:</strong></p>
 <ol style="list-style-type: decimal">
 <li>Only ONE congener is geographically local (CONFIRMED/PLAUSIBLE)</li>
@@ -3306,7 +3307,7 @@ but not confirmed”</p>
 </tr>
 <tr class="even">
 <td><code>--midori</code>, <code>-m</code></td>
-<td>MIDORI2 reference FASTA (filename or full path)</td>
+<td>Ref. DB reference FASTA (filename or full path)</td>
 </tr>
 <tr class="odd">
 <td><code>--bbox</code>, <code>-b</code></td>
@@ -3360,7 +3361,7 @@ but not confirmed”</p>
 <tr class="even">
 <td><code>--reference-dir</code></td>
 <td><code>Reference_databases</code></td>
-<td>Directory for MIDORI2 when filename only given</td>
+<td>Directory for Ref. DB when filename only given</td>
 </tr>
 </tbody>
 </table>
@@ -3798,7 +3799,7 @@ your VAL_OTU_ID repo is.</p>
 <span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="ex">│</span>   ├── ps_fish.rds</span>
 <span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="ex">│</span>   └── iucn_api_token.txt      <span class="co"># Optional: for --check-iucn</span></span>
 <span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="ex">├──</span> Reference_databases/</span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="ex">│</span>   └── MIDORI2_UNIQ_NUC_GB268_srRNA_DADA2.fasta</span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="ex">│</span>   └── Ref.DB.file.fasta</span>
 <span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="ex">└──</span> results_files/</span></code></pre></div>
 </div>
 <div id="find-your-bounding-box" class="section level2">
@@ -3949,7 +3950,7 @@ morhua 3”)</td>
 </tr>
 <tr class="even">
 <td><code>best_db_match</code></td>
-<td>Best matching species in MIDORI2</td>
+<td>Best matching species in Ref. DB</td>
 </tr>
 <tr class="odd">
 <td><code>best_db_match_pct</code></td>
@@ -4166,7 +4167,7 @@ meaningful?</li>
 area</li>
 <li>Adjust <code>--reassign-diff-pct</code> if too many/few
 reassignments</li>
-<li>Check if MIDORI2 has sequence errors for that species</li>
+<li>Check if Ref. DB has sequence errors for that species</li>
 </ol>
 <hr />
 </div>
@@ -4208,12 +4209,12 @@ reassignments</li>
 ## [1] DiagrammeR_1.0.11
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] digest_0.6.38      RColorBrewer_1.1-3 R6_2.6.1           fastmap_1.2.0     
+##  [1] digest_0.6.39      RColorBrewer_1.1-3 R6_2.6.1           fastmap_1.2.0     
 ##  [5] xfun_0.54          magrittr_2.0.4     glue_1.8.0         cachem_1.1.0      
-##  [9] knitr_1.50         htmltools_0.5.8.1  rmarkdown_2.30     lifecycle_1.0.4   
+##  [9] knitr_1.50         htmltools_0.5.9    rmarkdown_2.30     lifecycle_1.0.4   
 ## [13] cli_3.6.5          visNetwork_2.1.4   sass_0.4.10        jquerylib_0.1.4   
 ## [17] compiler_4.5.1     rstudioapi_0.17.1  tools_4.5.1        evaluate_1.0.5    
-## [21] bslib_0.9.0        yaml_2.3.10        htmlwidgets_1.6.4  rlang_1.1.6       
+## [21] bslib_0.9.0        yaml_2.3.11        htmlwidgets_1.6.4  rlang_1.1.6       
 ## [25] jsonlite_2.0.0</code></pre>
 </div>
 

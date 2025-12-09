@@ -50,7 +50,7 @@ VAL_OTU_ID validates each ASV/OTU assignment by:
 
 1. **Taxonomy data**: Either a phyloseq `.rds` file or CSV with species assignments
 2. **ASV sequences**: FASTA file (extracted automatically from `.rds`)
-3. **Reference database**: MIDORI2 FASTA file
+3. **Reference database**: A reference database FASTA file in dada2 format
 4. **Study area**: Bounding box coordinates (minLon, minLat, maxLon, maxLat)
 
 Easiest use to get started is:
@@ -64,7 +64,7 @@ Alternatively, a csv file of the taxonomic assignment of each ASV/OTU and a fast
 | File | Description |
 |------|-------------|
 | `*_geographic_validated.csv` | GBIF/OBIS occurrence results for each species |
-| `*_database_validated.csv` | MIDORI2 sequence comparison results |
+| `*_database_validated.csv` | Ref DB sequence comparison results |
 | `*_combined_decisions.csv` | Full results with decision logic |
 | `*_phyloseq.csv` | Simplified output ready for R import |
 
@@ -138,7 +138,7 @@ For species that are **not CONFIRMED**, the pipeline also searches for congeners
 For each ASV, the pipeline:
 
 1. **Extracts the genus** from the DADA2 assignment
-2. **Indexes all species of that genus** from MIDORI2
+2. **Indexes all species of that genus** from Ref. DB
 3. **Calculates sequence identity** between the ASV and all reference sequences
 4. **Identifies the best-matching species**
 
@@ -158,9 +158,9 @@ The pipeline uses three methods in order of preference:
 |------|------------|
 | **CONFIDENT** | Assigned species matches ≥99% |
 | **LIKELY** | Assigned species matches well (97-99%) |
-| **UNCERTAIN** | Some regional congeners missing from MIDORI2 |
+| **UNCERTAIN** | Some regional congeners missing from Ref. DB |
 | **REASSIGN** | A congener matches >0.5% better than assigned |
-| **NO_REF** | Assigned species not in MIDORI2 |
+| **NO_REF** | Assigned species not in Ref. DB |
 | **NO_CONGENERS** | No other congeners in region (monotypic genus) |
 
 ---
@@ -270,7 +270,7 @@ digraph decision_tree {
 ")
 ```
 
-**Legend:** MIDORI2 = sequence reference database checks. GBIF/OBIS = geographic occurrence checks. Green = confident ID. Yellow = dropped to higher rank.
+**Legend:** Ref. DB = sequence reference database checks. GBIF/OBIS = geographic occurrence checks. Green = confident ID. Yellow = dropped to higher rank.
 
 ## Decision Categories Explained
 
@@ -279,7 +279,7 @@ digraph decision_tree {
 The original DADA2 assignment is retained. This happens when:
 
 - **Geographic CONFIRMED/PLAUSIBLE** + sequence identity ≥ min_species_pct
-- A better-matching congener exists in MIDORI2 but is **NOT geographically local**
+- A better-matching congener exists in Ref. DB but is **NOT geographically local**
 - Monotypic genus (no congeners to confuse with)
 
 ### REASSIGN
@@ -328,7 +328,7 @@ digraph cf_notation {
   
   start [label='Decision: DROP_TO_GENUS', fillcolor='#E8F4FD', shape=ellipse]
   single [label='GBIF/OBIS: Only 1 local congener?', fillcolor='#FFEAA7', shape=diamond, width=2.6]
-  match [label='MIDORI2: Seq match ≥ cf_threshold_pct?', fillcolor='#FFEAA7', shape=diamond, width=2.8]
+  match [label='REF. DB: Seq match ≥ cf_threshold_pct?', fillcolor='#FFEAA7', shape=diamond, width=2.8]
   cf [label='Genus sp. cf. species', fillcolor='#55EFC4', fontsize=14]
   no_cf [label='Genus only', fillcolor='#FDCB6E', fontsize=14]
   
@@ -358,7 +358,7 @@ digraph cf_notation {
 | Parameter | Description |
 |-----------|-------------|
 | `--input`, `-i` | Phyloseq `.rds` file OR base name of `_taxonomy.csv`/`_sequences.fasta` |
-| `--midori`, `-m` | MIDORI2 reference FASTA (filename or full path) |
+| `--midori`, `-m` | Ref. DB reference FASTA (filename or full path) |
 | `--bbox`, `-b` | Study area bounding box: `minLon minLat maxLon maxLat` |
 
 ## Input/Output Options
@@ -370,7 +370,7 @@ digraph cf_notation {
 | `--species-column`, `-c` | `species_raw` | Column name containing species names |
 | `--output-dir`, `-o` | `results_files` | Output directory |
 | `--starting-dir` | `starting_files` | Directory for input files when using --input |
-| `--reference-dir` | `Reference_databases` | Directory for MIDORI2 when filename only given |
+| `--reference-dir` | `Reference_databases` | Directory for Ref. DB when filename only given |
 
 ## Geographic Validation Parameters
 
@@ -507,7 +507,7 @@ VAL_OTU/
 │   ├── ps_fish.rds
 │   └── iucn_api_token.txt      # Optional: for --check-iucn
 ├── Reference_databases/
-│   └── MIDORI2_UNIQ_NUC_GB268_srRNA_DADA2.fasta
+│   └── Ref.DB.file.fasta
 └── results_files/
 ```
 
@@ -615,7 +615,7 @@ tax_table(ps) <- tax_table(as.matrix(new_tax))
 | `habitat` | marine/freshwater/brackish/terrestrial (from WoRMS) |
 | `validation_decision` | KEEP/REASSIGN/DROP_TO_GENUS/etc. |
 | `decision_reason` | Human-readable explanation |
-| `best_db_match` | Best matching species in MIDORI2 |
+| `best_db_match` | Best matching species in Ref. DB |
 | `best_db_match_pct` | % identity to best match |
 | `iucn_category` | IUCN Red List category for final species. For cf. species, queries the implied species. |
 | `iucn_population_trend` | Population trend from IUCN |
@@ -700,7 +700,7 @@ Check if the better-matching congener is geographically local. The pipeline now 
 1. Check the `best_db_match_pct` column - is the difference meaningful?
 2. Verify the target congener is actually present in your study area
 3. Adjust `--reassign-diff-pct` if too many/few reassignments
-4. Check if MIDORI2 has sequence errors for that species
+4. Check if Ref. DB has sequence errors for that species
 
 ---
 
