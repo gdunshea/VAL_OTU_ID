@@ -4,7 +4,7 @@
 
 Validates species identifications for eukaryote eDNA metabarcoding by cross-referencing:
 1. **Geographic plausibility** — GBIF/OBIS occurrence databases
-2. **Sequence identity** — MIDORI2 reference database
+2. **Sequence identity** — Against a nominated reference database used for the original identifications
 3. **Regional biodiversity** — Local congener availability
 4. **Conservation status** — IUCN Red List (optional)
 5. **Invasive species** — GBIF/GRIIS databases (optional)
@@ -13,26 +13,28 @@ Detailed intructions can be found at: https://gdunshea.github.io/VAL_OTU_ID/
 
 ## Why Use This?
 
-DADA2's `assignTaxonomy()` is a sequence analysis exercise that ignores species ranges and reference database completeness. It can misidentify species when:
+Functions like DADA2's `assignTaxonomy()` are sequence analysis exercises that ignore species ranges and reference database completeness. It can misidentify species when:
 - The true species is missing from the reference database
-- A closely related species has a better-represented sequence
+- A closely related species has a better-represented sequence (in the database)
 - Geographic context is ignored (assigns Pacific species to Atlantic samples)
 
-VAL_OTU_ID corrects these issues by validating each ASV against occurrence records and re-evaluating sequence matches within the geographic context.
+VAL_OTU_ID flags/corrects these issues by validating each ASV against known occurrence records and re-evaluating sequence matches within the geographic context.
 
-This pipeline is predominately for eukaryote identification validations, as the prokaryotes are not well represented in aggregation biodiversity databases such is GBIF etc
+This pipeline is predominately for eukaryote identification validations, as the prokaryotes are not well represented in aggregation biodiversity databases such as GBIF, OBIS etc
 
 ## Key Features
 
+All sequence identity thresholds, geographic ranges and distances etc are configurable parameters that can be changed to suit the characteristics of the marker or target taxonomic group
+
 - **Direct phyloseq input** — Reads `.rds` files directly (no manual extraction needed)
-- **Intelligent reassignment** — Corrects DADA2 misidentifications when a **geographically local** congener matches better
-- **Geographic verification** — Only reassigns to species that are CONFIRMED or PLAUSIBLE in your study area
+- **Intelligent reassignment** — Corrects misidentifications when a **geographically local** congener matches better
+- **Geographic verification** — Only reassigns to species that MORE LIKELY considering database completeness and that are CONFIRMED or PLAUSIBLE in your study area
 - **Robust GBIF queries** — Multiple fallback methods ensure congeners are found even for problematic genus names
 - **Tiered decisions** — KEEP, REASSIGN, DROP_TO_GENUS, DROP_TO_FAMILY, DROP_TO_ORDER
-- **cf. notation** — Uses `Genus sp. cf. species` when confident of genus but uncertain of species
+- **cf. notation** — Uses `Genus sp. cf. species` when confident of genus but uncertain of species, but species is very close match to reference sequence
 - **Conservation status** — Flags IUCN Red List threatened species (CR, EN, VU)
 - **Invasive species detection** — Identifies species listed in GRIIS/GISD databases
-- **Habitat lookup** — Adds marine/freshwater/brackish/terrestrial from WoRMS
+- **Habitat lookup** — Adds marine/freshwater/brackish/terrestrial habitat information from WoRMS
 - **Phyloseq-ready output** — Direct import back into R
 
 ## Installation
