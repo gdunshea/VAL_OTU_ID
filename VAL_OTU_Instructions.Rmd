@@ -167,7 +167,7 @@ The pipeline uses three methods in order of preference:
 
 # Step 3: Decision Logic
 
-This is where the magic happens. The pipeline combines geographic and database evidence to make a final decision.
+This is where both the geographic plausibility information and database completeness evidence aere combined to make a final decision.
 
 ## Critical Rule: Geographic Verification for Reassignment
 
