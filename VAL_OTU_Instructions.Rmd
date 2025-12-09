@@ -1,8 +1,8 @@
 ---
 title: "VAL_OTU_ID: eDNA Taxonomy Validation Pipeline"
 subtitle: "Detailed Instructions and Decision Logic"
-author: "Glenn Dunshea - with Claude AI for python script refinement"
-date: "`r Sys.Date()`"
+author: "Glenn Dunshea - Using Claude AI for python script refinement"
+date: "November 23, 2025"
 output:
   html_document:
     toc: true
