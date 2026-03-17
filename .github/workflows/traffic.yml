@@ -1,0 +1,26 @@
+# .github/workflows/traffic.yml
+on:
+  schedule:
+    - cron: "0 0 */14 * *"  # Every 14 days
+  workflow_dispatch:         # Allow manual runs
+
+jobs:
+  traffic:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch and save traffic
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -s -H "Authorization: Bearer $GH_TOKEN" \
+            https://api.github.com/repos/${{ github.repository }}/traffic/clones \
+            > traffic/clones-$(date +%Y-%m-%d).json
+          curl -s -H "Authorization: Bearer $GH_TOKEN" \
+            https://api.github.com/repos/${{ github.repository }}/traffic/views \
+            > traffic/views-$(date +%Y-%m-%d).json
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: save traffic data"
